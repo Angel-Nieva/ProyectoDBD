@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDireccionTable extends Migration
+class CreateDireccionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateDireccionTable extends Migration
      */
     public function up()
     {
-        Schema::create('direccion', function (Blueprint $table) {
+        Schema::create('direccions', function (Blueprint $table) {
             $table->id();
             $table->text('calle');
             $table->integer('numero');
-            
-            //$table->unsignedBigInteger('id_usuario');
-            //$table->foreign('id_usuario')->references('id')->on('usuario');
 
-            //$table->unsignedBigInteger('id_comuna');
-            //$table->foreign('id_comuna')->references('id')->on('comuna');
+            $table->unsignedBigInteger('id_usuarios');
+            $table->foreign('id_usuarios')->references('id')->on('usuarios');
+            
+           // $table->unsignedBigInteger('id_comunas');
+           // $table->foreign('id_comunas')->references('id')->on('comunas');
             
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateDireccionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('direccion');
+        Schema::dropIfExists('direccions');
     }
 }

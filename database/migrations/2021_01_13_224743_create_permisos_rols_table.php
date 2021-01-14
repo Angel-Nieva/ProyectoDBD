@@ -13,13 +13,13 @@ class CreatePermisosRolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permisos_rols', function (Blueprint $table) {
+        Schema::create('permiso_rols', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_permisos');
+            $table->unsignedBigInteger('id_permisos')->nullable();
             $table->foreign('id_permisos')->references('id')->on('permisos');
 
-            $table->unsignedBigInteger('id_rols');
+            $table->unsignedBigInteger('id_rols')->nullable();
             $table->foreign('id_rols')->references('id')->on('rols');
 
             $table->timestamps();

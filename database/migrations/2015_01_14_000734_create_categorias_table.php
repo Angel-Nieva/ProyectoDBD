@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnidadDeMedidaTable extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUnidadDeMedidaTable extends Migration
      */
     public function up()
     {
-        Schema::create('unidad_de_medida', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->text('tipo');
-            $table->double('cantidad');
+            $table->text('nombre');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateUnidadDeMedidaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidad_de_medida');
+        Schema::dropIfExists('categorias');
     }
 }

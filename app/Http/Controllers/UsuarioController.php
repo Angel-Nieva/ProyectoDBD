@@ -10,7 +10,8 @@ class UsuarioController extends Controller
     
     public function index()
     {
-        //
+        $usuario = Usuario::all()->where('delete',FALSE);
+        return response()->json($usuario);
     }
 
     

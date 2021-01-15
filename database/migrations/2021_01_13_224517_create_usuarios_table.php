@@ -21,7 +21,9 @@ class CreateUsuariosTable extends Migration
             $table->text('email');
             $table->text('telefono');
             $table->integer('reputacion');
+            $table->boolean('delete');
             $table->timestamps();
+
         });
     }
 

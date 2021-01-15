@@ -11,4 +11,7 @@ class Usuario extends Model
     public function direccion(){
     	return $this->hasMany(Direccion::class);
     }
+    public function rolusuario(){
+    	return $this->hasMany(RolUsuario::class);
+    }
 }

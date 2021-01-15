@@ -22,7 +22,7 @@ class PermisoRolFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'delete'=> $this->faker->randomElement([FALSE])
         ];
     }
 }

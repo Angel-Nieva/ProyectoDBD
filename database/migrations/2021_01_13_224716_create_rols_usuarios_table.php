@@ -22,6 +22,8 @@ class CreateRolsUsuariosTable extends Migration
             $table->unsignedBigInteger('id_rols')->nullable();
             $table->foreign('id_rols')->references('id')->on('rols');
 
+            $table->boolean('delete');
+
             $table->timestamps();
         });
     }

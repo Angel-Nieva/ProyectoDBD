@@ -23,7 +23,8 @@ class DireccionFactory extends Factory
     {
         return [
             'calle'=> $this->faker->streetName,
-            'numero'=> $this->faker->numberBetween($min=1, $max=9999)
+            'numero'=> $this->faker->numberBetween($min=1, $max=9999),
+            'delete'=> $this->faker->randomElement([FALSE])
         ];
     }
 }

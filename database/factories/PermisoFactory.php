@@ -22,7 +22,8 @@ class PermisoFactory extends Factory
     public function definition()
     {
         return [
-            'descripcion'=> $this->faker->word($maxNbChars = 50, $minNbChars = 6)
+            'descripcion'=> $this->faker->word($maxNbChars = 50, $minNbChars = 6),
+            'delete'=> $this->faker->randomElement([FALSE])
         ];
     }
 }

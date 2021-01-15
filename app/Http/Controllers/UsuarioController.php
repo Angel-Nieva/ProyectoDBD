@@ -30,7 +30,7 @@ class UsuarioController extends Controller
         }
         $arrayRut = explode("-", $request->rut);
         if($fallido == FALSE){    
-            if((is_numeric($arrayRut[0]) == FALSE) ){
+            if((is_numeric($arrayRut[0]) == FALSE)|| ((is_numeric($arrayRut[1]) == FALSE) && ($arrayRut[1] != 'k') && ($arrayRut[1] != 'K')) ){
                 $fallido=TRUE;
                 $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido ";   
             }
@@ -182,7 +182,7 @@ class UsuarioController extends Controller
         }
         $arrayRut = explode("-", $request->rut);
         if($fallido == FALSE){    
-            if((is_numeric($arrayRut[0]) == FALSE) ){
+            if((is_numeric($arrayRut[0]) == FALSE) || ((is_numeric($arrayRut[1]) == FALSE) && ($arrayRut[1] != 'k') && ($arrayRut[1] != 'K'))){
                 $fallido=TRUE;
                 $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido ";   
             }

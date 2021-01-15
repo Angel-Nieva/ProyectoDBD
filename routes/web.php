@@ -37,3 +37,10 @@ Route::post('/direccions/create','DireccionController@store');
 Route::get('/direccions/{id}','DireccionController@show');
 Route::put('/direccions/update/{id}','DireccionController@update');
 Route::delete('/direccions/delete/{id}','DireccionController@destroy');
+
+//rutas de 'usuario'
+Route::get('/usuarios','UsuarioController@index');
+Route::post('/usuarios/create','UsuarioController@store');
+Route::get('/usuarios/{id}','UsuarioController@show');
+Route::put('/usuarios/update/{id}','UsuarioController@update');
+Route::delete('/usuarios/delete/{id}','UsuarioController@destroy');

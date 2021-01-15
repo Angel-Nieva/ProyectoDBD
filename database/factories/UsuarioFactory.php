@@ -26,8 +26,8 @@ class UsuarioFactory extends Factory
             'nombre'=> $this->faker->name,
             'contraseña'=> $this->faker->word($maxNbChars = 30, $minNbChars = 6),
             'email'=> $this->faker->email,
-            'telefono'=> $this->faker->phoneNumber,
-            'reputacion'=> $this->faker->numberBetween($min=1, $max=5),
+            'telefono'=> $this->faker->randomNumber($nbDigits = 8, $strict = true),
+            'reputacion'=> $this->faker->numberBetween($min=0, $max=5),
             'delete'=> $this->faker->randomElement([FALSE])
         ];
     }

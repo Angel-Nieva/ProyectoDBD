@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UnidadMedida extends Model
+class TransaccionsProducto extends Model
 {
     use HasFactory;
     public function productos(){
         return
-        $this->hasMany('App\Models\Producto');
+        $this->belongsTo('App\Models\Producto');
     }
 }

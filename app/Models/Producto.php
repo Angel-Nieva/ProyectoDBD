@@ -15,6 +15,10 @@ class Producto extends Model
     }
     public function unidades_medidas(){
         return
-        $this->belongsTo('App\Models\UnidadMedida');
+        $this->belongsTo('App\Models\UnidadesMedida');
+    }
+    public function transaccions_productos(){
+        return
+        $this->hasMany('App\Models\TransaccionProducto');
     }
 }

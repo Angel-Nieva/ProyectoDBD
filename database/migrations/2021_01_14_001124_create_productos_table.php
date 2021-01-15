@@ -18,19 +18,11 @@ class CreateProductosTable extends Migration
             $table->text('nombre');
             $table->text('descripcion');
             //foranea
-            //$table->unsignedBigInteger('id_puesto_de_feria')->nullable();
-            //$table->foreign('id_puesto_de_feria')->references('id')->on('puesto_de_feria');
-            //foranea
-            //$table->unsignedBigInteger('id_transaccion')->nullable();
-            //$table->foreign('id_transaccion')->references('id')->on('transaccion');
-            //foranea
             $table->unsignedBigInteger('id_subcategorias')->nullable();
             $table->foreign('id_subcategorias')->references('id')->on('subcategorias');
             //foranea
             $table->unsignedBigInteger('id_unidades_medidas')->nullable();
             $table->foreign('id_unidades_medidas')->references('id')->on('unidades_medidas');
-
-
             $table->timestamps();
         });
     }

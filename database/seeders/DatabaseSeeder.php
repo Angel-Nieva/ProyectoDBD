@@ -1,7 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
+use \App\Models\Categoria;
+use \App\Models\Subcategoria;
+use \App\Models\Producto;
+use \App\Models\TransaccionsProducto;
+use \App\Models\UnidadesMedida;
 use \App\Models\Rol;
 use \App\Models\Permiso;
 use \App\Models\Usuario;
@@ -25,5 +29,10 @@ class DatabaseSeeder extends Seeder
         PermisoRol::factory()->create();
         RolUsuario::factory()->create();
         Direccion::factory()->create();
+        Categoria::factory()->create();
+        Producto::factory()->create();
+        Subcategoria::factory()->create();
+        TransaccionsProducto::factory()->create();
+        UnidadesMedida::factory()->create();
     }
 }

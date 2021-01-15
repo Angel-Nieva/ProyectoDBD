@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\UnidadMedida;
+use App\Models\UnidadesMedida;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UnidadMedidaFactory extends Factory
+class UnidadesMedidaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UnidadMedida::class;
+    protected $model = UnidadesMedida::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,8 @@ class UnidadMedidaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'tipo' =>$this->faker->randomElement(['Unidades','Docenas','Kilogramos','Litros','Gramos']),
+            'cantidad'=>$this->faker->numberBetween($min=1, $max=20)
         ];
     }
 }

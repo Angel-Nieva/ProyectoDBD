@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Subcategoria;
+use App\Models\UnidadesMedida;
 use App\Models\Producto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,10 @@ class ProductoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'=>$this->faker->randomElement(['Manzana', 'Palta', 'Platano','Lechuga','Detergente omo','Mr musculo','Naranja','Zanahoria','Brocoli']),
+            'descripcion'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
+            'id_subcategorias'=>Subcategoria::factory(),
+            'id_unidades_medidas'=>UnidadesMedida::factory()
         ];
     }
 }

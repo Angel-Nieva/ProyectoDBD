@@ -1,18 +1,19 @@
 <?php
 
 namespace Database\Factories;
-
-use App\Models\TransaccionProducto;
+use App\Models\Producto;
+//use App\Models\Transaccion;
+use App\Models\TransaccionsProducto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TransaccionProductoFactory extends Factory
+class TransaccionsProductoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TransaccionProducto::class;
+    protected $model = TransaccionsProducto::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +23,8 @@ class TransaccionProductoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_productos'=>Producto::factory()//,
+            //'id_transaccions'=>Transaccion::factory()
         ];
     }
 }

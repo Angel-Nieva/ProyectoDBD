@@ -22,7 +22,8 @@ class CategoriaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'=> $this->faker->randomElement(['Fruta', 'Verdura', 'Articulo de aseo']),
+            'descripcion'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6)
         ];
     }
 }

@@ -11,4 +11,7 @@ class Direccion extends Model
     public function usuario(){
     	return $this->belongsTo(Usuario::class);
     }
+    public function comuna(){
+    	return $this->belongsTo(Comuna::class);
+    }
 }

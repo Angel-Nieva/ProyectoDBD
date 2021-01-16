@@ -23,7 +23,8 @@ class UnidadesMedidaFactory extends Factory
     {
         return [
             'tipo' =>$this->faker->randomElement(['Unidades','Docenas','Kilogramos','Litros','Gramos']),
-            'cantidad'=>$this->faker->numberBetween($min=1, $max=20)
+            'cantidad'=>$this->faker->numberBetween($min=1, $max=20),
+            'delete'=> FALSE
         ];
     }
 }

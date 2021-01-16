@@ -28,7 +28,7 @@ class UsuarioFactory extends Factory
             'email'=> $this->faker->email,
             'telefono'=> $this->faker->randomNumber($nbDigits = 8, $strict = true),
             'reputacion'=> $this->faker->numberBetween($min=0, $max=5),
-            'delete'=> $this->faker->randomElement([FALSE])
+            'delete'=> FALSE
         ];
     }
 }

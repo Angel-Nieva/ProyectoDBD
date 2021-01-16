@@ -23,16 +23,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Rol::factory()->create();
-        Permiso::factory()->create();
-        Usuario::factory()->create();
-        PermisoRol::factory()->create();
-        RolUsuario::factory()->create();
-        Direccion::factory()->create();
-        Categoria::factory()->create(10);
-        Producto::factory()->create();
-        Subcategoria::factory()->create();
-        TransaccionsProducto::factory()->create();
-        UnidadesMedida::factory()->create();
+        Categoria::factory(10)->create();
+        UnidadesMedida::factory(10)->create();
+        Usuario::factory(10)->create();
+        Permiso::factory(10)->create();
+        Rol::factory(10)->create();
+        Direccion::factory(10)->create();
+        RolUsuario::factory(10)->create();
+        PermisoRol::factory(10)->create();
+        Subcategoria::factory(10)->create();
+        Producto::factory(10)->create();
+        TransaccionsProducto::factory(10)->create();
+        
     }
 }

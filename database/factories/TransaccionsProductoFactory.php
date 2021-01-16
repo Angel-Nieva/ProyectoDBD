@@ -23,8 +23,9 @@ class TransaccionsProductoFactory extends Factory
     public function definition()
     {
         return [
-            'id_productos'=>Producto::factory()//,
-            //'id_transaccions'=>Transaccion::factory()
+            'id_productos'=>Producto::factory(),
+            //'id_transaccions'=>Transaccion::::all()->random()->transaccions_id,
+            'delete'=> FALSE
         ];
     }
 }

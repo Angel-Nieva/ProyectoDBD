@@ -19,7 +19,7 @@ class CreateSubcategoriasTable extends Migration
             $table->text('descripcion');
             $table->boolean('delete');
             //foranea
-            $table->unsignedBigInteger('id_categorias');
+            $table->unsignedBigInteger('id_categorias')->nullable();
             $table->foreign('id_categorias')->references('id')->on('categorias');
             $table->timestamps();
         });

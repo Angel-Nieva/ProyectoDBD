@@ -23,9 +23,9 @@ class RolUsuarioFactory extends Factory
     public function definition()
     {
         return [
-            'id_usuarios' => Usuario::factory(),
-            'id_rols' => Rol::factory(),
-            'delete'=> $this->faker->randomElement([FALSE])
+            'id_usuarios' => Usuario::all()->random()->usuarios_id,
+            'id_rols' => Rol::all()->random()->rols_id,
+            'delete'=> FALSE
         ];
     }
 }

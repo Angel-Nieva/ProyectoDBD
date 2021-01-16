@@ -23,7 +23,7 @@ class RolFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->randomElement(['Feriante', 'Comprador', 'Administrador']),
-            'delete'=> $this->faker->randomElement([FALSE])
+            'delete'=> FALSE
         ];
     }
 }

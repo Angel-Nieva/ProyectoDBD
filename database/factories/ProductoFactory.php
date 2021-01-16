@@ -25,8 +25,9 @@ class ProductoFactory extends Factory
         return [
             'nombre'=>$this->faker->randomElement(['Manzana', 'Palta', 'Platano','Lechuga','Detergente omo','Mr musculo','Naranja','Zanahoria','Brocoli']),
             'descripcion'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
-            'id_subcategorias'=>Subcategoria::factory(),
-            'id_unidades_medidas'=>UnidadesMedida::factory()
+            'id_subcategorias'=>Subcategoria::all()->random()->subcategorias_id,
+            'id_unidades_medidas'=>UnidadesMedida::all()->random()->unidades_medidas_id,
+            'delete'=> FALSE
         ];
     }
 }

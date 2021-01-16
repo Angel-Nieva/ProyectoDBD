@@ -44,3 +44,11 @@ Route::post('/usuarios/create','UsuarioController@store');
 Route::get('/usuarios/{id}','UsuarioController@show');
 Route::put('/usuarios/update/{id}','UsuarioController@update');
 Route::delete('/usuarios/delete/{id}','UsuarioController@destroy');
+
+//rutas de 'permiso_rols'
+Route::get('/permiso_rols','PermisoRolController@index');
+Route::post('/permiso_rols/create','PermisoRolController@store');
+Route::get('/permiso_rols/{id}','PermisoRolController@show');
+Route::put('/permiso_rols/update/{id}','PermisoRolController@update');
+Route::delete('/permiso_rols/delete/{id}','PermisoRolController@destroy');
+

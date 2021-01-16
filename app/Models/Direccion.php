@@ -14,4 +14,7 @@ class Direccion extends Model
     public function comuna(){
     	return $this->belongsTo(Comuna::class);
     }
+    public function feria(){
+    	return $this->hasOne(Feria::class);
+    }
 }

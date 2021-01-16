@@ -14,4 +14,22 @@ class Usuario extends Model
     public function rolusuario(){
     	return $this->hasMany(RolUsuario::class);
     }
+    public function puestosferia(){
+    	return $this->hasMany(PuestosFeria::class);
+    }
+    public function promocion(){
+    	return $this->hasMany(Promocion::class);
+    }
+    public function usuarioproducto(){
+    	return $this->hasMany(UsuarioProducto::class);
+    }
+    public function usuariotransaccion(){
+    	return $this->hasMany(UsuarioTransaccion::class);
+    }
+    public function valoracion(){
+    	return $this->hasMany(Valoracion::class);
+    }
+    public function metododepago(){
+    	return $this->hasMany(MetodoDePago::class);
+    }
 }

@@ -17,6 +17,7 @@ class CreateUnidadesMedidasTable extends Migration
             $table->id();
             $table->text('tipo');
             $table->double('cantidad');
+            $table->boolean('delete');
             $table->timestamps();
         });
     }

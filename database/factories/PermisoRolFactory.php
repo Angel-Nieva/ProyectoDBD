@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Permiso;
+use App\Models\Rol;
 use App\Models\PermisoRol;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,8 @@ class PermisoRolFactory extends Factory
     public function definition()
     {
         return [
+            'id_permisos' => Permiso::factory(),
+            'id_rols' => Rol::factory(),
             'delete'=> $this->faker->randomElement([FALSE])
         ];
     }

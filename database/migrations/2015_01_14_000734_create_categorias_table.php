@@ -17,6 +17,7 @@ class CreateCategoriasTable extends Migration
             $table->id();
             $table->text('nombre');
             $table->text('descripcion');
+            $table->boolean('delete');
             $table->timestamps();
         });
     }

@@ -59,3 +59,5 @@ Route::get('/rol_usuarios/{id}','RolUsuarioController@show');
 Route::put('/rol_usuarios/update/{id}','RolUsuarioController@update');
 Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');
 
+//rutas de 'categorias'
+Route::get('/categorias','CategoriaController@index');

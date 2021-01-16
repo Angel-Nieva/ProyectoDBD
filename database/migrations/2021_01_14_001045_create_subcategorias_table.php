@@ -17,6 +17,7 @@ class CreateSubcategoriasTable extends Migration
             $table->id();
             $table->text('nombre');
             $table->text('descripcion');
+            $table->boolean('delete');
             //foranea
             $table->unsignedBigInteger('id_categorias');
             $table->foreign('id_categorias')->references('id')->on('categorias');

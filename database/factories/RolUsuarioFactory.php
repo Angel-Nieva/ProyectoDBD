@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Rol;
+use App\Models\Usuario;
 use App\Models\RolUsuario;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,8 @@ class RolUsuarioFactory extends Factory
     public function definition()
     {
         return [
+            'id_usuarios' => Usuario::factory(),
+            'id_rols' => Rol::factory(),
             'delete'=> $this->faker->randomElement([FALSE])
         ];
     }

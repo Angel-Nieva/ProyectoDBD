@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         PermisoRol::factory()->create();
         RolUsuario::factory()->create();
         Direccion::factory()->create();
-        Categoria::factory()->create();
+        Categoria::factory()->create(10);
         Producto::factory()->create();
         Subcategoria::factory()->create();
         TransaccionsProducto::factory()->create();

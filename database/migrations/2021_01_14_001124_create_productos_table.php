@@ -17,6 +17,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->text('nombre');
             $table->text('descripcion');
+            $table->boolean('delete');
             //foranea
             $table->unsignedBigInteger('id_subcategorias')->nullable();
             $table->foreign('id_subcategorias')->references('id')->on('subcategorias');

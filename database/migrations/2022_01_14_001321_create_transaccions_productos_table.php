@@ -16,8 +16,8 @@ class CreateTransaccionsProductosTable extends Migration
         Schema::create('transaccions_productos', function (Blueprint $table) {
             $table->id();
             //foranea
-            //$table->unsignedBigInteger('id_transaccion')->nullable();
-            //$table->foreign('id_transaccion')->references('id')->on('transaccion');
+            $table->unsignedBigInteger('id_transaccions')->nullable();
+            $table->foreign('id_transaccions')->references('id')->on('transaccions');
             //foranea
             $table->unsignedBigInteger('id_productos')->nullable();
             $table->foreign('id_productos')->references('id')->on('productos');

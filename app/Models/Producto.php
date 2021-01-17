@@ -21,4 +21,16 @@ class Producto extends Model
         return
         $this->hasMany('App\Models\TransaccionProducto');
     }
+    public function productos_puestos(){
+        return
+        $this->hasMany('App\Models\ProductoPuesto');
+    }
+    public function producto_promocions(){
+        return
+        $this->hasMany('App\Models\ProductoPromocion');
+    }
+    public function usuario_productos(){
+        return
+        $this->hasMany('App\Models\UsuarioProducto');
+    }
 }

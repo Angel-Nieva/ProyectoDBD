@@ -20,9 +20,6 @@ class CreatePromocionsTable extends Migration
             //Foraneas
             $table->unsignedBigInteger('id_usuarios');
             $table->foreign('id_usuarios')->references('id')->on('usuarios');
-            $table->unsignedBigInteger('id_productos');
-            $table->foreign('id_productos')->references('id')->on('productos');
-
 
             $table->timestamps();
         });

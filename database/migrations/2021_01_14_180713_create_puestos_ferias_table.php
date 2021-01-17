@@ -21,7 +21,6 @@ class CreatePuestosFeriasTable extends Migration
             $table->foreign('id_usuarios')->references('id')->on('usuarios');
             $table->unsignedBigInteger('id_ferias');
             $table->foreign('id_ferias')->references('id')->on('ferias');
-
             $table->timestamps();
         });
     }

@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TransaccionsProducto extends Model
+class ProductoPromocion extends Model
 {
     use HasFactory;
-    public function productos(){
+    public function producto(){
         return
         $this->belongsTo('App\Models\Producto');
     }
-    public function transaccions(){
+    public function promocion(){
         return
-        $this->belongsTo('App\Models\Transaccion');
+        $this->belongsTo('App\Models\Promocion');
     }
 }

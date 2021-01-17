@@ -73,7 +73,7 @@ class SubcategoriaController extends Controller
     }
        // Si se crea
        if($fallido == FALSE){
-            $categoria->save();
+            $subcategoria->save();
             return response()->json([
                 "message" => "Se ha creado la subcategoria",
                 "id" => $subcategoria->id
@@ -175,7 +175,7 @@ class SubcategoriaController extends Controller
      }
         // Se actualiza
         if($fallido == FALSE){
-             $categoria->save();
+             $subcategoria->save();
              return response()->json([
                  "message" => "Se ha actualizado la subcategoria",
                  "id" => $subcategoria->id

@@ -49,68 +49,68 @@ class ProductoController extends Controller
        }
        //valida que id_subcategorias sea no nulo
        if($request->id_subcategorias == NULL){
-        $fallido=TRUE;
-        $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' está vacío ";
-    }
-
-    if($fallido == FALSE){
-        if(ctype_digit($request->id_subcategorias)==FALSE){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' es inválido ";   
+            $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' está vacío ";
         }
-        else{
-            $producto->id_subcategorias = $request->id_subcategorias;
+
+        if($fallido == FALSE){
+            if(ctype_digit($request->id_subcategorias)==FALSE){
+                $fallido=TRUE;
+                $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' es inválido ";   
+            }
+            else{
+                $producto->id_subcategorias = $request->id_subcategorias;
+            }
         }
-    }
 
-       //Valida que id existe en subcategorias
-    $subcategoria = Subcategoria::find($request->id_subcategorias);
-    if(($subcategoria == NULL) || ($subcategoria->delete==TRUE)){
-        return response()->json([
-            "message" => "El dato en 'subcategoria' no existe"
-        ]);
-    }
-    //Valida que id_unidades_medidas no es nulo
-    if($request->id_unidades_medidas == NULL){
-        $fallido=TRUE;
-        $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' está vacío ";
-    }
-
-    if($fallido == FALSE){
-        if(ctype_digit($request->id_unidades_medidas)==FALSE){
-            $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' es inválido ";   
-        }
-        else{
-            $producto->id_unidades_medidas = $request->id_unidades_medidas;
-        }
-    }
-    //Valida que id existe en unidades_medidas
-    $unidades_medidas = UnidadesMedida::find($request->id_unidades_medidas);
-    if(($unidades_medidas == NULL) || ($unidades_medidas->delete==TRUE)){
-        return response()->json([
-            "message" => "El dato en 'unidades_medidas' no existe"
-           ]);
-       }
-
-
-
-       // Si se crea
-       if($fallido == FALSE){
-            $producto->save();
+        //Valida que id existe en subcategorias
+        $subcategoria = Subcategoria::find($request->id_subcategorias);
+        if(($subcategoria == NULL) || ($subcategoria->delete==TRUE)){
             return response()->json([
-                "message" => "Se ha creado el producto",
-                "id" => $producto->id
+                "message" => "El dato en 'subcategoria' no existe"
             ]);
-       }
+        }
+        //Valida que id_unidades_medidas no es nulo
+        if($request->id_unidades_medidas == NULL){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' está vacío ";
+        }
 
-       // No se crea
-       else{
-           return response()->json([
-                "message" => $mensajeFallos,
-            ]); 
-       }
-    }
+        if($fallido == FALSE){
+            if(ctype_digit($request->id_unidades_medidas)==FALSE){
+                $fallido=TRUE;
+                $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' es inválido ";   
+            }
+            else{
+                $producto->id_unidades_medidas = $request->id_unidades_medidas;
+            }
+        }
+        //Valida que id existe en unidades_medidas
+        $unidades_medidas = UnidadesMedida::find($request->id_unidades_medidas);
+        if(($unidades_medidas == NULL) || ($unidades_medidas->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato en 'unidades_medidas' no existe"
+            ]);
+        }
+
+
+
+        // Si se crea
+        if($fallido == FALSE){
+                $producto->save();
+                return response()->json([
+                    "message" => "Se ha creado el producto",
+                    "id" => $producto->id
+                ]);
+        }
+
+        // No se crea
+        else{
+            return response()->json([
+                    "message" => $mensajeFallos,
+                ]); 
+        }
+        }
 
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)

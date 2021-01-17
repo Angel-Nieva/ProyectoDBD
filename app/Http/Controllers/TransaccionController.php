@@ -13,73 +13,172 @@ class TransaccionController extends Controller
      */
     public function index()
     {
-        $valoracion = Valoracion::all()->where('delete',FALSE);
-        return response()->json($valoracion);
+        $transaccion = Transaccion::all()->where('delete',FALSE);
+        return response()->json($transaccion);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $transaccion = new Transaccion();
+        $transaccion->delete = FALSE;
+       
+        $fallido=FALSE;
+        $mensajeFallos='';
+
+       //Valida el 'monto_pagado'
+        if($request->monto_pagado == NULL ){
+             $fallido=TRUE;
+             $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' es invalido ";
+        }
+        else if( !ctype_digit($request->monto_pagado)){
+             $fallido=TRUE;
+             $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' debe ser un numero mayor a 0";
+        }
+        else{
+             $productopuesto->monto_pagado = $request->monto_pagado;
+        } 
+
+        //Valida  'fecha_pago' 
+        if($request->fecha_pago == NULL){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'fecha_pago' está vacío ";
+        }
+        else if(!strtotime($request->fecha_pago)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'fecha_pago' es inválido ";
+        }
+        else{
+            $transaccion->fecha_pago = $request->fecha_pago;
+        }
+        // Si se crea
+        if($fallido == FALSE){
+            $transaccion->save();
+            return response()->json([
+                "message" => "Se ha creado la transaccion",
+                "id" => $transaccion->id
+            ]);
+        }
+
+        // No se crea
+        else{
+           return response()->json([
+                "message" => $mensajeFallos,
+            ]); 
+        }
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $transaccion = Transaccion::find($id);
+
+        //Valida existencia de tupla
+        if(($transaccion == NULL) || ($transaccion->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return response()->json($transaccion);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $transaccion = Transaccion::find($id);
+
+        //Valida existencia de tupla
+        if(($transaccion == NULL) || ($transaccion->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+        
+        $fallido=FALSE;
+        $mensajeFallos='';
+
+       //Valida el 'monto_pagado'
+        if($request->monto_pagado == NULL ){
+             $fallido=TRUE;
+             $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' es invalido ";
+        }
+        else if( !ctype_digit($request->monto_pagado)){
+             $fallido=TRUE;
+             $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' debe ser un numero mayor a 0";
+        }
+        else{
+             $productopuesto->monto_pagado = $request->monto_pagado;
+        } 
+
+        //Valida  'fecha_pago' 
+        if($request->fecha_pago == NULL){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'fecha_pago' está vacío ";
+        }
+        else if(!strtotime($request->fecha_pago)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'fecha_pago' es inválido ";
+        }
+        else{
+            $transaccion->fecha_pago = $request->fecha_pago;
+        }
+
+         //Se actualiza
+        if($fallido == FALSE){
+            $transaccion->save();
+            return response()->json([
+                "message" => "Se ha actualizado la transaccion",
+                "id" => $transaccion->id
+            ]);
+        }
+        else{
+            return response()->json([
+                "message" => $mensajeFallos,
+            ]); 
+        }
+
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $transaccion = Transaccion::find($id);
+
+        //Valida existencia de tupla
+        if(($transaccion == NULL) || ($transaccion->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        $transaccion->delete = TRUE;
+        $transaccion->save();
+        return response()->json([
+            "message" => "El dato ha sido borrado"
+        ]);
     }
 }

@@ -22,7 +22,9 @@ class ComunaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'=> $this->faker->randomElement(['Cerrillos', 'Cerro Navia', 'Conchali', 'El Bosque', 'Estación Central', 'Huechuraba', 'Independencia',
+                                                    'La Cisterna', 'La Florida', 'La Granja', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea']),
+            'delete'=> FALSE,
         ];
     }
 }

@@ -15,7 +15,7 @@ class CreatePuestosFeriasTable extends Migration
     {
         Schema::create('puestos_ferias', function (Blueprint $table) {
             $table->id();
-            $table->text('ubicacion');
+            $table->text('nombre');
             //Foraneas
             $table->unsignedBigInteger('id_usuarios');
             $table->foreign('id_usuarios')->references('id')->on('usuarios');

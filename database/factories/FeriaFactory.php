@@ -22,7 +22,9 @@ class FeriaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'=> $this->faker->word($maxNbChars = 20, $minNbChars = 20),
+            'id_direccions' => Direccion::all()->random()->direccions_id,
+            'delete'=> FALSE
         ];
     }
 }

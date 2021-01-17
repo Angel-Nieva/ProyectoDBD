@@ -22,7 +22,10 @@ class PuestosFeriaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'=> $this->faker->word($maxNbChars = 20, $minNbChars = 20),
+            'id_usuarios' => Usuario::all()->random()->usuarios_id,
+            'id_ferias' => Feria::all()->random()->ferias_id,
+            'delete'=> FALSE
         ];
     }
 }

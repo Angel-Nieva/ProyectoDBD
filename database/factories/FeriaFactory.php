@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Feria;
+use App\Models\Direccion;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FeriaFactory extends Factory

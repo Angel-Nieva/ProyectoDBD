@@ -7,7 +7,10 @@ use App\Models\Comuna;
 
 class ComunaController extends Controller
 {
- 
+    // Arreglo con comunas para validar
+    $array_comunas = array('Cerrillos', 'Cerro Navia', 'Conchali', 'El Bosque', 'Estación Central', 'Huechuraba', 'Independencia',
+                               'La Cisterna', 'La Florida', 'La Granja', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea');
+
     public function index()
     {
         $comuna = Comuna::all()->where('delete',FALSE);
@@ -29,10 +32,10 @@ class ComunaController extends Controller
         
         $fallido=FALSE;
         $mensajeFallos='';
-        //Valida que 'nombre' no sea nulo
-        if($request->nombre == NULL){
+        //Valida que 'nombre' no sea nulo y sea una comuna valida
+        if($request->nombre == NULL || in_array($request->nombre,$array_comunas){
              $fallido=TRUE;
-             $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
+             $mensajeFallos=$mensajeFallos."- El campo 'nombre' es invalido ";
         }
         else{
              $comuna->nombre = $request->nombre;
@@ -44,7 +47,7 @@ class ComunaController extends Controller
             return response()->json([
                 "message" => "Se ha creado la comuna",
                 "id" => $comuna->id
-            ]);
+            ],202);
        }
 
        // No se crea
@@ -96,14 +99,16 @@ class ComunaController extends Controller
                 "message" => "El dato no existe"
             ]);
         }
-       //Valida que 'nombre' no sea nulo
-       if($request->nombre == NULL){
+
+       //Valida que 'nombre' no sea nulo y sea una comuna valida
+       if($request->nombre == NULL || !in_array($request->nombre,$array_comunas)){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
        }
        else{
             $comuna->nombre = $request->nombre;
        }
+
        // Se actualiza
        if($fallido == FALSE){
             $comuna->save();
@@ -112,6 +117,7 @@ class ComunaController extends Controller
                 "id" => $comuna->id
             ]);
         }
+
         // No se crea
         else{
             return response()->json([
@@ -141,6 +147,6 @@ class ComunaController extends Controller
         $comuna->save();
         return response()->json([
             "message" => "El dato ha sido borrado"
-        ]);
+        ],201);
     }
 }

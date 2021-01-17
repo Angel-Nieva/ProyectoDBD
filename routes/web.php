@@ -98,4 +98,4 @@ Route::delete('/transaccions_productos/delete/{id}','TransaccionsProductoControl
 Route::get('/comunas','ComunaController@index');
 Route::post('/comunas/create','ComunaController@store');
 Route::put('/comunas/update/{id}','ComunaController@update');
-Route::delete('/comunas/update/{id}','ComunaController@destroy');
+Route::delete('/comunas/delete/{id}','ComunaController@destroy');

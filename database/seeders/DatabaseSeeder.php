@@ -20,7 +20,7 @@ use \App\Models\UsuarioTransaccion;
 use \App\Models\UsuarioProducto;
 use \App\Models\Promocion;
 use \App\Models\ProductoPuesto;
-use \App\Models\PuestoDeFeria;
+use \App\Models\PuestosFeria;
 use \App\Models\Comuna;
 use \App\Models\Feria;
 use \App\Models\ProductoPromocion;
@@ -53,10 +53,11 @@ class DatabaseSeeder extends Seeder
         UsuarioTransaccion::factory(10)->create();
         UsuarioProducto::factory(10)->create();
         Promocion::factory(10)->create();
-        ProductoPuesto::factory(10)->create();
-        PuestoDeFeria::factory(10)->create();
-        Comuna::factory(10)->create();
         Feria::factory(10)->create();
+        PuestosFeria::factory(10)->create();
+        ProductoPuesto::factory(10)->create();
+        Comuna::factory(10)->create();
+       
         ProductoPromocion::factory(10)->create();
 
     }

@@ -17,11 +17,12 @@ class CreatePuestosFeriasTable extends Migration
             $table->id();
             $table->text('nombre');
             //Foraneas
-            $table->unsignedBigInteger('id_usuarios');
+            $table->unsignedBigInteger('id_usuarios')->nullable();
             $table->foreign('id_usuarios')->references('id')->on('usuarios');
-            $table->unsignedBigInteger('id_ferias');
+            $table->unsignedBigInteger('id_ferias')->nullable();
             $table->foreign('id_ferias')->references('id')->on('ferias');
             $table->timestamps();
+            $table->boolean('delete');
         });
     }
 

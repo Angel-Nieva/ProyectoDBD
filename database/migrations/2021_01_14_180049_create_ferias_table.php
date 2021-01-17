@@ -17,9 +17,9 @@ class CreateFeriasTable extends Migration
             $table->id();
             $table->text('nombre');
             //Foranea
-            $table->unsignedBigInteger('id_direccions');
+            $table->unsignedBigInteger('id_direccions')->nullable();
             $table->foreign('id_direccions')->references('id')->on('direccions');
-
+            $table->boolean('delete');
             $table->timestamps();
         });
     }

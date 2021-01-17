@@ -12,7 +12,20 @@ use \App\Models\Usuario;
 use \App\Models\PermisoRol;
 use \App\Models\RolUsuario;
 use \App\Models\Direccion;
+use \App\Models\TransaccionProducto;
+use \App\Models\Transaccion;
+use \App\Models\Valoracion;
+use \App\Models\MetodoDePago;
+use \App\Models\UsuarioTransaccion;
+use \App\Models\UsuarioProducto;
+use \App\Models\Promocion;
+use \App\Models\ProductoPuesto;
+use \App\Models\PuestoDeFeria;
+use \App\Models\Comuna;
+use \App\Models\Feria;
+use \App\Models\ProductoPromocion;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,7 +46,7 @@ class DatabaseSeeder extends Seeder
         PermisoRol::factory(10)->create();
         Subcategoria::factory(10)->create();
         Producto::factory(10)->create();
-        TransaccionsProducto::factory(10)->create();
+        TransaccionProducto::factory(10)->create();
         Transaccion::factory(10)->create();
         Valoracion::factory(10)->create();
         MetodoDePago::factory(10)->create();

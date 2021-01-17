@@ -32,7 +32,7 @@ class FeriaController extends Controller
         
         $fallido=FALSE;
         $mensajeFallos='';
-        //Valida que 'nombre' no sea nulo 
+        //Valida que 'nombre' no sea nulo y de no serlo que el largo sea valido
         if($request->nombre == NULL ){
              $fallido=TRUE;
              $mensajeFallos=$mensajeFallos."- El campo 'nombre' es invalido ";
@@ -161,8 +161,7 @@ class FeriaController extends Controller
            return response()->json([
                 "message" => $mensajeFallos,
             ]); 
-       }
-   
+       }   
     }
 
     public function destroy($id)

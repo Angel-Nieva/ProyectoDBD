@@ -114,3 +114,17 @@ Route::post('/puestos_ferias/create','PuestosFeriaController@store');
 Route::get('/puestos_ferias/{id}','PuestosFeriaController@show');
 Route::put('/puestos_ferias/update/{id}','PuestosFeriaController@update');
 Route::delete('/puestos_ferias/delete/{id}','PuestosFeriaController@destroy');
+
+//rutas de 'promociones'
+Route::get('/promociones','PromocionController@index');
+Route::post('/promociones/create','PromocionController@store');
+Route::get('/promociones/{id}','PromocionController@show');
+Route::put('/promociones/update/{id}','PromocionController@update');
+Route::delete('/promociones/delete/{id}','PromocionController@destroy');
+
+//rutas de 'productos_puestos'
+Route::get('/productos_puestos','ProductoPuestosController@index');
+Route::post('/productos_puestos/create','ProductoPuestosController@store');
+Route::get('/productos_puestos/{id}','ProductoPuestosController@show');
+Route::put('/productos_puestos/update/{id}','ProductoPuestosController@update');
+Route::delete('/productos_puestos/delete/{id}','ProductoPuestosController@destroy');

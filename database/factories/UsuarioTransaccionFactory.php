@@ -22,7 +22,9 @@ class UsuarioTransaccionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuarios' => Usuario::all()->random()->usuarios_id,
+            'id_transaccions' => Transaccion::all()->random()->transaccions_id,
+            'delete'=> FALSE
         ];
     }
 }

@@ -224,7 +224,7 @@ class ProductoController extends Controller
     // Se actualiza
     if($fallido == FALSE){
         $producto->save();
-        return response()->json(
+        return response()->json([
         "message" => "Se ha actualizado el producto",
         "id" => $producto->id
         ]);

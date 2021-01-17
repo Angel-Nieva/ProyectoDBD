@@ -92,7 +92,7 @@ Route::get('/transaccions_productos','TransaccionsProductoController@index');
 Route::post('/transaccions_productos/create','TransaccionsProductoController@store');
 Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show');
 Route::put('/transaccions_productos/update/{id}','TransaccionsProductoController@update');
-Route::delete('/transaccions_productos/update/{id}','TransaccionsProductoController@destroy');
+Route::delete('/transaccions_productos/delete/{id}','TransaccionsProductoController@destroy');
 
 //rutas de 'comunas'
 Route::get('/comunas','ComunaController@index');

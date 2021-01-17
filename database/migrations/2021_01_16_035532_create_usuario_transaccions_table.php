@@ -16,9 +16,9 @@ class CreateUsuarioTransaccionsTable extends Migration
         Schema::create('usuario_transaccions', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
-            $table->unsignedBigInteger('id_transaccion');
+            $table->unsignedBigInteger('id_transaccion')->nullable();
             $table->foreign('id_transaccion')->references('id')->on('transaccions');
             
             $table->boolean('delete');

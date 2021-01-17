@@ -18,10 +18,11 @@ class CreateProductoPuestosTable extends Migration
             $table->integer('precio');
             $table->integer('stock');
             //Foraneas
-            $table->unsignedBigInteger('id_productos');
+            $table->unsignedBigInteger('id_productos')->nullable();
             $table->foreign('id_productos')->references('id')->on('productos');
-            $table->unsignedBigInteger('id_puestos_ferias');
+            $table->unsignedBigInteger('id_puestos_ferias')->nullable();
             $table->foreign('id_puestos_ferias')->references('id')->on('puestos_ferias');
+            $table->boolean('delete');
 
             $table->timestamps();
         });

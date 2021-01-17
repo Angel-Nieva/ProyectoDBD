@@ -16,11 +16,11 @@ class CreateMetodoDePagosTable extends Migration
         Schema::create('metodo_de_pagos', function (Blueprint $table) {
             $table->id();
             $table->text('nombre');
-            $table->integer('cuenta');
+            $table->text('cuenta');
             $table->text('banco');
             $table->text('tipo_tarjeta');
             
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
 
             $table->boolean('delete');

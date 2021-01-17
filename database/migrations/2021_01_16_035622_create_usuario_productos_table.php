@@ -16,9 +16,9 @@ class CreateUsuarioProductosTable extends Migration
         Schema::create('usuario_productos', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
-            $table->unsignedBigInteger('id_producto');
+            $table->unsignedBigInteger('id_producto')->nullable();
             $table->foreign('id_producto')->references('id')->on('productos');
             
             $table->boolean('delete');

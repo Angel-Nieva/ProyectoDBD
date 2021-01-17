@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\UsuarioProducto;
+use App\Models\Usuario;
+use App\Models\Producto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UsuarioProductoFactory extends Factory
@@ -22,8 +24,8 @@ class UsuarioProductoFactory extends Factory
     public function definition()
     {
         return [
-            'id_usuarios' => Usuario::all()->random()->usuarios_id,
-            'id_productos' => Producto::all()->random()->productos_id,
+            'id_usuario' => Usuario::all()->random()->usuario_id,
+            'id_producto' => Producto::all()->random()->producto_id,
             'delete'=> FALSE
         ];
     }

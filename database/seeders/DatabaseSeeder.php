@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         PermisoRol::factory(10)->create();
         Subcategoria::factory(10)->create();
         Producto::factory(10)->create();
-        TransaccionProducto::factory(10)->create();
+        TransaccionsProducto::factory(10)->create();
         Transaccion::factory(10)->create();
         Valoracion::factory(10)->create();
         MetodoDePago::factory(10)->create();

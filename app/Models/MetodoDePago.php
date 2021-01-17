@@ -11,7 +11,7 @@ class MetodoDePago extends Model
     public function usuario(){
         return
         $this->belongsTo('App\Models\Usuario');
-
+    }
     public function transaccion(){
         return
         $this->hasMany('App\Models\Transaccion');

@@ -23,7 +23,7 @@ class MetodoDePagoFactory extends Factory
     {
         return [
             
-            'nombre'=> $this->faker->nombre,
+            'nombre'=> $this->faker->name,
             'cuenta'=> $this->faker->creditCardNumber,
             'banco'=> $this->faker->randomElement(['Banco De Chile', 'Banco Santander', 'Banco Fallabella','Banco Estado','Banco de Credito e Inversiones','Banco Scotciabank']),
             'tipo_tarjeta'=> $this->faker->creditCardType,

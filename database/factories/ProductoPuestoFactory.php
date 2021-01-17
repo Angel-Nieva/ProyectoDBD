@@ -24,8 +24,8 @@ class ProductoPuestoFactory extends Factory
     public function definition()
     {
         return [
-            'precio'=> $this->faker->randomNumber($nbDigits = 1, $strict = false),
-            'stock'=> $this->faker->randomNumber($nbDigits = 1, $strict = false),
+            'precio'=> $this->faker->randomNumber($nbDigits = 6, $strict = true),
+            'stock'=> $this->faker->randomNumber($nbDigits = 6, $strict = true),
             'id_productos' => Producto::all()->random()->productos_id,
             'id_puestos_ferias' => PuestosFeria::all()->random()->puestos_ferias_id,
             'delete'=> FALSE

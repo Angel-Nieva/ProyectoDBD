@@ -18,8 +18,9 @@ class CreatePromocionsTable extends Migration
             $table->integer('descuento');
             $table->integer('tiempo');
             //Foraneas
-            $table->unsignedBigInteger('id_usuarios');
+            $table->unsignedBigInteger('id_usuarios')->nullable();
             $table->foreign('id_usuarios')->references('id')->on('usuarios');
+            $table->boolean('delete');
 
             $table->timestamps();
         });

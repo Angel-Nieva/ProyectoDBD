@@ -18,7 +18,7 @@ class CreateTransaccionsTable extends Migration
             $table->integer('monto_pagado');
             $table->date('fecha_pago');
 
-            $table->unsignedBigInteger('id_metodo');
+            $table->unsignedBigInteger('id_metodo')->nullable();
             $table->foreign('id_metodo')->references('id')->on('metodo_de_pagos');
             
             $table->boolean('delete');

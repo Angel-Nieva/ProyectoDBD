@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaccion extends Model
 {
     use HasFactory;
-    }
+    
     public function valoracion(){
         return
         $this->belongsTo('App\Models\Valoracion');

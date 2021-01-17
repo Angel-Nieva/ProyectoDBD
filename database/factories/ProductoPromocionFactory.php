@@ -22,7 +22,9 @@ class ProductoPromocionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_productos' => Producto::all()->random()->productos_id,
+            'id_promocions' => Promocion::all()->random()->promocions_id,
+            'delete'=> FALSE
         ];
     }
 }

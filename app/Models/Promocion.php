@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Promocion extends Model
 {
     use HasFactory;
+    public function usuario(){
+        return $this->belongTo(Usuario::class);
+    }
+    public function producto(){
+        return $this->hasOne(Producto::class);
+    }
 }

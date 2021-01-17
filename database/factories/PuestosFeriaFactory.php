@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\PuestosFeria;
+use App\Models\Usuario;
+use App\Models\Feria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PuestosFeriaFactory extends Factory

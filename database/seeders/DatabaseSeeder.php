@@ -34,6 +34,17 @@ class DatabaseSeeder extends Seeder
         Subcategoria::factory(10)->create();
         Producto::factory(10)->create();
         TransaccionsProducto::factory(10)->create();
-        
+        Transaccion::factory(10)->create();
+        Valoracion::factory(10)->create();
+        MetodoDePago::factory(10)->create();
+        UsuarioTransaccion::factory(10)->create();
+        UsuarioProducto::factory(10)->create();
+        Promocion::factory(10)->create();
+        ProductoPuesto::factory(10)->create();
+        PuestoDeFeria::factory(10)->create();
+        Comuna::factory(10)->create();
+        Feria::factory(10)->create();
+        ProductoPromocion::factory(10)->create();
+
     }
 }

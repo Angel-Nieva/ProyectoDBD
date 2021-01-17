@@ -24,10 +24,48 @@ class UnidadesMedidaController extends Controller
     }
 
         //Crear una nueva tupla (post)
-        public function store(Request $request)
-        {
-            //
-        }
+    //Crear una nueva tupla (post)
+    public function store(Request $request)
+    {
+       $unidadesmedida = new UnidadesMedida();
+       $unidadesmedida->delete = FALSE;
+       
+       $fallido=FALSE;
+       $mensajeFallos='';
+       //Valida que 'tipo' no sea nulo
+       if($request->tipo == NULL){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'tipo' está vacío ";
+       }
+       else{
+            $unidadesmedida->tipo = $request->tipo;
+       }
+        //Valida que 'cantidad' sea no nulo 
+        if(($request->cantidad == NULL) || (ctype_digit($request->cantidad) != TRUE)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'cantidad' es inválido ";
+       }
+       else{
+            $unidadesmedida->cantidad = $request->cantidad;
+       }
+
+
+       // Si se crea
+       if($fallido == FALSE){
+            $unidadesmedida->save();
+            return response()->json([
+                "message" => "Se ha creado la tabla unidades_medidas",
+                "id" => $unidadesmedida->id
+            ]);
+       }
+
+       // No se crea
+       else{
+           return response()->json([
+                "message" => $mensajeFallos,
+            ]); 
+       }
+    }
 
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)

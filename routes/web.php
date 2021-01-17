@@ -61,21 +61,36 @@ Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');
 
 //rutas de 'categorias'
 Route::get('/categorias','CategoriaController@index');
+Route::post('/categorias/create','CategoriaController@store');
 Route::get('/categorias/{id}','CategoriaController@show');
+Route::put('/categorias/update/{id}','CategoriaController@update');
+Route::delete('/categorias/delete/{id}','CategoriaController@destroy');
 
 //rutas de 'productos'
 Route::get('/productos','ProductoController@index');
+Route::post('/productos/create','ProductoController@store');
 Route::get('/productos/{id}','ProductoController@show');
+Route::put('/productos/update/{id}','ProductoController@update');
+Route::delete('/productos/delete/{id}','ProductoController@destroy');
 
 //rutas de 'subcategorias'
 Route::get('/subcategorias','SubcategoriaController@index');
+Route::post('/subcategorias/create','SubcategoriaController@store');
 Route::get('/subcategorias/{id}','SubcategoriaController@show');
+Route::put('/subcategorias/update/{id}','SubcategoriaController@update');
+Route::delete('/subcategorias/delete/{id}','SubcategoriaController@destroy');
 
 //rutas de 'unidades_medidas'
 Route::get('/unidades_medidas','UnidadesMedidaController@index');
+Route::post('/unidades_medidas/create','UnidadesMedidaController@store');
 Route::get('/unidades_medidas/{id}','UnidadesMedidaController@show');
+Route::put('/unidades_medidas/update/{id}','UnidadesMedidaController@update');
+Route::delete('/unidades_medidas/delete/{id}','UnidadesMedidaController@destroy');
 
 
 //rutas de 'transaccions_productos'
 Route::get('/transaccions_productos','TransaccionsProductoController@index');
+Route::post('/transaccions_productos/create','TransaccionsProductoController@store');
 Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show');
+Route::put('/transaccions_productos/update/{id}','TransaccionsProductoController@update');
+Route::delete('/transaccions_productos/update/{id}','TransaccionsProductoController@destroy');

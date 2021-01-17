@@ -23,10 +23,35 @@ class UnidadesMedidaController extends Controller
         }
     }
 
+        //Crear una nueva tupla (post)
+        public function store(Request $request)
+        {
+            //
+        }
+
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $unidadesmedida = UnidadesMedida::find($id);
+
+        //Valida existencia de tupla
+        if(($unidadesmedida == NULL) || ($unidadesmedida->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return response()->json($unidadesmedida);
+        }
+
     }
 
     //Modificar una tupla especifica (put)

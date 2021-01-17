@@ -61,15 +61,21 @@ Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');
 
 //rutas de 'categorias'
 Route::get('/categorias','CategoriaController@index');
+Route::get('/categorias/{id}','CategoriaController@show');
 
 //rutas de 'productos'
 Route::get('/productos','ProductoController@index');
+Route::get('/productos/{id}','ProductoController@show');
 
 //rutas de 'subcategorias'
 Route::get('/subcategorias','SubcategoriaController@index');
+Route::get('/subcategorias/{id}','SubcategoriaController@show');
 
 //rutas de 'unidades_medidas'
 Route::get('/unidades_medidas','UnidadesMedidaController@index');
+Route::get('/unidades_medidas/{id}','UnidadesMedidaController@show');
+
 
 //rutas de 'transaccions_productos'
 Route::get('/transaccions_productos','TransaccionsProductoController@index');
+Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show');

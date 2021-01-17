@@ -32,7 +32,26 @@ class CategoriaController extends Controller
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $categoria = Categoria::find($id);
+
+        //Valida existencia de tupla
+        if(($categoria == NULL) || ($categoria->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return response()->json($categoria);
+        }
+
     }
 
 

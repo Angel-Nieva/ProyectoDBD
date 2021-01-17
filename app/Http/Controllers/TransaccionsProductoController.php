@@ -30,7 +30,26 @@ class TransaccionsProductoController extends Controller
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)
     {
-        //
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $transaccionsproducto = TransaccionsProducto::find($id);
+
+        //Valida existencia de tupla
+        if(($transaccionsproducto == NULL) || ($transaccionsproducto->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return response()->json($transaccionsproducto);
+        }
+
     }
 
     //Modificar una tupla especifica (put)

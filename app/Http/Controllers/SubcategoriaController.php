@@ -30,9 +30,27 @@ class SubcategoriaController extends Controller
     //Obtener una tupla especifica de una tabla por ID (get)
     public function show($id)
     {
-        //
-    }
+        // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
 
+        $subcategoria = Subcategoria::find($id);
+
+        //Valida existencia de tupla
+        if(($subcategoria == NULL) || ($subcategoria->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return response()->json($subcategoria);
+        }
+
+    }
     //Modificar una tupla especifica (put)
     public function update(Request $request, $id)
     {

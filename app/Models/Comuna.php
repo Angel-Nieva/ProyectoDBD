@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comuna extends Model
 {
     use HasFactory;
+    public function direccion(){
+        return $this->hasMany(Direccion::class);
+    }
 }

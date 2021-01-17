@@ -139,45 +139,13 @@ class CategoriaController extends Controller
             ]);
        }
 
-       // No se crea
+       // No se actualiza
        else{
            return response()->json([
                 "message" => $mensajeFallos,
             ]); 
        }
-              //Valida que 'nombre' no sea nulo
-       if($request->nombre == NULL){
-            $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
-       }
-       else{
-            $categoria->nombre = $request->nombre;
-       }
-        //Valida que 'descripcion' sea no nulo 
-       if(($request->descripcion == NULL) ){
-            $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'descripcion' es inválido ";
-       }
-       else{
-            $categoria->descripcion = $request->descripcion;
-       }
 
-
-       // Si se crea
-       if($fallido == FALSE){
-            $categoria->save();
-            return response()->json([
-                "message" => "Se ha creado la categoria",
-                "id" => $categoria->id
-            ]);
-       }
-
-       // No se crea
-       else{
-           return response()->json([
-                "message" => $mensajeFallos,
-            ]); 
-       }
     }
 
     //Borrar una tupla especifica

@@ -87,10 +87,15 @@ Route::get('/unidades_medidas/{id}','UnidadesMedidaController@show');
 Route::put('/unidades_medidas/update/{id}','UnidadesMedidaController@update');
 Route::delete('/unidades_medidas/delete/{id}','UnidadesMedidaController@destroy');
 
-
 //rutas de 'transaccions_productos'
 Route::get('/transaccions_productos','TransaccionsProductoController@index');
 Route::post('/transaccions_productos/create','TransaccionsProductoController@store');
 Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show');
 Route::put('/transaccions_productos/update/{id}','TransaccionsProductoController@update');
 Route::delete('/transaccions_productos/update/{id}','TransaccionsProductoController@destroy');
+
+//rutas de 'comunas'
+Route::get('/comunas','ComunaController@index');
+Route::post('/comunas/create','ComunaController@store');
+Route::put('/comunas/update/{id}','ComunaController@update');
+Route::delete('/comunas/update/{id}','ComunaController@destroy');

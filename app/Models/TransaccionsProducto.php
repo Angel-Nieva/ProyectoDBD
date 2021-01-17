@@ -12,4 +12,8 @@ class TransaccionsProducto extends Model
         return
         $this->belongsTo('App\Models\Producto');
     }
+    public function transaccions(){
+        return
+        $this->belongsTo('App\Models\Transaccion');
+    }
 }

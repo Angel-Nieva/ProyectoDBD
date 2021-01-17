@@ -27,6 +27,10 @@ class Producto extends Model
     }
     public function producto_promocions(){
         return
-        $this->hasOne('App\Models\ProductoPromocion');
+        $this->hasMany('App\Models\ProductoPromocion');
+    }
+    public function usuario_productos(){
+        return
+        $this->hasMany('App\Models\UsuarioProducto');
     }
 }

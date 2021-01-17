@@ -61,3 +61,15 @@ Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');
 
 //rutas de 'categorias'
 Route::get('/categorias','CategoriaController@index');
+
+//rutas de 'productos'
+Route::get('/productos','ProductoController@index');
+
+//rutas de 'subcategorias'
+Route::get('/subcategorias','SubcategoriaController@index');
+
+//rutas de 'unidades_medidas'
+Route::get('/unidades_medidas','UnidadesMedidaController@index');
+
+//rutas de 'transaccions_productos'
+Route::get('/transaccions_productos','TransaccionsProductoController@index');

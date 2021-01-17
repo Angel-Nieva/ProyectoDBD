@@ -97,5 +97,20 @@ Route::delete('/transaccions_productos/delete/{id}','TransaccionsProductoControl
 //rutas de 'comunas'
 Route::get('/comunas','ComunaController@index');
 Route::post('/comunas/create','ComunaController@store');
+Route::get('/comunas/{id}','ComunaController@show');
 Route::put('/comunas/update/{id}','ComunaController@update');
 Route::delete('/comunas/delete/{id}','ComunaController@destroy');
+
+//rutas de 'ferias'
+Route::get('/ferias','FeriaController@index');
+Route::post('/ferias/create','FeriaController@store');
+Route::get('/ferias/{id}','FeriaController@show');
+Route::put('/ferias/update/{id}','FeriaController@update');
+Route::delete('/ferias/delete/{id}','FeriaController@destroy');
+
+//rutas de 'puestos_ferias'
+Route::get('/puestos_ferias','PuestosFeriaController@index');
+Route::post('/puestos_ferias/create','PuestosFeriaController@store');
+Route::get('/puestos_ferias/{id}','PuestosFeriaController@show');
+Route::put('/puestos_ferias/update/{id}','PuestosFeriaController@update');
+Route::delete('/puestos_ferias/delete/{id}','PuestosFeriaController@destroy');

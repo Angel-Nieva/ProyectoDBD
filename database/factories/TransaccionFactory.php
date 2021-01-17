@@ -22,7 +22,9 @@ class TransaccionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'monto_pagado'=> $this->faker->randomNumber($nbDigits = 1, $strict = false),
+            'fecha_pago'=> $this->faker->dateTimeThisYear($max = 'now', $timezone = null),
+            'delete'=> FALSE
         ];
     }
 }

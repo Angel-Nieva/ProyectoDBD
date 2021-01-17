@@ -22,7 +22,9 @@ class ValoracionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'puntaje'=> $this->faker->numberBetween($min=1, $max=5),
+            'comentario'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
+            'delete'=> FALSE
         ];
     }
 }

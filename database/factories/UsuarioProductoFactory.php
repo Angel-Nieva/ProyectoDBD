@@ -22,7 +22,9 @@ class UsuarioProductoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuarios' => Usuario::all()->random()->usuarios_id,
+            'id_productos' => Producto::all()->random()->productos_id,
+            'delete'=> FALSE
         ];
     }
 }

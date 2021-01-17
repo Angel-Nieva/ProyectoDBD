@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UnidadesMedida extends Model
 {
     use HasFactory;
-    public function productos(){
+    public function producto(){
         return
         $this->hasMany('App\Models\Producto');
     }

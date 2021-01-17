@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class TransaccionsProducto extends Model
 {
     use HasFactory;
-    public function productos(){
+    public function producto(){
         return
         $this->belongsTo('App\Models\Producto');
     }
-    public function transaccions(){
+    public function transaccion(){
         return
         $this->belongsTo('App\Models\Transaccion');
     }

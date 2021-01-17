@@ -11,7 +11,7 @@ class Promocion extends Model
     public function usuario(){
         return $this->belongTo(Usuario::class);
     }
-    public function producto(){
-        return $this->hasOne(Producto::class);
+    public function producto_promocion(){
+        return $this->hasMany(ProductoPromocion::class);
     }
 }

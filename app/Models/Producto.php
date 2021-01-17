@@ -9,27 +9,27 @@ class Producto extends Model
 {
     use HasFactory;
     
-    public function subcategorias(){
+    public function subcategoria(){
         return
         $this->belongsTo('App\Models\Subcategoria');
     }
-    public function unidades_medidas(){
+    public function unidades_medida(){
         return
         $this->belongsTo('App\Models\UnidadesMedida');
     }
-    public function transaccions_productos(){
+    public function transaccions_producto(){
         return
         $this->hasMany('App\Models\TransaccionProducto');
     }
-    public function productos_puestos(){
+    public function productos_puesto(){
         return
         $this->hasMany('App\Models\ProductoPuesto');
     }
-    public function producto_promocions(){
+    public function producto_promocion(){
         return
         $this->hasMany('App\Models\ProductoPromocion');
     }
-    public function usuario_productos(){
+    public function usuario_producto(){
         return
         $this->hasMany('App\Models\UsuarioProducto');
     }

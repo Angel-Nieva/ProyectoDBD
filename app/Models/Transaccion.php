@@ -13,9 +13,9 @@ class Transaccion extends Model
         return
         $this->belongsTo('App\Models\Valoracion');
     }
-    public function transaccion_producto(){
+    public function transaccions_producto(){
         return
-        $this->hasMany('App\Models\TransaccionProducto');
+        $this->hasMany('App\Models\TransaccionsProducto');
     }
     public function usuario_transaccion(){
         return

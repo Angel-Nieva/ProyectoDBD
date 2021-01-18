@@ -123,6 +123,7 @@ Route::put('/promociones/update/{id}','PromocionController@update');
 Route::delete('/promociones/delete/{id}','PromocionController@destroy');
 
 //rutas de 'productos_puestos'
+<<<<<<< Updated upstream
 Route::get('/productos_puestos','ProductoPuestosController@index');
 Route::post('/productos_puestos/create','ProductoPuestosController@store');
 Route::get('/productos_puestos/{id}','ProductoPuestosController@show');
@@ -163,3 +164,17 @@ Route::post('/usuario_producto/create','UsuarioProductoController@store');
 Route::get('/usuario_producto/{id}','UsuarioProductoController@show');
 Route::put('/usuario_producto/update/{id}','UsuarioProductoController@update');
 Route::delete('/usuario_producto/delete/{id}','UsuarioProductoController@destroy');
+=======
+Route::get('/productos_puestos','ProductoPuestoController@index');
+Route::post('/productos_puestos/create','ProductoPuestoController@store');
+Route::get('/productos_puestos/{id}','ProductoPuestoController@show');
+Route::put('/productos_puestos/update/{id}','ProductoPuestoController@update');
+Route::delete('/productos_puestos/delete/{id}','ProductoPuestoController@destroy');
+
+//rutas de 'productos_puestos'
+Route::get('/producto_promocions','ProductoPromocionController@index');
+Route::post('/producto_promocions/create','ProductoPromocionController@store');
+Route::get('/producto_promocions/{id}','ProductoPromocionController@show');
+Route::put('/producto_promocions/update/{id}','ProductoPromocionController@update');
+Route::delete('/producto_promocions/delete/{id}','ProductoPromocionController@destroy');
+>>>>>>> Stashed changes

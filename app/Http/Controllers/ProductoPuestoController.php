@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProductoPuesto;
+use App\Models\Producto;
+use App\Models\PuestosFeria;
 
 class ProductoPuestoController extends Controller
 {
@@ -101,10 +104,10 @@ class ProductoPuestoController extends Controller
 
         // Si se crea
         if($fallido == FALSE){
-            $feria->save();
+            $productopuesto->save();
             return response()->json([
-                "message" => "Se ha creado la feria",
-                "id" => $feria->id
+                "message" => "Se ha creado el producto_puesto",
+                "id" => $productopuesto->id
             ],202);
        }
 
@@ -227,10 +230,10 @@ class ProductoPuestoController extends Controller
 
         // Si se crea
         if($fallido == FALSE){
-            $feria->save();
+            $productopuesto->save();
             return response()->json([
-                "message" => "Se ha creado la feria",
-                "id" => $feria->id
+                "message" => "Se ha actualizado el producto_puesto",
+                "id" => $productopuesto->id
             ],202);
         }
 

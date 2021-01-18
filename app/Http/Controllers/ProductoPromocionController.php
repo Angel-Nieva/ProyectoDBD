@@ -73,7 +73,7 @@ class ProductoPromocionController extends Controller
         if($fallido == FALSE){
             $productopromocion->save();
             return response()->json([
-                "message" => "Se ha creado el permiso_rol",
+                "message" => "Se ha creado el producto_promocion",
                 "id" => $productopromocion->id
             ]);
         }

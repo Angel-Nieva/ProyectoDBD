@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 use App\Models\Producto;
-//use App\Models\Transaccion;
+use App\Models\Transaccion;
 use App\Models\TransaccionsProducto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +24,7 @@ class TransaccionsProductoFactory extends Factory
     {
         return [
             'id_productos'=>Producto::factory(),
-            //'id_transaccions'=>Transaccion::::all()->random()->transaccions_id,
+            'id_transaccions'=>Transaccion::all()->random()->transaccions_id,
             'delete'=> FALSE
         ];
     }

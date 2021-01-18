@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Transaccion;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\MetodoDePago;
 class TransaccionFactory extends Factory
 {
     /**
@@ -24,6 +24,7 @@ class TransaccionFactory extends Factory
         return [
             'monto_pagado'=> $this->faker->randomNumber($nbDigits = 1, $strict = false),
             'fecha_pago'=> $this->faker->dateTimeThisYear($max = 'now', $timezone = null),
+            'id_metodo' => MetodoDePago::all()->random()->metodo_id,
             'delete'=> FALSE
         ];
     }

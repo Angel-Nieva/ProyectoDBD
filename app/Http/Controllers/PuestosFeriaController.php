@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\PuestosFeria;
+use App\Models\Usuario;
+use App\Models\Feria;
 class PuestosFeriaController extends Controller
 {
 

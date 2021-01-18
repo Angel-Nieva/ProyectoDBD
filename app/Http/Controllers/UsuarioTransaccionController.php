@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Usuario;
+use App\Models\Transaccion;
+use App\Models\UsuarioTransaccion;
 class UsuarioTransaccionController extends Controller
 {
     /**

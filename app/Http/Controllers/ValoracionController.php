@@ -19,15 +19,6 @@ class ValoracionController extends Controller
         return response()->json($valoracion);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {  
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +57,7 @@ class ValoracionController extends Controller
             $mensajeFallos=$mensajeFallos."- El campo 'comentario' está vacío ";
         }
         else{
-            $valoracion->puntaje = $request->puntaje;
+            $valoracion->comentario = $request->comentario;
         }
 
        
@@ -160,7 +151,7 @@ class ValoracionController extends Controller
             $mensajeFallos=$mensajeFallos."- El campo 'puntaje' está vacío ";
         }
         if($fallido == FALSE){    
-            if((is_numeric($puntaje)) && ($puntaje >= 1) && ($puntaje <= 5) ){
+            if((is_numeric($request->puntaje)) && ($request->puntaje >= 1) && ($request->puntaje <= 5) ){
                 $valoracion->puntaje = $request->puntaje;
                    
             }
@@ -177,7 +168,7 @@ class ValoracionController extends Controller
             $mensajeFallos=$mensajeFallos."- El campo 'comentario' está vacío ";
         }
         else{
-            $valoracion->puntaje = $request->puntaje;
+            $valoracion->comentario = $request->comentario;
         }
 
          //Se actualiza

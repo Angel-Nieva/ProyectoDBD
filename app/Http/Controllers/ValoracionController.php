@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Valoracion;
+use App\Models\Usuario;
+use App\Models\Transaccion;
 class ValoracionController extends Controller
 {
     /**
@@ -47,7 +49,7 @@ class ValoracionController extends Controller
             $mensajeFallos=$mensajeFallos."- No ha asignado puntaje";
         }
         if($fallido == FALSE){    
-            if((is_numeric($puntaje)) && ($puntaje >= 1) && ($puntaje <= 5) ){
+            if((is_numeric($request->puntaje)) && ($request->puntaje >= 1) && ($request->puntaje <= 5) ){
                 $valoracion->puntaje = $request->puntaje;
                    
             }

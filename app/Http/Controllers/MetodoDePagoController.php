@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\MetodoDePago;
 class MetodoDePagoController extends Controller
 {
     // Arreglo con bancos para validar

@@ -101,7 +101,7 @@ class ComunaController extends Controller
         }
 
        //Valida que 'nombre' no sea nulo 
-       if($request->nombre == NULL )){
+       if($request->nombre == NULL ){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
        }

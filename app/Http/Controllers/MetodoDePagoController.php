@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class MetodoDePagoController extends Controller
 {
     // Arreglo con bancos para validar
-    $array_bancos= array('Banco De Chile', 'Banco Santander', 'Banco Fallabella','Banco Estado','Banco de Credito e Inversiones','Banco Scotciabank');
+    //$array_bancos= array('Banco De Chile', 'Banco Santander', 'Banco Fallabella','Banco Estado','Banco de Credito e Inversiones','Banco Scotciabank');
 
     public function index()
     {
@@ -53,17 +53,17 @@ class MetodoDePagoController extends Controller
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'banco' está vacío ";
         }
-
+        
         if($fallido == FALSE){    
-            if(in_array($request->banco,$array_bancos){
-                $metododepago->banco = $request->banco;
+            //if(in_array($request->banco,$array_bancos){
+            $metododepago->banco = $request->banco;
                   
-            }
-            else{
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido "; 
+            //}
+            //else{
+            //    $fallido=TRUE;
+            //    $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido "; 
                 
-            }
+            //}
         }
         
         //Valida 'tipo_tarjeta'
@@ -170,15 +170,15 @@ class MetodoDePagoController extends Controller
         }
 
         if($fallido == FALSE){    
-            if(in_array($request->banco,$array_bancos){
-                $metododepago->banco = $request->banco;
+            //if(in_array($request->banco,$array_bancos){
+            $metododepago->banco = $request->banco;
+                  
+            //}
+            //else{
+            //    $fallido=TRUE;
+            //    $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido "; 
                 
-            }
-            else{
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido "; 
-                
-            }
+            //}
         }
         
         //Valida 'tipo_tarjeta'

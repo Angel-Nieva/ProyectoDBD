@@ -23,8 +23,8 @@ class PermisoRolFactory extends Factory
     public function definition()
     {
         return [
-            'id_permisos' => Permiso::all()->random()->permisos_id,
-            'id_rols' => Rol::all()->random()->rols_id,
+            'id_permisos' => Permiso::all()->random()->id,
+            'id_rols' => Rol::all()->random()->id,
             'delete'=> FALSE
         ];
     }

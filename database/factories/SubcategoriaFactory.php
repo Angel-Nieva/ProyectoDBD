@@ -24,7 +24,7 @@ class SubcategoriaFactory extends Factory
         return [
             'nombre' =>$this->faker->randomElement(['Manzana Roja','Limpiamuebles','Manzana Roja','Manzana verde','Detergente']),
             'descripcion' =>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
-            'id_categorias'=> Categoria::all()->random()->categorias_id,
+            'id_categorias'=> Categoria::all()->random()->id,
             'delete'=> FALSE
         ];
     }

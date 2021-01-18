@@ -25,8 +25,8 @@ class PuestosFeriaFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->word($maxNbChars = 20, $minNbChars = 1),
-            'id_usuarios' => Usuario::all()->random()->usuarios_id,
-            'id_ferias' => Feria::all()->random()->ferias_id,
+            'id_usuarios' => Usuario::all()->random()->id,
+            'id_ferias' => Feria::all()->random()->id,
             'delete'=> FALSE
         ];
     }

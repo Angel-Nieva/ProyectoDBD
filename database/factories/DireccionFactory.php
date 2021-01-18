@@ -26,8 +26,8 @@ class DireccionFactory extends Factory
         return [
             'calle'=> $this->faker->streetName,
             'numero'=> $this->faker->numberBetween($min=1, $max=9999),
-            'id_usuarios' => Usuario::all()->random()->usuarios_id,
-            'id_comunas' => Comuna::all()->random()->comunas_id,
+            'id_usuarios' => Usuario::all()->random()->id,
+            'id_comunas' => Comuna::all()->random()->id,
             'delete'=> FALSE
         ];
     }

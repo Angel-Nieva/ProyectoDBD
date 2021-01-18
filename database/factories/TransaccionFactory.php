@@ -24,7 +24,7 @@ class TransaccionFactory extends Factory
         return [
             'monto_pagado'=> $this->faker->randomNumber($nbDigits = 1, $strict = false),
             'fecha_pago'=> $this->faker->dateTimeThisYear($max = 'now', $timezone = null),
-            'id_metodo' => MetodoDePago::all()->random()->metodo_id,
+            'id_metodo' => MetodoDePago::all()->random()->id,
             'delete'=> FALSE
         ];
     }

@@ -26,8 +26,8 @@ class ProductoPuestoFactory extends Factory
         return [
             'precio'=> $this->faker->randomNumber($nbDigits = 6, $strict = true),
             'stock'=> $this->faker->randomNumber($nbDigits = 6, $strict = true),
-            'id_productos' => Producto::all()->random()->productos_id,
-            'id_puestos_ferias' => PuestosFeria::all()->random()->puestos_ferias_id,
+            'id_productos' => Producto::all()->random()->id,
+            'id_puestos_ferias' => PuestosFeria::all()->random()->id,
             'delete'=> FALSE
         ];
     }

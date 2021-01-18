@@ -27,7 +27,7 @@ class MetodoDePagoFactory extends Factory
             'cuenta'=> $this->faker->creditCardNumber,
             'banco'=> $this->faker->randomElement(['Banco De Chile', 'Banco Santander', 'Banco Fallabella','Banco Estado','Banco de Credito e Inversiones','Banco Scotciabank']),
             'tipo_tarjeta'=> $this->faker->creditCardType,
-            'id_usuario' => Usuario::all()->random()->usuario_id,
+            'id_usuario' => Usuario::all()->random()->id,
             'delete'=> FALSE
         ];
     }

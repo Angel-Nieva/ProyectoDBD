@@ -25,8 +25,8 @@ class ValoracionFactory extends Factory
         return [
             'puntaje'=> $this->faker->numberBetween($min=1, $max=5),
             'comentario'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
-            'id_usuario' => Usuario::all()->random()->usuario_id,
-            'id_transaccion' => Transaccion::all()->random()->transaccion_id,
+            'id_usuario' => Usuario::all()->random()->id,
+            'id_transaccion' => Transaccion::all()->random()->id,
             'delete'=> FALSE
         ];
     }

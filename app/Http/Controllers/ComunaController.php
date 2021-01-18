@@ -8,8 +8,8 @@ use App\Models\Comuna;
 class ComunaController extends Controller
 {
     // Arreglo con comunas para validar
-    $array_comunas = array('Cerrillos', 'Cerro Navia', 'Conchali', 'El Bosque', 'Estación Central', 'Huechuraba', 'Independencia',
-                               'La Cisterna', 'La Florida', 'La Granja', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea');
+    //$array_comunas = array('Cerrillos', 'Cerro Navia', 'Conchali', 'El Bosque', 'Estación Central', 'Huechuraba', 'Independencia',
+    //                           'La Cisterna', 'La Florida', 'La Granja', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea');
 
     public function index()
     {
@@ -32,8 +32,8 @@ class ComunaController extends Controller
         
         $fallido=FALSE;
         $mensajeFallos='';
-        //Valida que 'nombre' no sea nulo y sea una comuna valida
-        if($request->nombre == NULL || in_array($request->nombre,$array_comunas){
+        //Valida que 'nombre' no sea nulo 
+        if($request->nombre == NULL ){
              $fallido=TRUE;
              $mensajeFallos=$mensajeFallos."- El campo 'nombre' es invalido ";
         }
@@ -100,8 +100,8 @@ class ComunaController extends Controller
             ]);
         }
 
-       //Valida que 'nombre' no sea nulo y sea una comuna valida
-       if($request->nombre == NULL || !in_array($request->nombre,$array_comunas)){
+       //Valida que 'nombre' no sea nulo 
+       if($request->nombre == NULL )){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
        }

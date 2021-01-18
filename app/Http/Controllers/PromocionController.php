@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Promocion;
+use App\Models\Usuario;
+
+
 
 class PromocionController extends Controller
 {
@@ -78,10 +82,10 @@ class PromocionController extends Controller
 
         // Si se crea
         if($fallido == FALSE){
-            $feria->save();
+            $promocion->save();
             return response()->json([
-                "message" => "Se ha creado la feria",
-                "id" => $feria->id
+                "message" => "Se ha creado la promocion",
+                "id" => $promocion->id
             ],202);
        }
 
@@ -184,10 +188,10 @@ class PromocionController extends Controller
 
         // Si se crea
         if($fallido == FALSE){
-            $feria->save();
+            $promocion->save();
             return response()->json([
-                "message" => "Se ha creado la feria",
-                "id" => $feria->id
+                "message" => "Se ha actualizado la promocion",
+                "id" => $promocion->id
             ],202);
         }
 

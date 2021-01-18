@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Transaccion;
 use Illuminate\Http\Request;
 
 class TransaccionController extends Controller
@@ -35,7 +35,7 @@ class TransaccionController extends Controller
              $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' debe ser un numero mayor a 0";
         }
         else{
-             $productopuesto->monto_pagado = $request->monto_pagado;
+             $transaccion->monto_pagado = $request->monto_pagado;
         } 
 
         //Valida  'fecha_pago' 
@@ -123,7 +123,7 @@ class TransaccionController extends Controller
              $mensajeFallos=$mensajeFallos."- El campo 'monto_pagado' debe ser un numero mayor a 0";
         }
         else{
-             $productopuesto->monto_pagado = $request->monto_pagado;
+             $transaccion->monto_pagado = $request->monto_pagado;
         } 
 
         //Valida  'fecha_pago' 

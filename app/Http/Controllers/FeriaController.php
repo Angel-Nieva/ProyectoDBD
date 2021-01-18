@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Feria;
+use App\Models\Direccion;
 class FeriaController extends Controller
 {
     /**
@@ -147,16 +148,16 @@ class FeriaController extends Controller
             ]);
         }
 
-        // Si se crea
+        // Si se actualiza
        if($fallido == FALSE){
             $feria->save();
             return response()->json([
-                "message" => "Se ha creado la feria",
+                "message" => "Se ha actualizado la feria",
                 "id" => $feria->id
             ],202);
        }
 
-       // No se crea
+       // No se actualiza
        else{
            return response()->json([
                 "message" => $mensajeFallos,

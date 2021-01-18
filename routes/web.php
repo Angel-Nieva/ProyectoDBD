@@ -128,3 +128,38 @@ Route::post('/productos_puestos/create','ProductoPuestosController@store');
 Route::get('/productos_puestos/{id}','ProductoPuestosController@show');
 Route::put('/productos_puestos/update/{id}','ProductoPuestosController@update');
 Route::delete('/productos_puestos/delete/{id}','ProductoPuestosController@destroy');
+
+//rutas de 'valoracion'
+Route::get('/valoracion','ValoracionController@index');
+Route::post('/valoracion/create','ValoracionController@store');
+Route::get('/valoracion/{id}','ValoracionController@show');
+Route::put('/valoracion/update/{id}','ValoracionController@update');
+Route::delete('/valoracion/delete/{id}','ValoracionController@destroy');
+
+//rutas de 'transaccion'
+Route::get('/transaccion','TransaccionController@index');
+Route::post('/transaccion/create','TransaccionController@store');
+Route::get('/transaccion/{id}','TransaccionController@show');
+Route::put('/transaccion/update/{id}','TransaccionController@update');
+Route::delete('/transaccion/delete/{id}','TransaccionController@destroy');
+
+//rutas de 'metodo_de_pago'
+Route::get('/metodo_de_pago','MetodoDePagoController@index');
+Route::post('/metodo_de_pago/create','MetodoDePagoController@store');
+Route::get('/metodo_de_pago/{id}','MetodoDePagoController@show');
+Route::put('/metodo_de_pago/update/{id}','MetodoDePagoController@update');
+Route::delete('/metodo_de_pago/delete/{id}','MetodoDePagoController@destroy');
+
+//rutas de 'usuario_transaccion'
+Route::get('/usuario_transaccion','UsuarioTransaccionController@index');
+Route::post('/usuario_transaccion/create','UsuarioTransaccionController@store');
+Route::get('/usuario_transaccion/{id}','UsuarioTransaccionController@show');
+Route::put('/usuario_transaccion/update/{id}','UsuarioTransaccionController@update');
+Route::delete('/usuario_transaccion/delete/{id}','UsuarioTransaccionController@destroy');
+
+//rutas de 'usuario_producto'
+Route::get('/usuario_producto','UsuarioProductoController@index');
+Route::post('/usuario_producto/create','UsuarioProductoController@store');
+Route::get('/usuario_producto/{id}','UsuarioProductoController@show');
+Route::put('/usuario_producto/update/{id}','UsuarioProductoController@update');
+Route::delete('/usuario_producto/delete/{id}','UsuarioProductoController@destroy');

@@ -51,18 +51,18 @@ class UsuarioProductoController extends Controller
             }
         }
 
-        if($request->id_productos == NULL){
+        if($request->id_producto == NULL){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'id_productos' está vacío ";
+            $mensajeFallos=$mensajeFallos."- El campo 'id_producto' está vacío ";
         }
 
         if($fallido == FALSE){
-            if(ctype_digit($request->id_productos)==FALSE){
+            if(ctype_digit($request->id_producto)==FALSE){
                 $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_productos' es inválido ";   
+                $mensajeFallos=$mensajeFallos."- El campo 'id_producto' es inválido ";   
             }
             else{
-                $usuarioproducto->id_productos = $request->id_productos;
+                $usuarioproducto->id_producto = $request->id_producto;
             }
         }
         // Verifica que el id_usuario exista en usuario
@@ -74,7 +74,7 @@ class UsuarioProductoController extends Controller
             ]);
         }
         // Verifica que el id_productos exista en productos
-        $producto = Producto::find($request->id_productos);
+        $producto = Producto::find($request->id_producto);
 
         if(($producto == NULL) || ($producto->delete==TRUE)){
             return response()->json([

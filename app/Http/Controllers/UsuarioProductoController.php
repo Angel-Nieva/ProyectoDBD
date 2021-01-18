@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\UsuarioProducto;
+use App\Models\Usuario;
+use App\Models\Producto;
 class UsuarioProductoController extends Controller
 {
     /**
@@ -83,7 +85,7 @@ class UsuarioProductoController extends Controller
         if($fallido == FALSE){
             $usuarioproducto->save();
             return response()->json([
-                "message" => "Se ha creado la usuario_productos",
+                "message" => "Se ha creado el usuario_productos",
                 "id" => $usuarioproducto->id
             ]);
         }

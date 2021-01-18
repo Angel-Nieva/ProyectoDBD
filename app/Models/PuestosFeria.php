@@ -9,12 +9,12 @@ class PuestosFeria extends Model
 {
     use HasFactory;
     public function usuario(){
-        return $this->belongTo(Usuario::class);
+        return $this->belongsTo(Usuario::class);
     }
     public function productopuesto(){
         return $this->hasMany(ProductoPuesto::class);
     }
     public function feria(){
-        return $this->belongTo(Feria::class);
+        return $this->belongsTo(Feria::class);
     }
 }

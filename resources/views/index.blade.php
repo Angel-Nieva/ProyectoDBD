@@ -7,7 +7,9 @@
   <title>DeliFeria</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
   <link rel="stylesheet" href="estilo.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital@1&display=swap" rel="stylesheet">   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body class="container-fluid">
@@ -19,10 +21,10 @@
         <div class="col div-login">
           <h1>Ingresar: </h1>
           <form>
-            <label for="email">Correo electrónico</label>
-            <input type="text" placeholder="Ingrese su correo electrónico:">
-            <label for="password">Contraseña</label>
-            <input type="password" placeholder="Ingrese su contraseña:">
+            <label for="email">Correo electrónico:</label>
+            <input type="text" placeholder="Ingrese su correo electrónico">
+            <label for="password">Contraseña:</label>
+            <input type="password" placeholder="Ingrese su contraseña">
             <input type="submit" value="Ingresar">
           </form>
         </div>
@@ -63,7 +65,7 @@
 body{
   background-color: #52B69A;
   height: auto;
-  font-family: noto-serif;
+  font-family: 'Zilla Slab', serif;
   }
 .wrapper{
   padding:0;

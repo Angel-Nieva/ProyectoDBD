@@ -5,51 +5,56 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeliFeria login</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
   <link rel="stylesheet" href="estilo.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body>
-    <div class="wrapper">
-        <a href="login.html"><img src="delif1.png" class="logo" alt="logo sitio"></a>
+<body class="container-fluid">
+    
+  <div class="wrapper">
+    <div class="container-fluid">
+        <img class="logo" src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" alt="Logo DeliFeria" >
       <div class="row">
         <div class="col div-login">
-          <h1>Ingrese</h1>
+          <h1>Ingresar: </h1>
           <form>
             <label for="email">Correo electrónico</label>
-            <input type="text" placeholder="Ingrese su correo electrónico">
+            <input type="text" placeholder="Ingrese su correo electrónico:">
             <label for="password">Contraseña</label>
-            <input type="password" placeholder="Ingrese su contraseña">
+            <input type="password" placeholder="Ingrese su contraseña:">
             <input type="submit" value="Ingresar">
           </form>
         </div>
         <div class="col div-registro">
-          <h1>Registrese</h1>
-          <label for="username">Nombre Completo</label>
+          <h1>Registrarse: </h1>
+          <label for="username">Nombre Completo:</label>
           <input type="text" placeholder="Ingrese su nombre">
-          <label for="email">Correo electrónico</label>
+          <label for="email">Correo electrónico:</label>
           <input type="text" placeholder="Ingrese su correo electrónico">
-          <label for="rut">Rut</label>
+          <label for="rut">Rut:</label>
           <input type="text" placeholder="Ingrese su rut">
-          <label for="phone">Teléfono</label>
+          <label for="phone">Teléfono:</label>
           <input type="text" placeholder="Ingrese un número de teléfono">
-          <label for="password">Rut</label>
+          <label for="password">Rut:</label>
           <input type="text" placeholder="Escoja una contraseña">
-
-          <div class="checkbox">  
-            <h4>Roles</h4>
-            <div class="checks"><label for="comprador">Comprador</label></div>
-            <div class="checks"><input type="checkbox" id="comprador"></div>
-          </div>
-          <div class="checkbox">  
-            <div class="checks"><label for="feriante">feriante</label></div>
-            <div class="checks"><input type="checkbox" id="feriante"></div>
-          </div>
-
+            <div class="form-check form-check-inline center">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Comprador
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Feriante
+              </label>
+            </div>
           <input type="submit" value="Registrarse">
         </div>
-      </div>
-    </div>
+      </div> 
+    <div> 
+  </div> 
 </body>
 </html>
 
@@ -61,15 +66,20 @@ body{
   font-family: noto-serif;
   }
 .wrapper{
-  padding: 0;
+  padding:0;
   margin-right: 2%;
   margin-left: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
-  height: 90%;
+  min-height: 91vh;
   overflow:auto;
-  
   background-color: #B5E48C;
+}
+.logo{
+  width:20%;
+  height:10%;
+  margin-left:auto;
+  margin-right:auto;
 }
 .row{
   height: 60vh;
@@ -127,10 +137,10 @@ input[type="submit"] {
   border-radius: 20px;
 }
 
-.checkbox .checks{
-  display:inline;
+.form-check{
+  margin-left:20%;
+  margin-right:auto;
 }
-input, label{
-  font-size: 20px;
-}
+
+
 </style>

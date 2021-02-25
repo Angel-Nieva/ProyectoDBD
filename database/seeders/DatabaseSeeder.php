@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Comuna::factory(10)->create();
         Categoria::factory(10)->create();
         UnidadesMedida::factory(10)->create();
         Usuario::factory(10)->create();
@@ -46,19 +47,25 @@ class DatabaseSeeder extends Seeder
         PermisoRol::factory(10)->create();
         Subcategoria::factory(10)->create();
         Producto::factory(10)->create();
-        TransaccionsProducto::factory(10)->create();
-        Transaccion::factory(10)->create();
-        Valoracion::factory(10)->create();
-        MetodoDePago::factory(10)->create();
-        UsuarioTransaccion::factory(10)->create();
-        UsuarioProducto::factory(10)->create();
-        Promocion::factory(10)->create();
         Feria::factory(10)->create();
         PuestosFeria::factory(10)->create();
+        Promocion::factory(10)->create();
         ProductoPuesto::factory(10)->create();
-        Comuna::factory(10)->create();
-       
+        MetodoDePago::factory(10)->create();
+        Transaccion::factory(10)->create();
+        Valoracion::factory(10)->create();
+        UsuarioTransaccion::factory(10)->create();
+        UsuarioProducto::factory(10)->create();
         ProductoPromocion::factory(10)->create();
+        TransaccionsProducto::factory(10)->create();
+        
+        
+        
+        
+
+        
+             
+        
 
     }
 }

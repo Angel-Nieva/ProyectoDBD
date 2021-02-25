@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Usuario;
+use App\Models\Transaccion;
 use App\Models\Valoracion;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +25,8 @@ class ValoracionFactory extends Factory
         return [
             'puntaje'=> $this->faker->numberBetween($min=1, $max=5),
             'comentario'=>$this->faker->word($maxNbChars = 50, $minNbChars = 6),
+            'id_usuario' => Usuario::all()->random()->id,
+            'id_transaccion' => Transaccion::all()->random()->id,
             'delete'=> FALSE
         ];
     }

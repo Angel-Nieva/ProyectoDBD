@@ -24,7 +24,7 @@ class FeriaFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->word($maxNbChars = 20, $minNbChars = 1),
-            'id_direccions' => Direccion::all()->random()->direccions_id,
+            'id_direccions' => Direccion::all()->random()->id,
             'delete'=> FALSE
         ];
     }

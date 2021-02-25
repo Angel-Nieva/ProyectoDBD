@@ -25,7 +25,7 @@ class PromocionFactory extends Factory
         return [
             'descuento'=> $this->faker->numberBetween($min = 1, $max = 99),
             'tiempo'=> $this->faker->numberBetween($min = 1, $max = 100),
-            'id_usuarios' => Usuario::all()->random()->usuarios_id,
+            'id_usuarios' => Usuario::all()->random()->id,
             'delete'=> FALSE
         ];
     }

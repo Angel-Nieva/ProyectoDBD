@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeliFeria login</title>
+  <title>DeliFeria</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
   <link rel="stylesheet" href="estilo.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -36,7 +36,7 @@
           <input type="text" placeholder="Ingrese su rut">
           <label for="phone">Teléfono:</label>
           <input type="text" placeholder="Ingrese un número de teléfono">
-          <label for="password">Rut:</label>
+          <label for="password">Contraseña:</label>
           <input type="text" placeholder="Escoja una contraseña">
             <div class="form-check form-check-inline center">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">

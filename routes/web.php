@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/crear_producto', function () {
+    return view('creacion');
+});
 
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');

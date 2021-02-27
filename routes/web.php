@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/crear_producto', function () {
     return view('creacion');
 });
+Route::get('/home', function () {
+    return view('home');
+});
 
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');

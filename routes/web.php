@@ -21,15 +21,6 @@ Route::get('/crear_producto', function () {
     return view('creacion');
 });
 
-Route::get('/carrito', function () {
-    return view('carrito');
-});
-
-Route::get('/actualizar', function () {
-    return view('actualizar');
-});
-
-
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');
 Route::post('/permisos/create','PermisoController@store');

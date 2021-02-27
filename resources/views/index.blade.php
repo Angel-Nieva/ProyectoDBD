@@ -20,12 +20,19 @@
       <div class="row">
         <div class="col div-login">
           <h1>Ingresar: </h1>
-          <form>
+          @if (count($errors) > 0)
+            <div class="alert-danger">
+              <ul> 
+                <li><p>Error en el ingreso de datos</p></li>
+              </ul>
+            </div>
+          @endif 
+          <form  action="{{route('checkLogin')}}" method="POST">
             <label for="email">Correo electrónico:</label>
-            <input type="text" placeholder="Ingrese su correo electrónico">
-            <label for="password">Contraseña:</label>
-            <input type="password" placeholder="Ingrese su contraseña">
-            <input type="submit" value="Ingresar">
+            <input type="text" value="" name="email" placeholder="Ingrese su correo electrónico">
+            <label for="contraseña">Contraseña:</label>
+            <input type="contraseña" value="" name="contraseña" placeholder="Ingrese su contraseña">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
           </form>
         </div>
         <div class="col div-registro">

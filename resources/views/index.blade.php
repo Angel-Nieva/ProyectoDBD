@@ -43,6 +43,8 @@
           <input type="text" placeholder="Ingrese su correo electrónico">
           <label for="rut">Rut:</label>
           <input type="text" placeholder="Ingrese su rut">
+          <label for="rut">comuna</label>
+          <input type="text" placeholder="Ingrese su comuna">
           <label for="phone">Teléfono:</label>
           <input type="text" placeholder="Ingrese un número de teléfono">
           <label for="password">Contraseña:</label>

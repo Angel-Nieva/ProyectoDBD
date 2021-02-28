@@ -27,7 +27,6 @@ Route::get('/home', function () {
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');
-Route::post('/main/registro', 'MainController@registro')->name('registro');
 
 
 //rutas de 'permisos'

@@ -10,25 +10,31 @@
   <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
 </head>
 <body>
-    <div class="row">
-        <ul class="nav navStyle">
-            <li class="nav-item letra" id="cuenta">
-                <h2>
-                    <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
-                </h2>
-            </li>
-            <li class="nav-item letra" id="logo">
-                <h2>
-                    <a href="login.html"><img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo" alt="logo sitio"></a>
-                </h2>
-            </li>
-            <li class="nav-item letra salir"  id="salida">
-                <h2>
-                    <a class="nav-link" href="#">Salir</a>
-                </h2>
-            </li>
-          </ul>
-    </div>  
+    <nav class="navbar navbar-expand-lg">        
+        <div class="container">
+            <a class="navbar-brand" href="#"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
+                    alt="logo sitio"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <ion-icon name="menu-sharp"></ion-icon>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item letra" id="cuenta">
+                        <h2>
+                            <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra salir"  id="salida">
+                        <h2>
+                            <a class="nav-link" href="#">Salir</a>
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
     <div class="container-fluid">
         <h1>Lista de productos</h1>
     </div>
@@ -46,6 +52,8 @@
         width: 80%;
         margin-top: 1%;
     }
+    .navbar-toggler { font-size: 40px;}
+    .navbar-toggler:focus { outline:none}
     .nav-link{
         border: solid;
         border-color: #52B69A;
@@ -53,19 +61,19 @@
         background-color: #117CF6;
         color:white;
     }
-    .logo{
-        height: 10%;
-        width: 25%;
-        display: block;
-        margin-left: 110%;
+
+    .nav-link:hover {
+        color: #1a1a1a
     }
-    #cuenta{
-        margin-top: 1%;
-        padding-left: 3%;
+
+    .navbar {
+        background-color: #B5E48C;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+        min-height: 100px;
     }
-    #salida{
-        margin-top: 1%;
-        padding-left: 50%;
+    .logo {
+        min-width: 120px;
+        max-width: 140px;
     }
     .row{
         background-color: #B5E48C;

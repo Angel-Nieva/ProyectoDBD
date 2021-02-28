@@ -84,6 +84,11 @@
                   Feriante
                 </label>
               </div>
+            @if(session()->has('mensaje'))
+              <div class="alert alert-success">
+                  {{ session()->get('mensaje') }}
+              </div>
+            @endif
             <input type="submit" class="btn btn-primary" value="Registrarse">
           </form>
         </div>

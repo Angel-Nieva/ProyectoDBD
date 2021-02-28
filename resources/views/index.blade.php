@@ -37,29 +37,60 @@
         </div>
         <div class="col div-registro">
           <h1>Registrarse: </h1>
-          <label for="username">Nombre Completo:</label>
-          <input type="text" placeholder="Ingrese su nombre">
-          <label for="email">Correo electrónico:</label>
-          <input type="text" placeholder="Ingrese su correo electrónico">
-          <label for="rut">Rut:</label>
-          <input type="text" placeholder="Ingrese su rut">
-          <label for="phone">Teléfono:</label>
-          <input type="text" placeholder="Ingrese un número de teléfono">
-          <label for="password">Contraseña:</label>
-          <input type="text" placeholder="Escoja una contraseña">
-            <div class="form-check form-check-inline center">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Comprador
-              </label>
+          @if (count($errors) > 0)
+            <div class="alert-danger">
+              <ul> 
+                <li><p>Error en el ingreso de datos de registro</p></li>
+              </ul>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                Feriante
-              </label>
-            </div>
-          <input type="submit" value="Registrarse">
+          @endif 
+          <form action="{{route('registro')}}" method="POST">
+            <label for="username">Nombre Completo:</label>
+            <input type="text" value="" name="nombre" placeholder="Ingrese su nombre">
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="text" value="" name="email" placeholder="Ingrese su correo electrónico">
+            
+            <label for="rut">Rut:</label>
+            <input type="text" value="" name="rut" placeholder="Ingrese su rut">
+            
+            <label for="comuna">Comuna</label>
+            <input type="text" value="" name="comuna" placeholder="Ingrese su comuna">
+
+            <label for="calle">Calle</label>
+            <input type="text" value="" name="calle" placeholder="Ingrese la calle">
+
+            <label for="numero">Número</label>
+            <input type="text" value="" name="numero" placeholder="Ingrese el número de su dirección">
+            
+            <label for="depto">Número de departamento</label>
+            <input type="text" value="" name="depto" placeholder="Ingrese el número de departamento (opcional)">
+
+            <label for="phone">Teléfono:</label>
+            <input type="text" value="" name="telefono" placeholder="Ingrese un número de teléfono">
+            
+            <label for="password">Contraseña:</label>
+            <input type="text" value="" name="contraseña" placeholder="Escoja una contraseña">
+            
+              <div class="form-check form-check-inline center">
+                <input class="form-check-input" type="radio" value="comprador" name="rol" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Comprador
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="feriante" name="rol" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Feriante
+                </label>
+              </div>
+            @if(session()->has('mensaje'))
+              <div class="alert alert-success">
+                  {{ session()->get('mensaje') }}
+              </div>
+            @endif
+            <input type="submit" class="btn btn-primary" value="Registrarse">
+          </form>
         </div>
       </div> 
     <div> 

@@ -65,7 +65,7 @@ class UsuarioController extends Controller
         if($fallido == FALSE){
             if((ctype_digit($request->telefono) == FALSE) || (strlen($request->telefono)>15) || (strlen($request->telefono)<6)){
                 $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido ";   
+                $mensajeFallos=$mensajeFallos."- El campo 'telefono' es inválido ";   
             }
             else{
                 $usuario->telefono = $request->telefono;
@@ -74,13 +74,16 @@ class UsuarioController extends Controller
 
         //Valida 'reputacion'
         if($request->reputacion == NULL){
-            $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'reputacion' está vacío ";
+            $usuario->reputacion = 0;
+            // Reputación no implementada
+
+            //$fallido=TRUE;
+            //$mensajeFallos=$mensajeFallos."- El campo 'reputacion' está vacío ";
         }
         if($fallido == FALSE){
             if($request->reputacion>6 || $request->reputacion<0){
                 $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'rut' es inválido ";
+                $mensajeFallos=$mensajeFallos."- El campo 'reputación' es inválido ";
             }
              else{
                 $usuario->reputacion = $request->reputacion;
@@ -115,10 +118,8 @@ class UsuarioController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $usuario->save();
-            return response()->json([
-                "message" => "Se ha creado el usuario",
-                "id" => $usuario->id
-            ]);
+            //return redirect('/')->with('message', 'Se ha creado la cuenta');
+            return Redirect('/')->with('mensaje', 'Se ha creado la cuenta');
         }
 
         // No se crea
@@ -268,13 +269,13 @@ class UsuarioController extends Controller
         if($fallido == FALSE){
             $usuario->save();
             return response()->json([
-                "message" => "Se ha actualizado la usuario",
+                "message" => "Se ha actualizado el usuario",
                 "id" => $usuario->id
             ]);
         }
         else{
             return response()->json([
-                "message" => $mensajeFallos,
+                "message" => "asdasd"//$mensajeFallos,
             ]); 
         }
 

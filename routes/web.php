@@ -21,6 +21,11 @@ Route::get('/crear_producto', function () {
     return view('creacion');
 });
 
+//Rutas Main
+Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
+Route::get('/main/successLogin', 'MainController@successLogin')->name('successLogin');
+
+
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');
 Route::post('/permisos/create','PermisoController@store');

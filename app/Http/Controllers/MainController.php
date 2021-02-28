@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\PuestosFeria;
+use App\Models\Comuna;
+use App\Models\Direccion;
+use App\Models\Rol;
+use App\Models\Permiso;
+use App\Models\PermisoRols;
 use Validator;
 
 class MainController extends Controller
@@ -51,7 +56,47 @@ class MainController extends Controller
             'telefono' => 'required',
             //'rol' => 'required',           
         ]);
-        return app('App\Http\Controllers\UsuarioController')->store($request); 
+        $falla=FALSE;
+        $mensaje="";
+
+        //Crea registro en tabla usuarios
+        app('App\Http\Controllers\UsuarioController')->store($request);
+        
+        //Busca el usuario recién creado
+        $usuario=Usuario::all()->where('email',$request->email)->first();
+
+        //$determina si realmente se creó el usuario y toma el id
+        if($usuario!=NULL){
+            $usuario_id = $usuario->id;
+        }
+        else{
+            $mensaje=$mensaje."1 ";
+            $usuario_id = '0';
+            $falla=TRUE;
+        }
+
+        //Lo mismo para comuna
+        app('App\Http\Controllers\ComunaController')->store($request);
+        $comuna=Comuna::all()->where('comuna',$request->comuna)->first();
+
+        if($comuna!=NULL){
+            $comuna_id = $comuna->id;
+        }
+        else{
+            $mensaje=$mensaje."2 ";
+            $comuna_id = '0';
+            $falla=TRUE;
+        }
+
+        //Determina el mensaje
+        if(!$falla){
+            $mensaje=$mensaje.'Se ha creado la cuenta id:'.$usuario_id;   
+        }
+        else{
+            $mensaje=$mensaje.'Hubo problemas';
+        }
+        
+        return redirect('/')->with('mensaje', $mensaje);
     }
 
 }

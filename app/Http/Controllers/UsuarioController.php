@@ -119,7 +119,7 @@ class UsuarioController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $usuario->save();
-            return redirect('/')->with('message', 'Se ha creado la cuenta');
+            return redirect('/');
         }
 
         // No se crea

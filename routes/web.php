@@ -23,7 +23,7 @@ Route::get('/crear_producto', function () {
 
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
-Route::get('/main/successLogin', 'MainController@successLogin')->name('successLogin');
+Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');
 
 
 //rutas de 'permisos'

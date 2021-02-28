@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
@@ -118,8 +119,7 @@ class UsuarioController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $usuario->save();
-            //return redirect('/')->with('message', 'Se ha creado la cuenta');
-            return Redirect('/')->with('mensaje', 'Se ha creado la cuenta');
+            return redirect('/')->with('message', 'Se ha creado la cuenta');
         }
 
         // No se crea
@@ -275,7 +275,7 @@ class UsuarioController extends Controller
         }
         else{
             return response()->json([
-                "message" => "asdasd"//$mensajeFallos,
+                "message" => $mensajeFallos,
             ]); 
         }
 

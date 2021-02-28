@@ -63,9 +63,6 @@
             <label for="numero">Número</label>
             <input type="text" value="" name="numero" placeholder="Ingrese el número de su dirección">
             
-            <label for="depto">Número de departamento</label>
-            <input type="text" value="" name="depto" placeholder="Ingrese el número de departamento (opcional)">
-
             <label for="phone">Teléfono:</label>
             <input type="text" value="" name="telefono" placeholder="Ingrese un número de teléfono">
             

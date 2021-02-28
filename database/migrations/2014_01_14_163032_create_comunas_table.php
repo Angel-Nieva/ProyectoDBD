@@ -15,7 +15,7 @@ class CreateComunasTable extends Migration
     {
         Schema::create('comunas', function (Blueprint $table) {
             $table->id();
-            $table->text('nombre');
+            $table->text('comuna');
             $table->boolean('delete');
             $table->timestamps();
         });

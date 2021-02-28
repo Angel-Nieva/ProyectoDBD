@@ -32,13 +32,13 @@ class ComunaController extends Controller
         
         $fallido=FALSE;
         $mensajeFallos='';
-        //Valida que 'nombre' no sea nulo 
-        if($request->nombre == NULL ){
+        //Valida que 'nombre(comuna)' no sea nulo 
+        if($request->comuna == NULL ){
              $fallido=TRUE;
-             $mensajeFallos=$mensajeFallos."- El campo 'nombre' es invalido ";
+             $mensajeFallos=$mensajeFallos."- El campo 'comuna' es invalido ";
         }
         else{
-             $comuna->nombre = $request->nombre;
+             $comuna->comuna = $request->comuna;
         }
 
         // Si se crea

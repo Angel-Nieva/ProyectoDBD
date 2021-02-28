@@ -20,7 +20,7 @@ class CreateUsuariosTable extends Migration
             $table->text('contraseña');
             $table->text('email');
             $table->text('telefono');
-            $table->integer('reputacion');
+            $table->integer('reputacion')->nullable();
             $table->boolean('delete');
             $table->timestamps();
 

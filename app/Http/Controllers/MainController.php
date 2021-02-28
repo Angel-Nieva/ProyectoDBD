@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\PuestosFeria;
 use Validator;
 
 class MainController extends Controller
@@ -23,7 +24,7 @@ class MainController extends Controller
         $data = json_decode($usuario, true);
 
     	if(!empty($data)){
-                
+
             //Se obtiene el campo id
             $usuario_id = array_column($data, 'id')[0];
 
@@ -37,5 +38,21 @@ class MainController extends Controller
     public function successLogin($id){
     	return view('successLogin');
     }
+
+    public function registro(Request $request){
+        $request->validate([
+            'email' => 'required',
+            'contraseña' => 'required',
+            'nombre' => 'required',
+            'rut' => 'required',
+            'comuna' => 'required',
+            'calle' => 'required',
+            'numero' => 'required',
+            'telefono' => 'required',
+            //'rol' => 'required',           
+        ]);
+        return app('App\Http\Controllers\UsuarioController')->store($request); 
+    }
+
 }
 

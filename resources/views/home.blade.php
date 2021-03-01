@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
     <title>Profile</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -44,11 +44,12 @@
         </div>
     </nav>
 
-    <!-- HEADER-->    
-    <header class="main-header">
+    <!-- CONTENT-->    
+    <header class="content">
         <div class="background-overlay text-white py-5">
-            <div class="container">
+            <div class="container2">            
                 <div class="row">
+                <img class="logoPerfil" src="https://www.pikpng.com/pngl/b/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" alt="Logo perfil" >
                     <form>
                         <label for="nombre">Nombre:</label>
                         <input type="text" placeholder="#">
@@ -57,15 +58,14 @@
                         <label for="rut">Rut:</label>
                         <input type="text" placeholder="#">            
                         <label for="email">Email:</label>
-                        <input type="text" placeholder="#"> 
-                        <label for="cantidad">Cantidad:</label>
                         <input type="text" placeholder="#">
                         <label for="reputacion">Reputacion:</label>
                         <input type="text" placeholder="#">
             
-                    </form>
+                    </form>                   
                 </div>
             </div>
+
         </div>
     </header>  
   
@@ -76,15 +76,15 @@
 
 <style>
 
-    .main-header {
+    .content {
         position: relative;
         background: url(https://www.teahub.io/photos/full/296-2969665_fondo-frutas-y-verduras-hd.jpg);
         background-size: cover;
         background-position: center bottom;
-        min-height: 600px;
+        min-height: 700px;
         font-family: 'Zilla Slab', serif;
     }
-    
+
     .background-overlay {
         position:absolute;
         background:rgba(22, 160, 133,.6);
@@ -92,6 +92,16 @@
         left: 0;
         width: 100%;
         height: 100%;
+    }
+    
+    .container2{
+        padding:0;
+        margin-right: 25%;
+        margin-left: 25%;
+        margin-top: 1%;
+        margin-bottom: 2%;
+        min-height: 91vh;
+        background: rgba(181, 228, 140, .7);
     }
     
     .navbar-toggler { font-size: 40px;}
@@ -118,9 +128,16 @@
         min-width: 120px;
         max-width: 140px;
     }
+    .logoPerfil{
+        width:20%;
+        height:10%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 2%;
+    }
 
     label{
-        margin-left: 15%;
+        margin-left: 20%;
         padding: 0;
         font-weight: bold;
         display:block;
@@ -129,9 +146,9 @@
     }
 
     input{
-        margin-left: 15%;
+        margin-left: 20%;
         width: 60%;
         margin-bottom: 1%;
     }
-     
+
 </style>

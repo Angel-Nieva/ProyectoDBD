@@ -92,10 +92,7 @@ class DireccionController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $direccion->save();
-            return response()->json([
-                "message" => "Se ha creado la direccion",
-                "id" => $direccion->id
-            ]);
+            return redirect('/');
         }
 
         // No se crea

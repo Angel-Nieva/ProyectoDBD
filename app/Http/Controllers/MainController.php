@@ -58,7 +58,17 @@ class MainController extends Controller
         ]);
         $falla=FALSE;
         $mensaje="";
-
+        
+        //Impide la creación de usuarios repetidos por email, nombre o rut
+        $existe_usuario1=Usuario::all()->where('email',$request->email)->first();
+        $existe_usuario2=Usuario::all()->where('nombre', $request->nombre)->first();
+        $existe_usuario3=Usuario::all()->where('rut', $request->rut)->first();
+                        
+        if($existe_usuario1!=NULL || $existe_usuario2!=NULL || $existe_usuario3!=NULL){
+            $falla=TRUE;
+            $mensaje="El usuario ya existe ";
+            return redirect('/')->with('mensaje', $mensaje); 
+        }
         //Crea registro en tabla usuarios
         app('App\Http\Controllers\UsuarioController')->store($request);
         
@@ -73,6 +83,7 @@ class MainController extends Controller
             $mensaje=$mensaje."1 ";
             $usuario_id = '0';
             $falla=TRUE;
+            return redirect('/')->with('mensaje', $mensaje);
         }
 
         //Lo mismo para comuna
@@ -87,6 +98,20 @@ class MainController extends Controller
             $comuna_id = '0';
             $falla=TRUE;
         }
+        
+        
+        //creacion y comprobacion Direccion
+        app('App\Http\Controllers\DireccionController')->store($request);
+        /*$direccion=Direccion::all()->where('id_usuarios',$request->id_usuarios)->where('id_comunas',$request->id_comunas)->first();
+
+        if($direccion!=NULL){
+            $direccion_id = $direccion->id;
+        }
+        else{
+            $mensaje=$mensaje."3 ";
+            $direccion_id = '0';
+            $falla=TRUE;
+        }*/
 
         //Determina el mensaje
         if(!$falla){

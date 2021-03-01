@@ -44,10 +44,11 @@ class ComunaController extends Controller
         // Si se crea
        if($fallido == FALSE){
             $comuna->save();
-            return response()->json([
+            return redirect('/');
+            /*return response()->json([
                 "message" => "Se ha creado la comuna",
                 "id" => $comuna->id
-            ],202);
+            ],202);*/
        }
 
        // No se crea

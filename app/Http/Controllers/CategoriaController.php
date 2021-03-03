@@ -16,7 +16,7 @@ class CategoriaController extends Controller
         }
         else {
             $data['titulo'] = '404';
-            $data['nombre'] = 'Page not found';
+            $data['nombre_categoria'] = 'Page not found';
             return response()
                 ->view('errors.404',$data,404);
         }
@@ -31,21 +31,21 @@ class CategoriaController extends Controller
        
        $fallido=FALSE;
        $mensajeFallos='';
-       //Valida que 'nombre' no sea nulo
-       if($request->nombre == NULL){
+       //Valida que 'nombre_categoria' no sea nulo
+       if($request->nombre_categoria == NULL){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
+            $mensajeFallos=$mensajeFallos."- El campo 'nombre_categoria' está vacío ";
        }
        else{
-            $categoria->nombre = $request->nombre;
+            $categoria->nombre_categoria = $request->nombre_categoria;
        }
-        //Valida que 'descripcion' sea no nulo 
-       if(($request->descripcion == NULL) ){
+        //Valida que 'descripcion_categoria' sea no nulo 
+       if(($request->descripcion_categoria == NULL) ){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'descripcion' es inválido ";
+            $mensajeFallos=$mensajeFallos."- El campo 'descripcion_categoria' es inválido ";
        }
        else{
-            $categoria->descripcion = $request->descripcion;
+            $categoria->descripcion_categoria = $request->descripcion_categoria;
        }
 
 
@@ -112,21 +112,21 @@ class CategoriaController extends Controller
                 "message" => "El dato no existe"
             ]);
         }
-       //Valida que 'nombre' no sea nulo
-       if($request->nombre == NULL){
+       //Valida que 'nombre_categoria' no sea nulo
+       if($request->nombre_categoria == NULL){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'nombre' está vacío ";
+            $mensajeFallos=$mensajeFallos."- El campo 'nombre_categoria' está vacío ";
        }
        else{
-            $categoria->nombre = $request->nombre;
+            $categoria->nombre_categoria = $request->nombre_categoria;
        }
-        //Valida que 'descripcion' sea no nulo 
-       if(($request->descripcion == NULL) ){
+        //Valida que 'descripcion_categoria' sea no nulo 
+       if(($request->descripcion_categoria == NULL) ){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'descripcion' es inválido ";
+            $mensajeFallos=$mensajeFallos."- El campo 'descripcion_categoria' es inválido ";
        }
        else{
-            $categoria->descripcion = $request->descripcion;
+            $categoria->descripcion_categoria = $request->descripcion_categoria;
        }
 
 

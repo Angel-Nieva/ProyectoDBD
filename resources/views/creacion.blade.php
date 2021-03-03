@@ -39,11 +39,11 @@
         <h1>Creación de productos</h1>
         <form>
             <label for="nombre_producto">Nombre del producto</label>
-            <input type="text" placeholder="Ingrese el nombre del producto">
+            <input type="text" value="" name="nombre" placeholder="Ingrese el nombre del producto">
             <label for="descripcion">Descripción</label>
-            <input type="text" placeholder="Ingrese una descripción">
+            <input type="text" value="" name="descripcion" placeholder="Ingrese una descripción">
             <label for="precio">Precio</label>
-            <input type="text" placeholder="Ingrese el precio">
+            <input type="text" value="" name="precio" placeholder="Ingrese el precio">
             
             <label for="medida">Indique el tipo de medida:</label>
             <select name="medida" id="medida">
@@ -52,13 +52,29 @@
             </select>
 
             <label for="cantidad">Cantidad</label>
-            <input type="text" placeholder="Ingrese la cantidad">
+            <input type="text" value="" name="cantidad" placeholder="Ingrese la cantidad">
+
             <label for="stock">Stock actual</label>
-            <input type="text" placeholder="Ingrese el stock">
+            <input type="text" value="" name="stock" placeholder="Ingrese el stock">
+            
             <label for="descuento">Descuento (0 si no hay descuento)</label>
-            <input type="text" placeholder="Ingrese el descuento">
+            <input type="text" value="" name="descuento" placeholder="Ingrese el descuento">
+            
             <label for="tiempo">Duración del descuento en días (0 si no hay descuento)</label>
-            <input type="text" placeholder="Ingrese la Duración">
+            <input type="text" value="" name="tiempo" placeholder="Ingrese la Duración">
+            
+            <label for="categoria">Categoría del producto</label>
+            <input type="text" value="" name="nombre_categoria" placeholder="Ingrese la categoría">
+            
+            <label for="descripcion_categoria">Descripción de la categoría</label>
+            <input type="text" value="" name="descripcion_categoria" placeholder="Ingrese la descripción">
+            
+            <label for="subcategoria">Subcategoría del producto</label>
+            <input type="text" value="" name="nombre_subcategoria" placeholder="Ingrese la subcategoría">
+            
+            <label for="descripcion_subcategoria">Descripción de la subcategoría</label>
+            <input type="text" value="" name="descripcion_subcategoria" placeholder="Ingrese la descripción">
+            
             <input type="submit" value="Aceptar"><br>
         </form>
     </div>    

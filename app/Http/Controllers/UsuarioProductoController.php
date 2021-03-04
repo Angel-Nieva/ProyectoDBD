@@ -28,7 +28,7 @@ class UsuarioProductoController extends Controller
     }
 
     //Crear una nueva tupla (post)
-    public function store(Request $request)
+    public function store(Request $request, $id_usuario, $id_producto)
     {
         $usuarioproducto = new UsuarioProducto();
         $usuarioproducto->delete = FALSE;
@@ -36,37 +36,23 @@ class UsuarioProductoController extends Controller
         $fallido=FALSE;
         $mensajeFallos='';
 
-        if($request->id_usuario == NULL){
+        if($id_usuario == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_usuario' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_usuario)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_usuario' es inválido ";   
-            }
-            else{
-                $usuarioproducto->id_usuario = $request->id_usuario;
-            }
+        else{
+            $usuarioproducto->id_usuario = $id_usuario;
         }
 
-        if($request->id_producto == NULL){
+        if($id_producto == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_producto' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_producto)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_producto' es inválido ";   
-            }
-            else{
-                $usuarioproducto->id_producto = $request->id_producto;
-            }
+        else{
+            $usuarioproducto->id_producto = $id_producto;
         }
         // Verifica que el id_usuario exista en usuario
-        $usuario = Usuario::find($request->id_usuario);
+        $usuario = Usuario::find($id_usuario);
         
         if(($usuario == NULL) || ($usuario->delete==TRUE)){
             return response()->json([
@@ -74,7 +60,7 @@ class UsuarioProductoController extends Controller
             ]);
         }
         // Verifica que el id_productos exista en productos
-        $producto = Producto::find($request->id_producto);
+        $producto = Producto::find($id_producto);
 
         if(($producto == NULL) || ($producto->delete==TRUE)){
             return response()->json([

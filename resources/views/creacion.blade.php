@@ -44,7 +44,7 @@
               </ul>
             </div>
           @endif 
-        <form action="{{route('crear_producto')}}" method='POST'>
+        <form action="{{action('MainController@crear_producto_action','2')}}" method='POST'>
             <label for="nombre_producto">Nombre del producto</label>
             <input type="text" value="" name="nombre" placeholder="Ingrese el nombre del producto">
             <label for="descripcion">Descripción</label>

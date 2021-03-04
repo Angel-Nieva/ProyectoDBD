@@ -14,8 +14,10 @@ use App\Models\UnidadesMedida;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Producto;
+use App\Models\Promocion;
+use App\Models\ProductoPromocion;
 use Validator;
-
+use App\Models\UsuarioProducto;
 class MainController extends Controller
 {
     public function checkLogin(Request $request)
@@ -44,8 +46,8 @@ class MainController extends Controller
     	}
     }
 
-    public function successLogin($id){
-    	return view('successLogin');
+    public function successLogin($id_usuario){
+    	return view('successLogin', ['usuario' => $id_usuario]);
     }
 
     public function registro(Request $request){
@@ -128,8 +130,10 @@ class MainController extends Controller
         return redirect('/')->with('mensaje', $mensaje);
     }
 
-
-    public  function crear_producto_action(Request $request){
+    public function crear_producto_view($id_usuario){
+        return view('creacion', ['usuario' => $id_usuario]);
+    }
+    public  function crear_producto_action(Request $request, $id_usuario){
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
@@ -203,6 +207,21 @@ class MainController extends Controller
         }
          //----------------------------------------------------------------------------------------------
         //Crea registro en tabla Promocion
+        app('App\Http\Controllers\PromocionController')->store($request, $id_usuario);
+
+        $promocion=Promocion::all()->where('descuento',$request->descuento)
+                                    ->where('tiempo', $request->tiempo)
+                                    ->where('id_usuarios', $id_usuario)->first();
+
+        if($promocion!=NULL){
+            $promocion_id=$promocion->id;
+        }
+        else{
+            $mensaje=$mensaje."4 ";
+            $promocion_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
          //----------------------------------------------------------------------------------------------
         //Crea registro en tabla Producto
         app('App\Http\Controllers\ProductoController')->store($request,$subcategoria_id,$medida_id);
@@ -216,15 +235,41 @@ class MainController extends Controller
             $producto_id= $producto->id;
         }
         else{
-            $mensaje=$mensaje."4 ";
+            $mensaje=$mensaje."5 ";
             $producto_id = '0';
             $falla=TRUE;
             return redirect('/crear_producto')->with('mensaje', $mensaje);
         }
          //----------------------------------------------------------------------------------------------
         //Crea registro en tabla ProductoPromocion
-         //----------------------------------------------------------------------------------------------
+        app('App\Http\Controllers\ProductoPromocionController')->store($request,$producto_id,$promocion_id);
+        $productopromocion= ProductoPromocion::all()->where('id_productos',$producto_id)
+                                                    ->where('id_promocions',$promocion_id)->first();
+
+        if($productopromocion!=NULL){
+            $productopromocion_id = $productopromocion->id;
+        }
+        else{
+            $mensaje=$mensaje."6 ";
+            $productopromocion_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+
+        //----------------------------------------------------------------------------------------------
         //Crea registro en tabla UsuarioProducto
+        app('App\Http\Controllers\UsuarioProductoController')->store($request,$id_usuario,$producto_id);
+        $usuarioproducto= UsuarioProducto::all()->where('id_producto',$producto_id)
+                                                ->where('id_usuario',$id_usuario)->first();
+        if($usuarioproducto!=NULL){
+            $usuarioproducto_id = $usuarioproducto->id;
+        }
+        else{
+            $mensaje=$mensaje."7 ";
+            $usuarioproducto_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
         //----------------------------------------------------------------------------------------------
         //Determina el mensaje
         if(!$falla){

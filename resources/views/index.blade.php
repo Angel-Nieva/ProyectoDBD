@@ -95,7 +95,7 @@
           </form>
         </div>
       </div> 
-    <div> 
+    </div> 
   </div> 
 </body>
 </html>
@@ -113,22 +113,16 @@ body{
   margin-left: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
-  min-height: 91vh;
+  min-height: 135vh;
   overflow:auto;
   background-color: #B5E48C;
-}
-.logo{
-  width:20%;
-  height:10%;
-  margin-left:auto;
-  margin-right:auto;
 }
 .row{
   height: 60vh;
 }
 .logo{
   height: 8%;
-  width: 15%;
+  width: 16%;
   display: block; 
   margin-left: auto;
   margin-right: auto;

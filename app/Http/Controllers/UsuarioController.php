@@ -73,23 +73,9 @@ class UsuarioController extends Controller
             }
         }
 
-        //Valida 'reputacion'
-        if($request->reputacion == NULL){
-            $usuario->reputacion = 0;
-            // Reputación no implementada
 
-            //$fallido=TRUE;
-            //$mensajeFallos=$mensajeFallos."- El campo 'reputacion' está vacío ";
-        }
-        if($fallido == FALSE){
-            if($request->reputacion>6 || $request->reputacion<0){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'reputación' es inválido ";
-            }
-             else{
-                $usuario->reputacion = $request->reputacion;
-            }
-        }
+        $usuario->reputacion = 0;
+
         //Valida 'email'
         if($request->email == NULL){
             $fallido=TRUE;

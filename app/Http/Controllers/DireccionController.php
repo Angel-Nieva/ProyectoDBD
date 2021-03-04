@@ -16,7 +16,7 @@ class DireccionController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request,$comuna_id,$usuario_id)
     {
         $direccion = new Direccion();
         $direccion->delete = FALSE;
@@ -24,38 +24,25 @@ class DireccionController extends Controller
         $fallido=FALSE;
         $mensajeFallos='';
 
-        if($request->id_comunas == NULL){
+        if($comuna_id == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_comunas' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_comunas)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_comunas' es inválido ";   
-            }
-            else{
-                $direccion->id_comunas = $request->id_comunas;
-            }
+        else{  
+                $direccion->id_comunas = $comuna_id;
         }
 
-        if($request->id_usuarios == NULL){
+        if($usuario_id == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_usuarios)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' es inválido ";   
-            }
-            else{
-                $direccion->id_usuarios = $request->id_usuarios;
-            }
+        else{
+            $direccion->id_usuarios = $usuario_id;
         }
+        
 
          // Verifica que el id_transaccions exista en transaccions
-        $usuario = Usuario::find($request->id_usuarios);
+        $usuario = Usuario::find($usuario_id);
         
         if(($usuario == NULL) || ($usuario->delete==TRUE)){
             return response()->json([
@@ -64,7 +51,7 @@ class DireccionController extends Controller
         }
 
          // Verifica que el id_transaccions exista en transaccions
-        $comuna = Comuna::find($request->id_comunas);
+        $comuna = Comuna::find($comuna_id);
         
         if(($comuna == NULL) || ($comuna->delete==TRUE)){
             return response()->json([

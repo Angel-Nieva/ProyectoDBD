@@ -58,7 +58,7 @@ class MainController extends Controller
             'calle' => 'required',
             'numero' => 'required',
             'telefono' => 'required',
-            'nombre_rol' => 'required',           
+            //'rol' => 'required',           
         ]);
         $falla=FALSE;
         $mensaje="";
@@ -102,24 +102,11 @@ class MainController extends Controller
             $comuna_id = '0';
             $falla=TRUE;
         }
-
-        //Lo mismo para rol
-        app('App\Http\Controllers\RolController')->store($request);
-        $rol=Rol::all()->where('nombre_rol',$request->nombre_rol)->first();
-
-        if($rol!=NULL){
-            $rol_id = $rol->id;
-        }
-        else{
-            $mensaje=$mensaje."3 ";
-            $rol_id = '0';
-            $falla=TRUE;
-        }
         
         
         //creacion y comprobacion Direccion
-        app('App\Http\Controllers\DireccionController')->store($request);
-        /*$direccion=Direccion::all()->where('id_usuarios',$request->id_usuarios)->where('id_comunas',$request->id_comunas)->first();
+        app('App\Http\Controllers\DireccionController')->store($request,$comuna_id,$usuario_id);
+        $direccion=Direccion::all()->where('id_usuarios',$usuario_id)->where('id_comunas',$comuna_id)->first();
 
         if($direccion!=NULL){
             $direccion_id = $direccion->id;
@@ -128,7 +115,7 @@ class MainController extends Controller
             $mensaje=$mensaje."3 ";
             $direccion_id = '0';
             $falla=TRUE;
-        }*/
+        }
 
         //Determina el mensaje
         if(!$falla){
@@ -139,71 +126,6 @@ class MainController extends Controller
         }
         
         return redirect('/')->with('mensaje', $mensaje);
-    }
-    public  function crear_producto_action(Request $request){
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'precio' => 'required',
-            'tipo' => 'required',
-            'cantidad' => 'required',
-            'stock' => 'required',
-            'descuento' => 'required',
-            'tiempo' => 'required',
-            'nombre_categoria' => 'required',
-            'descripcion_categoria' => 'required',
-            'nombre_subcategoria' => 'required',
-            'descripcion_subcategoria' => 'required',           
-        ]);
-        $falla=FALSE;
-        $mensaje="";
-
-        //Crea registro en tabla UnidadesMedida
-        app('App\Http\Controllers\UnidadesMedidaController')->store($request);
-        
-        //Busca el registro en UnidadesMedida recién creado
-        $medida=UnidadesMedida::all()->where('tipo',$request->tipo)
-                                    ->where('cantidad', $request->cantidad)->first();
-
-        //$determina si realmente se creó y toma el id
-        if($medida!=NULL){
-            $medida_id = $medida->id;
-        }
-        else{
-            $mensaje=$mensaje."1 ";
-            $medida_id = '0';
-            $falla=TRUE;
-            return redirect('/')->with('mensaje', $mensaje);
-        }
-
-        //Crea registro en tabla Categoria
-        app('App\Http\Controllers\CategoriaController')->store($request);
-        
-        //Busca el registro en Categoria recién creado
-        $categoria=Categoria::all()->where('nombre_categoria',$request->nombre_categoria)
-                                    ->where('descripcion_categoria', $request->descripcion_categoria)->first();
-
-        //$determina si realmente se creó y toma el id
-        if($categoria!=NULL){
-            $categoria_id = $categoria->id;
-        }
-        else{
-            $mensaje=$mensaje."2 ";
-            $categoria_id = '0';
-            $falla=TRUE;
-            return redirect('/')->with('mensaje', $mensaje);   
-
-        //Determina el mensaje
-        if(!$falla){
-            $mensaje=$mensaje.'Se ha creado el producto ';   
-        }
-        else{
-            $mensaje=$mensaje.'Hubo problemas';
-        }
-        
-        return redirect('/')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
-        }
-
     }
 
 }

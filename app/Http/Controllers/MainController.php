@@ -128,5 +128,114 @@ class MainController extends Controller
         return redirect('/')->with('mensaje', $mensaje);
     }
 
+
+    public  function crear_producto_action(Request $request){
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
+            'tipo' => 'required',
+            'cantidad' => 'required',
+            'stock' => 'required',
+            'descuento' => 'required',
+            'tiempo' => 'required',
+            'nombre_categoria' => 'required',
+            'descripcion_categoria' => 'required',
+            'nombre_subcategoria' => 'required',
+            'descripcion_subcategoria' => 'required',           
+        ]);
+        $falla=FALSE;
+        $mensaje="";
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla UnidadesMedida
+        app('App\Http\Controllers\UnidadesMedidaController')->store($request);
+        
+        //Busca el registro en UnidadesMedida recién creado
+        $medida=UnidadesMedida::all()->where('tipo',$request->tipo)
+                                    ->where('cantidad', $request->cantidad)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($medida!=NULL){
+            $medida_id = $medida->id;
+        }
+        else{
+            $mensaje=$mensaje."1 ";
+            $medida_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Categoria
+        app('App\Http\Controllers\CategoriaController')->store($request);
+        
+        //Busca el registro en Categoria recién creado
+        $categoria=Categoria::all()->where('nombre_categoria',$request->nombre_categoria)
+                                    ->where('descripcion_categoria', $request->descripcion_categoria)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($categoria!=NULL){
+            $categoria_id = $categoria->id;
+        }
+        else{
+            $mensaje=$mensaje."2 ";
+            $categoria_id = '0';
+            $falla=TRUE;
+            return  redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla subcategoria
+        app('App\Http\Controllers\SubcategoriaController')->store($request,$categoria_id);
+
+        //Busca el registro en Subcategoria recién creado
+        $subcategoria=Subcategoria::all()->where('nombre_subcategoria',$request->nombre_subcategoria)
+                                    ->where('descripcion_subcategoria', $request->descripcion_subcategoria)
+                                    ->where('id_categorias',$categoria_id)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($subcategoria!=NULL){
+            $subcategoria_id = $subcategoria->id;
+        }
+        else{
+            $mensaje=$mensaje."3 ";
+            $subcategoria_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Promocion
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Producto
+        app('App\Http\Controllers\ProductoController')->store($request,$subcategoria_id,$medida_id);
+
+        $producto=Producto::all()->where('nombre',$request->nombre)
+                                ->where('descripcion',$request->descripcion)
+                                ->where('id_subcategorias',$subcategoria_id)
+                                ->where('id_unidades_medidas',$medida_id)->first();
+
+        if($producto!=NULL){
+            $producto_id= $producto->id;
+        }
+        else{
+            $mensaje=$mensaje."4 ";
+            $producto_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla ProductoPromocion
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla UsuarioProducto
+        //----------------------------------------------------------------------------------------------
+        //Determina el mensaje
+        if(!$falla){
+            $mensaje=$mensaje.'Se ha creado el producto ';   
+        }
+        else{
+            $mensaje=$mensaje.'Hubo problemas';
+        }
+        
+        return redirect('/crear_producto')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
+
+    }
 }
 

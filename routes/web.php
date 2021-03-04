@@ -101,14 +101,14 @@ Route::delete('/categorias/delete/{id}','CategoriaController@destroy');
 
 //rutas de 'productos'
 Route::get('/productos','ProductoController@index');
-Route::post('/productos/create','ProductoController@store');
+Route::post('/productos/create/{id_subcategoria}/{id_unidades_medida}','ProductoController@store');
 Route::get('/productos/{id}','ProductoController@show');
 Route::put('/productos/update/{id}','ProductoController@update');
 Route::delete('/productos/delete/{id}','ProductoController@destroy');
 
 //rutas de 'subcategorias'
 Route::get('/subcategorias','SubcategoriaController@index');
-Route::post('/subcategorias/create','SubcategoriaController@store');
+Route::post('/subcategorias/create/{id_categoria}','SubcategoriaController@store');
 Route::get('/subcategorias/{id}','SubcategoriaController@show');
 Route::put('/subcategorias/update/{id}','SubcategoriaController@update');
 Route::delete('/subcategorias/delete/{id}','SubcategoriaController@destroy');

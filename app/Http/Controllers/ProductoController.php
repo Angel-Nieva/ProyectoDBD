@@ -24,7 +24,7 @@ class ProductoController extends Controller
     }
 
     //Crear una nueva tupla (post)
-    public function store(Request $request)
+    public function store(Request $request, $id_subcategoria, $id_unidades_medida)
     {
        $producto = new Producto();
        $producto->delete = FALSE;
@@ -48,45 +48,32 @@ class ProductoController extends Controller
             $producto->descripcion = $request->descripcion;
        }
        //valida que id_subcategorias sea no nulo
-       if($request->id_subcategorias == NULL){
+       if($id_subcategoria == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_subcategorias)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_subcategorias' es inválido ";   
-            }
-            else{
-                $producto->id_subcategorias = $request->id_subcategorias;
-            }
+        else{
+            $producto->id_subcategorias= $id_subcategoria;
         }
 
         //Valida que id existe en subcategorias
-        $subcategoria = Subcategoria::find($request->id_subcategorias);
+        $subcategoria = Subcategoria::find($id_subcategoria);
         if(($subcategoria == NULL) || ($subcategoria->delete==TRUE)){
             return response()->json([
                 "message" => "El dato en 'subcategoria' no existe"
             ]);
         }
         //Valida que id_unidades_medidas no es nulo
-        if($request->id_unidades_medidas == NULL){
+        if($id_unidades_medida == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_unidades_medidas)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_unidades_medidas' es inválido ";   
-            }
-            else{
-                $producto->id_unidades_medidas = $request->id_unidades_medidas;
-            }
+        else{
+            $producto->id_unidades_medidas= $id_unidades_medida;
         }
+
         //Valida que id existe en unidades_medidas
-        $unidades_medidas = UnidadesMedida::find($request->id_unidades_medidas);
+        $unidades_medidas = UnidadesMedida::find($id_unidades_medida);
         if(($unidades_medidas == NULL) || ($unidades_medidas->delete==TRUE)){
             return response()->json([
                 "message" => "El dato en 'unidades_medidas' no existe"

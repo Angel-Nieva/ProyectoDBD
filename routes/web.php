@@ -52,7 +52,7 @@ Route::delete('/rols/delete/{id}','RolController@destroy');
 
 //rutas de 'direccions'
 Route::get('/direccions','DireccionController@index');
-Route::post('/direccions/create','DireccionController@store');
+Route::post('/direccions/create/{comuna_id}/{usuario_id}','DireccionController@store');
 Route::get('/direccions/{id}','DireccionController@show');
 Route::put('/direccions/update/{id}','DireccionController@update');
 Route::delete('/direccions/delete/{id}','DireccionController@destroy');

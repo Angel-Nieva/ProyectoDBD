@@ -31,7 +31,7 @@
             <label for="email">Correo electrónico:</label>
             <input type="text" value="" name="email" placeholder="Ingrese su correo electrónico">
             <label for="contraseña">Contraseña:</label>
-            <input type="contraseña" value="" name="contraseña" placeholder="Ingrese su contraseña">
+            <input type="password" value="" name="contraseña" placeholder="Ingrese su contraseña">
             <input type="submit" class="btn btn-primary" value="Ingresar">
           </form>
         </div>
@@ -67,20 +67,7 @@
             <input type="text" value="" name="telefono" placeholder="Ingrese un número de teléfono">
             
             <label for="password">Contraseña:</label>
-            <input type="text" value="" name="contraseña" placeholder="Escoja una contraseña">
-            
-            <!-- <div class="form-check form-check-inline center">
-                <input class="form-check-input" type="radio" value="comprador" name="rol" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Comprador
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" value="feriante" name="rol" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                  Feriante
-                </label>
-              </div>-->
+            <input type="password" value="" name="contraseña" placeholder="Escoja una contraseña">
             <label for="nombre_rol">Escoja un rol:</label>
             <select display="block" value= "" name="nombre_rol" id="nombre_rol">
             <option value="Cliente">Cliente</option>
@@ -113,7 +100,7 @@ body{
   margin-left: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
-  min-height: 135vh;
+  min-height: 140vh;
   overflow:auto;
   background-color: #B5E48C;
 }

@@ -29,7 +29,13 @@ class UsuarioController extends Controller
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'rut' está vacío ";
         }
-        $arrayRut = explode("-", $request->rut);
+        if((strpos($request->rut,'.') == FALSE)){
+            $arrayRut = explode("-", $request->rut);
+        }
+        else{
+            $fallido=TRUE;
+            $mensajeFallos='El rut ingresado es invalido';
+        }
         if($fallido == FALSE){    
             if((is_numeric($arrayRut[0]) == FALSE)|| ((is_numeric($arrayRut[1]) == FALSE) && ($arrayRut[1] != 'k') && ($arrayRut[1] != 'K')) ){
                 $fallido=TRUE;

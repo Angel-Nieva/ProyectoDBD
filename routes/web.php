@@ -24,6 +24,12 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/carrito', function () {
+    return view('carrito');
+});
+Route::get('/pago', function () {
+    return view('pago');
+});
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');

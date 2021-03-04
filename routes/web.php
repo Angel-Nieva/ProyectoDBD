@@ -28,6 +28,7 @@ Route::get('/home', function () {
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');
 Route::post('/main/registro', 'MainController@registro')->name('registro');
+Route::post('/main/crear_producto_action', 'MainController@crear_producto_action')->name('crear_producto');
 
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');

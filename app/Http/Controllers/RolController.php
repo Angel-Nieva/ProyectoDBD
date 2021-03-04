@@ -16,12 +16,12 @@ class RolController extends Controller
     public function store(Request $request)
     {
        $rol = new Rol();
-       $rol->nombre = $request->nombre;
+       $rol->nombre_rol = $request->nombre_rol;
        $rol->delete = FALSE;
        
-       if($rol->nombre == NULL){
+       if($rol->nombre_rol == NULL){
             return response()->json([
-                "message" => "El campo 'nombre' está vacío"
+                "message" => "El campo 'nombre_rol' está vacío"
             ]);
        }
        else{
@@ -74,13 +74,13 @@ class RolController extends Controller
                 "message" => "El dato no existe"
             ]);
         }
-        //Valida que 'nombre' no esté vacío
-        if ($request->nombre == NULL){
+        //Valida que 'nombre_rol' no esté vacío
+        if ($request->nombre_rol == NULL){
             return response()->json([
-                "message" => "El campo 'nombre' está vacío"
+                "message" => "El campo 'nombre_rol' está vacío"
             ]);
         }
-        $rol->nombre = $request->nombre;
+        $rol->nombre_rol = $request->nombre_rol;
         $rol->delete = FALSE;
         $rol->save();
         return response()->json([

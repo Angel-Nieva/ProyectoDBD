@@ -69,7 +69,7 @@
             <label for="password">Contraseña:</label>
             <input type="text" value="" name="contraseña" placeholder="Escoja una contraseña">
             
-              <div class="form-check form-check-inline center">
+            <!-- <div class="form-check form-check-inline center">
                 <input class="form-check-input" type="radio" value="comprador" name="rol" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Comprador
@@ -80,7 +80,12 @@
                 <label class="form-check-label" for="flexRadioDefault2">
                   Feriante
                 </label>
-              </div>
+              </div>-->
+            <label for="nombre_rol">Escoja un rol:</label>
+            <select display="block" value= "" name="nombre_rol" id="nombre_rol">
+            <option value="Cliente">Cliente</option>
+            <option value="Feriante">Feriante</option>
+            </select>
             @if(session()->has('mensaje'))
               <div class="alert alert-success">
                   {{ session()->get('mensaje') }}
@@ -153,7 +158,7 @@ label {
   display: block;
 }
 
-input{
+input, select{
   margin-left: 15%;
   width: 70%;
   margin-bottom: 2%;

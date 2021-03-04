@@ -37,7 +37,14 @@
     </nav> 
     <div class="container-fluid">
         <h1>Creación de productos</h1>
-        <form>
+        @if (count($errors) > 0)
+            <div class="alert-danger">
+              <ul> 
+                <li><p>Error en el ingreso de datos de producto</p></li>
+              </ul>
+            </div>
+          @endif 
+        <form action="{{route('crear_producto')}}" method='POST'>
             <label for="nombre_producto">Nombre del producto</label>
             <input type="text" value="" name="nombre" placeholder="Ingrese el nombre del producto">
             <label for="descripcion">Descripción</label>
@@ -45,8 +52,11 @@
             <label for="precio">Precio</label>
             <input type="text" value="" name="precio" placeholder="Ingrese el precio">
             
+            <!--<label for="medida">Indique la unidad de medida (kilo o litro):</label>
+            <input type="text" value="" name="tipo" placeholder="Ingrese la unidad de medida">-->
+            
             <label for="medida">Indique el tipo de medida:</label>
-            <select name="medida" id="medida">
+            <select name="tipo" id="medida">
             <option value="kilo">Kilo</option>
             <option value="litro">Litro</option>
             </select>
@@ -75,6 +85,12 @@
             <label for="descripcion_subcategoria">Descripción de la subcategoría</label>
             <input type="text" value="" name="descripcion_subcategoria" placeholder="Ingrese la descripción">
             
+            @if(session()->has('mensaje'))
+              <div class="alert alert-success">
+                  {{ session()->get('mensaje') }}
+              </div>
+            @endif
+
             <input type="submit" value="Aceptar"><br>
         </form>
     </div>    

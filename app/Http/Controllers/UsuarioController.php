@@ -83,7 +83,7 @@ class UsuarioController extends Controller
         }
 
         if(((strpos($request->email,'.') == FALSE) || (strpos($request->email,'@') == FALSE) ||
-            (substr_count($request->email,'.')>1) || (substr_count($request->email,'@')>1))
+            (substr_count($request->email,'@')>1))
             && ($fallido == FALSE))
         {
             $fallido=TRUE;
@@ -93,7 +93,7 @@ class UsuarioController extends Controller
         if($fallido == FALSE){
             $explodeEmailArroba = explode("@", $request->email);
             $explodeEmailPunto = explode(".", $explodeEmailArroba[1]);
-            if((count($explodeEmailArroba)>2) || (count($explodeEmailPunto)>2)){
+            if(count($explodeEmailArroba)>2){
                 $fallido=TRUE;
                 $mensajeFallos=$mensajeFallos."- El campo 'email' es inválido ";
             }

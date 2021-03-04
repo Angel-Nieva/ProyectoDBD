@@ -63,50 +63,52 @@
               </div>
             </div>
             <div class="panel-body">
-              @foreach($producto as $producto)
-                <a class="dropdown-item" href="#">{{ $producto->precio }}</a>
-              @endforeach
-              <div class="row">
-                <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
-                </div>
-                <div class="col-xs-4">
-                  <h4 class="product-name"><strong>Nombre producto</strong></h4><h4><small>descripcion</small></h4>
-                </div>
-                <div class="col-xs-6">
-                  <div class="col-xs-6 text-right">
-                    <h6><strong>32.000 <span class="text-muted">x</span></strong></h6>
-                  </div>
-                  <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" value="1">
-                  </div>
-                  <div class="col-xs-2">
-                    <button type="button" class="btn btn-link btn-xs">
-                      <span class="glyphicon glyphicon-trash"> </span>
-                    </button>
-                  </div>
-                </div>
+              
+              <div style="padding-left:50px">
+
+                <table class="table table-hover shopping-cart-wrap" style="width:100%">
+                    <thead class="text-muted">
+                        <tr>
+                            <th scope="col" width="120">Producto</th>
+                            <th scope="col" width="80">Descripcion</th>
+                            <th scope="col" width="80">Precio</th>
+                            <th scope="col" width="80">Cantidad</th>
+                            <th scope="col" width="100" class="center">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($producto as $prod)
+                        <tr>
+                            <td>
+                                <figure class="media">
+                                    <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
+                                    <figcaption class="media-body">   
+                                    </figcaption>
+                                </figure>
+                                <h6 class="title text-truncate">{{ $prod->nombreProducto}} </h6>
+                                        <dl class="param param-inline small">
+                                            <dt>Descripción: </dt>
+                                        <dd>{{ $prod->description}}</dd>
+                                        </dl>
+                                        
+                            </td>
+                            <td> 
+                                <div class="price-wrap"> 
+                                    <var class="precio"> CL ${{ $prod->precio}}</var> 
+                                    <small class="text-muted"></small> 
+                                </div> 
+                            </td>
+                            <td class="center">  
+                                <a href="#" class="btn botonborrar " type=""> × Eliminar</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                      </tbody>  
+                </table>
+                        <hr>
+                          
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
-                </div>
-                <div class="col-xs-4">
-                  <h4 class="product-name"><strong>Nombre producto2</strong></h4><h4><small>descripcion</small></h4>
-                </div>
-                <div class="col-xs-6">
-                  <div class="col-xs-6 text-right">
-                    <h6><strong>32.000 <span class="text-muted">x</span></strong></h6>
-                  </div>
-                  <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" value="1">
-                  </div>
-                  <div class="col-xs-2">
-                    <button type="button" class="btn btn-link btn-xs">
-                      <span class="glyphicon glyphicon-trash"> </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+            </div>
               <hr>
               <div class="row">
                 <div class="text-center">

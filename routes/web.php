@@ -39,11 +39,14 @@ Route::get('/pago', function () {
 Route::get('/actualizar', function () {
     return view('actualizar');
 });
+<<<<<<< Updated upstream
 
 Route::get('/successLogin', function () {
     return view('successLogin');
 });
 
+=======
+>>>>>>> Stashed changes
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');

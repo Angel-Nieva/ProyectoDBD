@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/index', function () {
+    return view('index');
+});
+
 Route::get('/crear_producto', function () {
     return view('creacion');
 });
@@ -30,6 +35,15 @@ Route::get('/carrito', function () {
 Route::get('/pago', function () {
     return view('pago');
 });
+
+Route::get('/actualizar', function () {
+    return view('actualizar');
+});
+
+Route::get('/successLogin', function () {
+    return view('successLogin');
+});
+
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');

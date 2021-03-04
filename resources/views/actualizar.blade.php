@@ -12,8 +12,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital@1&display=swap" rel="stylesheet">   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body class="container-fluid">
-    
+<body>
+  <nav class="navbar navbar-expand-lg">        
+    <div class="container">
+              <a class="navbar-brand" href="home"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo2"
+                      alt="logo sitio"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <ion-icon name="menu-sharp"></ion-icon>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item letra" id="cuenta">
+                          <h2>
+                              <a class="nav-link" aria-current="page" href="actualizar">Cuenta</a>
+                          </h2>
+                      </li>
+                      <li class="nav-item letra" id="cuenta">
+                          <h2>
+                              <a class="nav-link" aria-current="page" href="carrito">Carrito</a>
+                          </h2>
+                      </li>
+                      <li class="nav-item letra salir"  id="salida">
+                          <h2>
+                              <a class="nav-link" href="index">Salir</a>
+                          </h2>
+                      </li>
+                  </ul>
+              </div>
+      </div>
+  </nav>  
   <div class="wrapper">
     <div class="container-fluid">
         <img class="logo" src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" alt="Logo DeliFeria" >
@@ -60,6 +89,10 @@ body{
   margin-left:auto;
   margin-right:auto;
 }
+.logo2 {
+        min-width: 120px;
+        max-width: 140px;
+    }
 .row{
   height: 60vh;
 }
@@ -103,5 +136,24 @@ input[type="submit"] {
   font-size: 18px;
   border-radius: 20px;
 }
+  .navbar-toggler { font-size: 40px;}
+  .navbar-toggler:focus { outline:none}
+  .nav-link{
+    border: solid;
+    border-color: #52B69A;
+    border-radius: 20px;
+    background-color: #117CF6;
+    color:white;
+  }
+
+  .nav-link:hover {
+    color: #1a1a1a
+  }
+
+  .navbar {
+    background-color: #B5E48C;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    min-height: 100px;
+  }
 
 </style>

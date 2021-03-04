@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">        
         <div class="container">
-            <a class="navbar-brand" href="#"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
+            <a class="navbar-brand" href="home"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
                     alt="logo sitio"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -31,12 +31,17 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id="cuenta">
                         <h2>
-                            <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
+                            <a class="nav-link" aria-current="page" href="actualizar">Cuenta</a>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id="cuenta">
+                        <h2>
+                            <a class="nav-link" aria-current="page" href="carrito">Carrito</a>
                         </h2>
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href="#">Salir</a>
+                            <a class="nav-link" href="index">Salir</a>
                         </h2>
                     </li>
                 </ul>
@@ -52,15 +57,15 @@
                 <img class="logoPerfil" src="https://www.pikpng.com/pngl/b/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" alt="Logo perfil" >
                     <form>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" placeholder="#">
+                        <input type="text" {{ $usuario ?? '' }}> 
                         <label for="rol">Rol:</label>
-                        <input type="text" placeholder="#">
+                        <input type="text" {{ $usuario ?? '' }}>
                         <label for="rut">Rut:</label>
-                        <input type="text" placeholder="#">            
+                        <input type="text" {{ $usuario ?? '' }}>            
                         <label for="email">Email:</label>
-                        <input type="text" placeholder="#">
+                        <input type="text" {{ $usuario ?? '' }}>
                         <label for="reputacion">Reputacion:</label>
-                        <input type="text" placeholder="#">
+                        <input type="text" {{ $usuario ?? '' }}>
             
                     </form>                   
                 </div>

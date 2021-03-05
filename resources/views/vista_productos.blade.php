@@ -23,13 +23,13 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id='ver_productos'>
                         <h2>
-                            <form action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
+                            <form class='boton' action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
                             <input type="submit" value="Ver productos"></form>
                         </h2>
                     </li>
                     <li class="nav-item letra" id='creacion'>
                         <h2>
-                            <form action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
+                            <form class='boton' action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
                             <input type="submit" value="Crear Producto"></form>
                         </h2>
                     </li>
@@ -69,9 +69,51 @@
     }
     .container-fluid {
         background-color: #B5E48C;
-        width: 80%;
+        width: 50%;
         margin-top: 1%;
     }
+
+    .logo {
+        min-width: 120px;
+        max-width: 140px;
+    }
+    a{
+        color: black;
+    }
+    h1{
+        text-align: center;
+        font-weight: bold;
+    }
+    .row{
+        background-color: #B5E48C;
+    }
+    label{
+        margin-left: 15%;
+        padding: 0;
+        font-weight: bold;
+        display:block;
+        font-size: 20px;
+    }
+    select, input{
+        margin-left: 15%;
+        width: 60%;
+        margin-bottom: 1%;
+    }
+    .boton{
+        margin:10%;
+        width:30vh;
+    }
+    input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 4%;
+        background: #117CF6;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 20px;
+        display:block;
+    }
+
     .navbar-toggler { font-size: 40px;}
     .navbar-toggler:focus { outline:none}
     .nav-link{
@@ -90,15 +132,6 @@
         background-color: #B5E48C;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
         min-height: 100px;
-    }
-    .logo {
-        min-width: 120px;
-        max-width: 140px;
-    }
-    .row{
-        background-color: #B5E48C;
-    }
-    h1{
-        text-align: center;
-    }
+    } 
+
 </style>

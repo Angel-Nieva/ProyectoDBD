@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeliFeria</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>DeliFeria</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
-  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">        
@@ -21,6 +21,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item letra" id='ver_productos'>
+                        <h2>
+                            <form class='boton' action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
+                            <input type="submit" value="Ver productos"></form>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id='creacion'>
+                        <h2>
+                            <form class='boton'action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
+                            <input type="submit" value="Crear Producto"></form>
+                        </h2>
+                    </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
                             <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
@@ -28,7 +40,7 @@
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href="/">Salir</a>
+                            <a class="nav-link" href='/'>Salir</a>
                         </h2>
                     </li>
                 </ul>
@@ -134,6 +146,10 @@
         margin-left: 15%;
         width: 60%;
         margin-bottom: 1%;
+    }
+    .boton{
+        margin:10%;
+        width:30vh;
     }
     input[type="submit"] {
         border: none;

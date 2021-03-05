@@ -40,6 +40,12 @@
                 </label>
               </div>
               </div>
+              @foreach($metododepago as $metodo)
+              {{ $metodo->nombre}}
+              {{ $metodo->cuenta}}
+              {{ $metodo->banco}}
+              {{ $metodo->tipo_tarjeta}}
+              @endforeach
               <div class="credit rounded mt-2 d-flex justify-content-between align-items-center">
                   <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="70">
                       <div class="d-flex flex-column ml-3"> <span class="business">Tarjeta de Débito</span> <span class="plan">2344 XXXX XXXX 8880</span> </div>
@@ -74,7 +80,7 @@
                     <option value="Banco BCI">Banco BCI</option>
                     </select>
                 </div>
-                <input type="submit" class="btn btn-primary" value="Ingresar">
+                <input type="submit" class="btn btn-primary" value="PAGAR">
 
               </form>
           </div>

@@ -85,11 +85,10 @@
                                     <figcaption class="media-body">   
                                     </figcaption>
                                 </figure>
-                                <h6 class="title text-truncate">{{ $prod->nombreProducto}} </h6>
-                                        <dl class="param param-inline small">
-                                            <dt>Descripción: </dt>
-                                        <dd>{{ $prod->description}}</dd>
-                                        </dl>
+                                <h6 class="title text-truncate"> {{ $prod->nombreProducto}} </h6>
+                                  <dl class="param param-inline small">
+                                  <dd>{{ $prod->descripcion}}</dd>
+                                  </dl>
                                         
                             </td>
                             <td> 
@@ -99,11 +98,11 @@
                                 </div> 
                             </td>
                             <td class="center">  
-                                <a href="#" class="btn botonborrar " type=""> × Eliminar</a>
+                                <a href="#" class="btn botonborrar " type=""> X </a>
                             </td>
                         </tr>
                         @endforeach
-                      </tbody>  
+                    </tbody>  
                 </table>
                         <hr>
                           
@@ -112,9 +111,6 @@
               <hr>
               <div class="row">
                 <div class="text-center">
-                  <div class="col-xs-9">
-                    <h6 class="text-right">Added items?</h6>
-                  </div>
                   <div class="col-xs-3">
                     <button type="button" class="btn btn-default btn-sm btn-block">
                       Actualizar carro

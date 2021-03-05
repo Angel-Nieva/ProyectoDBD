@@ -28,7 +28,7 @@
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href="#">Salir</a>
+                            <a class="nav-link" href="/">Salir</a>
                         </h2>
                     </li>
                 </ul>
@@ -44,7 +44,7 @@
               </ul>
             </div>
           @endif 
-        <form action="{{action('MainController@crear_producto_action','2')}}" method='POST'>
+        <form action="{{action('MainController@crear_producto_action', ['id_usuario'=>$usuario])}}" method='POST'>
             <label for="nombre_producto">Nombre del producto</label>
             <input type="text" value="" name="nombre" placeholder="Ingrese el nombre del producto">
             <label for="descripcion">Descripción</label>

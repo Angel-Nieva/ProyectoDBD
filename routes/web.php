@@ -48,8 +48,8 @@ Route::get('/successLogin', function () {
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id_usuario}', 'MainController@successLogin')->name('successLogin');
 Route::post('/main/registro', 'MainController@registro')->name('registro');
-Route::post('/main/crear_producto_view', 'MainController@crear_producto_view');
-Route::post('/main/crear_producto_action/{id_usuario}', 'MainController@crear_producto_action');
+Route::post('/main/crear_producto_view/{id_usuario}', 'MainController@crear_producto_view');
+Route::post('/main/crear_producto_action/{id_usuario}', 'MainController@crear_producto_action')->name('crear_producto_action');
 
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');

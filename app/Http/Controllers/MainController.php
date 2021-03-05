@@ -47,7 +47,7 @@ class MainController extends Controller
     }
 
     public function successLogin($id_usuario){
-    	return view('successLogin', ['usuario' => $id_usuario]);
+    	return view('successLogin')->with('usuario',$id_usuario);
     }
 
     public function registro(Request $request){
@@ -131,7 +131,7 @@ class MainController extends Controller
     }
 
     public function crear_producto_view($id_usuario){
-        return view('creacion', ['usuario' => $id_usuario]);
+        return view('creacion')->with('usuario',$id_usuario);
     }
     public  function crear_producto_action(Request $request, $id_usuario){
         $request->validate([
@@ -278,8 +278,9 @@ class MainController extends Controller
         else{
             $mensaje=$mensaje.'Hubo problemas';
         }
+        return app('App\Http\Controllers\MainController')->crear_producto_view($id_usuario);
         
-        return redirect('/crear_producto')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
+        //return redirect('/crear_producto')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
 
     }
 }

@@ -21,6 +21,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item letra" id='creacion'>
+                        <h2>
+                            <form action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
+                            <input type="submit" value="Crear Producto"></form>
+                        </h2>
+                    </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
                             <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
@@ -28,7 +34,7 @@
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href="#">Salir</a>
+                            <a class="nav-link" href='/'>Salir</a>
                         </h2>
                     </li>
                 </ul>

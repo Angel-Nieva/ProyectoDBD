@@ -18,6 +18,7 @@ use App\Models\Promocion;
 use App\Models\ProductoPromocion;
 use Validator;
 use App\Models\UsuarioProducto;
+use App\Models\RolUsuario;
 class MainController extends Controller
 {
     public function checkLogin(Request $request)
@@ -60,7 +61,7 @@ class MainController extends Controller
             'calle' => 'required',
             'numero' => 'required',
             'telefono' => 'required',
-            //'rol' => 'required',           
+            'nombre_rol' => 'required',           
         ]);
         $falla=FALSE;
         $mensaje="";
@@ -92,7 +93,7 @@ class MainController extends Controller
             return redirect('/')->with('mensaje', $mensaje);
         }
 
-        //Lo mismo para comuna
+        //creacion y comprobacion Comuna
         app('App\Http\Controllers\ComunaController')->store($request);
         $comuna=Comuna::all()->where('comuna',$request->comuna)->first();
 
@@ -104,7 +105,18 @@ class MainController extends Controller
             $comuna_id = '0';
             $falla=TRUE;
         }
-        
+        //creacion y comprobacion Rol
+        app('App\Http\Controllers\RolController')->store($request);
+        $rol=Rol::all()->where('nombre_rol',$request->nombre_rol)->first();
+
+        if($comuna!=NULL){
+            $rol_id = $rol->id;
+        }
+        else{
+            $mensaje=$mensaje."3 ";
+            $rol_id = '0';
+            $falla=TRUE;
+        }
         
         //creacion y comprobacion Direccion
         app('App\Http\Controllers\DireccionController')->store($request,$comuna_id,$usuario_id);
@@ -114,11 +126,24 @@ class MainController extends Controller
             $direccion_id = $direccion->id;
         }
         else{
-            $mensaje=$mensaje."3 ";
+            $mensaje=$mensaje."4 ";
             $direccion_id = '0';
             $falla=TRUE;
         }
 
+        //creacion y comprobacion RolUsuario
+        app('App\Http\Controllers\RolUsuarioController')->store($request,$rol_id,$usuario_id);
+        $rolusuario=RolUsuario::all()->where('id_usuarios',$usuario_id)
+                                    ->where('id_rols',$rol_id)->first();
+
+        if($rolusuario!=NULL){
+            $rolusuario_id = $rolusuario->id;
+        }
+        else{
+            $mensaje=$mensaje."5 ";
+            $rolusuario_id = '0';
+            $falla=TRUE;
+        }
         //Determina el mensaje
         if(!$falla){
             $mensaje=$mensaje.'Se ha creado la cuenta id:'.$usuario_id;   

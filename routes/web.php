@@ -88,7 +88,7 @@ Route::delete('/permiso_rols/delete/{id}','PermisoRolController@destroy');
 
 //rutas de 'rol_usuarios'
 Route::get('/rol_usuarios','RolUsuarioController@index');
-Route::post('/rol_usuarios/create','RolUsuarioController@store');
+Route::post('/rol_usuarios/create/{id_rols}/{id_usuarios}','RolUsuarioController@store');
 Route::get('/rol_usuarios/{id}','RolUsuarioController@show');
 Route::put('/rol_usuarios/update/{id}','RolUsuarioController@update');
 Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');

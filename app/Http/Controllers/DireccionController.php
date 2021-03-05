@@ -50,7 +50,7 @@ class DireccionController extends Controller
             ]);
         }
 
-         // Verifica que el id_transaccions exista en transaccions
+        
         $comuna = Comuna::find($comuna_id);
         
         if(($comuna == NULL) || ($comuna->delete==TRUE)){

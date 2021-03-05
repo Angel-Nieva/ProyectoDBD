@@ -49,9 +49,10 @@ Route::get('/successLogin', function () {
 >>>>>>> Stashed changes
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
-Route::get('/main/successLogin/{id}', 'MainController@successLogin')->name('successLogin');
+Route::get('/main/successLogin/{id_usuario}', 'MainController@successLogin')->name('successLogin');
 Route::post('/main/registro', 'MainController@registro')->name('registro');
-Route::post('/main/crear_producto_action', 'MainController@crear_producto_action')->name('crear_producto');
+Route::post('/main/crear_producto_view/{id_usuario}', 'MainController@crear_producto_view');
+Route::post('/main/crear_producto_action/{id_usuario}', 'MainController@crear_producto_action')->name('crear_producto_action');
 
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');
@@ -90,7 +91,7 @@ Route::delete('/permiso_rols/delete/{id}','PermisoRolController@destroy');
 
 //rutas de 'rol_usuarios'
 Route::get('/rol_usuarios','RolUsuarioController@index');
-Route::post('/rol_usuarios/create','RolUsuarioController@store');
+Route::post('/rol_usuarios/create/{id_rols}/{id_usuarios}','RolUsuarioController@store');
 Route::get('/rol_usuarios/{id}','RolUsuarioController@show');
 Route::put('/rol_usuarios/update/{id}','RolUsuarioController@update');
 Route::delete('/rol_usuarios/delete/{id}','RolUsuarioController@destroy');
@@ -104,14 +105,14 @@ Route::delete('/categorias/delete/{id}','CategoriaController@destroy');
 
 //rutas de 'productos'
 Route::get('/productos','ProductoController@index');
-Route::post('/productos/create','ProductoController@store');
+Route::post('/productos/create/{id_subcategoria}/{id_unidades_medida}','ProductoController@store');
 Route::get('/productos/{id}','ProductoController@show');
 Route::put('/productos/update/{id}','ProductoController@update');
 Route::delete('/productos/delete/{id}','ProductoController@destroy');
 
 //rutas de 'subcategorias'
 Route::get('/subcategorias','SubcategoriaController@index');
-Route::post('/subcategorias/create','SubcategoriaController@store');
+Route::post('/subcategorias/create/{id_categoria}','SubcategoriaController@store');
 Route::get('/subcategorias/{id}','SubcategoriaController@show');
 Route::put('/subcategorias/update/{id}','SubcategoriaController@update');
 Route::delete('/subcategorias/delete/{id}','SubcategoriaController@destroy');
@@ -153,7 +154,7 @@ Route::delete('/puestos_ferias/delete/{id}','PuestosFeriaController@destroy');
 
 //rutas de 'promociones'
 Route::get('/promociones','PromocionController@index');
-Route::post('/promociones/create','PromocionController@store');
+Route::post('/promociones/create/{id_usuario}','PromocionController@store');
 Route::get('/promociones/{id}','PromocionController@show');
 Route::put('/promociones/update/{id}','PromocionController@update');
 Route::delete('/promociones/delete/{id}','PromocionController@destroy');
@@ -196,7 +197,7 @@ Route::delete('/usuario_transaccion/delete/{id}','UsuarioTransaccionController@d
 
 //rutas de 'usuario_producto'
 Route::get('/usuario_producto','UsuarioProductoController@index');
-Route::post('/usuario_producto/create','UsuarioProductoController@store');
+Route::post('/usuario_producto/create/{id_usuario}/{id_producto}','UsuarioProductoController@store');
 Route::get('/usuario_producto/{id}','UsuarioProductoController@show');
 Route::put('/usuario_producto/update/{id}','UsuarioProductoController@update');
 Route::delete('/usuario_producto/delete/{id}','UsuarioProductoController@destroy');
@@ -204,7 +205,7 @@ Route::delete('/usuario_producto/delete/{id}','UsuarioProductoController@destroy
 
 //rutas de 'productos_promocion'
 Route::get('/producto_promocions','ProductoPromocionController@index');
-Route::post('/producto_promocions/create','ProductoPromocionController@store');
+Route::post('/producto_promocions/create/{id_producto}/{id_promocion}','ProductoPromocionController@store');
 Route::get('/producto_promocions/{id}','ProductoPromocionController@show');
 Route::put('/producto_promocions/update/{id}','ProductoPromocionController@update');
 Route::delete('/producto_promocions/delete/{id}','ProductoPromocionController@destroy');

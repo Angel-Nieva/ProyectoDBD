@@ -48,7 +48,7 @@
         </div>
     </nav> 
     <div class="container-fluid">
-        <h1>Bienvenid@ {{$nombre_usuario}}</h1>
+        <h1>Lista de productos</h1>
     </div>
 </body>
 </html>

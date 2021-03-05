@@ -25,7 +25,7 @@ class PromocionController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id_usuario)
     {
         $promocion = new Promocion();
         $promocion->delete = FALSE;
@@ -59,21 +59,15 @@ class PromocionController extends Controller
         }        
 
         //Valida que 'id_usuarios' sea no nulo y de no serlo si es valido
-        if($request->id_usuarios == NULL){
+        if($id_usuario == NULL){
             $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' está vacío ";
+            $mensajeFallos=$mensajeFallos."- El campo 'id_usuario' está vacío ";
         }
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_usuarios)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' es inválido ";   
-            }
-            else{
-                $promocion->id_usuarios = $request->id_usuarios;
-            }
+        else{
+            $promocion->id_usuarios = $id_usuario;
         }
-        // Verifica que el id_usuarios exista en direccions
-        $usuario = Usuario::find($request->id_usuarios);
+        // Verifica que el id_usuarios exista
+        $usuario = Usuario::find($id_usuario);
         if(($usuario == NULL) || ($usuario->delete==TRUE)){
             return response()->json([
                 "message" => "El dato en 'usuarios' no existe"

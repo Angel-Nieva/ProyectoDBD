@@ -16,7 +16,7 @@ class ProductoPromocionController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request, $id_producto, $id_promocion)
     {
         $productopromocion = new productopromocion();
         $productopromocion->delete = FALSE;
@@ -24,37 +24,24 @@ class ProductoPromocionController extends Controller
         $fallido=FALSE;
         $mensajeFallos='';
 
-        if($request->id_productos == NULL){
+        if($id_producto == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_productos' está vacío ";
         }
 
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_productos)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_productos' es inválido ";   
-            }
-            else{
-                $productopromocion->id_productos = $request->id_productos;
-            }
+        else{
+            $productopromocion->id_productos = $id_producto;
         }
 
-        if($request->id_promocions == NULL){
+        if($id_promocion == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_promocions' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_promocions)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_promocions' es inválido ";   
-            }
-            else{
-                $productopromocion->id_promocions = $request->id_promocions;
-            }
+        else{
+            $productopromocion->id_promocions = $id_promocion;
         }
         // Verifica que el id_productos exista en rols
-        $producto = Producto::find($request->id_productos);
+        $producto = Producto::find($id_producto);
         
         if(($producto == NULL) || ($producto->delete==TRUE)){
             return response()->json([
@@ -62,7 +49,7 @@ class ProductoPromocionController extends Controller
             ]);
         }
         // Verifica que el id_permisos exista en permisos
-        $promocion = Promocion::find($request->id_promocions);
+        $promocion = Promocion::find($id_promocion);
 
         if(($promocion == NULL) || ($promocion->delete==TRUE)){
             return response()->json([

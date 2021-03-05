@@ -23,7 +23,7 @@ class SubcategoriaController extends Controller
     }
 
     //Crear una nueva tupla (post)
-    public function store(Request $request)
+    public function store(Request $request, $id_categoria)
     {
        $subcategoria = new Subcategoria();
        $subcategoria->delete = FALSE;
@@ -49,23 +49,16 @@ class SubcategoriaController extends Controller
 
 
     //valida que id_categorias sea no nulo
-    if($request->id_categorias == NULL){
+    if($id_categoria == NULL){
         $fallido=TRUE;
         $mensajeFallos=$mensajeFallos."- El campo 'id_categorias' está vacío ";
     }
-
-    if($fallido == FALSE){
-        if(ctype_digit($request->id_categorias)==FALSE){
-            $fallido=TRUE;
-            $mensajeFallos=$mensajeFallos."- El campo 'id_categorias' es inválido ";   
-        }
-        else{
-            $subcategoria->id_categorias = $request->id_categorias;
-        }
+    else{
+        $subcategoria->id_categorias= $id_categoria;
     }
 
-       //Valida que id existe en subcategorias
-    $categoria = Categoria::find($request->id_categorias);
+    //Valida que id existe en categorias
+    $categoria = Categoria::find($id_categoria);
     if(($categoria == NULL) || ($categoria->delete==TRUE)){
         return response()->json([
             "message" => "El dato en 'categoria' no existe"

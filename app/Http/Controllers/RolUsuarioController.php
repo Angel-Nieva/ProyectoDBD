@@ -16,7 +16,7 @@ class RolUsuarioController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request, $id_rols, $id_usuarios)
     {
         $rolusuario = new RolUsuario();
         $rolusuario->delete = FALSE;
@@ -24,37 +24,23 @@ class RolUsuarioController extends Controller
         $fallido=FALSE;
         $mensajeFallos='';
 
-        if($request->id_rols == NULL){
+        if($id_rols == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_rols' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_rols)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_rols' es inválido ";   
-            }
-            else{
-                $rolusuario->id_rols = $request->id_rols;
-            }
+        else{
+                $rolusuario->id_rols = $id_rols;
         }
 
-        if($request->id_usuarios == NULL){
+        if($id_usuarios == NULL){
             $fallido=TRUE;
             $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' está vacío ";
         }
-
-        if($fallido == FALSE){
-            if(ctype_digit($request->id_usuarios)==FALSE){
-                $fallido=TRUE;
-                $mensajeFallos=$mensajeFallos."- El campo 'id_usuarios' es inválido ";   
-            }
-            else{
-                $rolusuario->id_usuarios = $request->id_usuarios;
-            }
+        else{
+                $rolusuario->id_usuarios = $id_usuarios;
         }
         // Verifica que el id_rols exista en rols
-        $rol = Rol::find($request->id_rols);
+        $rol = Rol::find($id_rols);
         
         if(($rol == NULL) || ($rol->delete==TRUE)){
             return response()->json([
@@ -62,7 +48,7 @@ class RolUsuarioController extends Controller
             ]);
         }
         // Verifica que el id_usuarios exista en usuarios
-        $usuario = usuario::find($request->id_usuarios);
+        $usuario = usuario::find($id_usuarios);
 
         if(($usuario == NULL) || ($usuario->delete==TRUE)){
             return response()->json([

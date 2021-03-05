@@ -17,16 +17,16 @@
   <div class="wrapper">
     <div class="container-fluid">
         <img class="logo" src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" alt="Logo DeliFeria" >
+        @if (count($errors) > 0)
+          <div class="alert-danger">
+            <ul> 
+              <li><p>Error en el ingreso de datos</p></li>
+            </ul>
+          </div>
+        @endif 
       <div class="row">
         <div class="col div-login">
           <h1>Ingresar: </h1>
-          @if (count($errors) > 0)
-            <div class="alert-danger">
-              <ul> 
-                <li><p>Error en el ingreso de datos</p></li>
-              </ul>
-            </div>
-          @endif 
           <form  action="{{route('checkLogin')}}" method="POST">
             <label for="email">Correo electrónico:</label>
             <input type="text" value="" name="email" placeholder="Ingrese su correo electrónico">
@@ -37,13 +37,6 @@
         </div>
         <div class="col div-registro">
           <h1>Registrarse: </h1>
-          @if (count($errors) > 0)
-            <div class="alert-danger">
-              <ul> 
-                <li><p>Error en el ingreso de datos de registro</p></li>
-              </ul>
-            </div>
-          @endif 
           <form action="{{route('registro')}}" method="POST">
             <label for="username">Nombre Completo:</label>
             <input type="text" value="" name="nombre" placeholder="Ingrese su nombre">
@@ -103,6 +96,9 @@ body{
   min-height: 140vh;
   overflow:auto;
   background-color: #B5E48C;
+}
+.alert-danger{
+  text-align: center;
 }
 .row{
   height: 60vh;

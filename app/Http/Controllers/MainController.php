@@ -14,8 +14,11 @@ use App\Models\UnidadesMedida;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Producto;
+use App\Models\Promocion;
+use App\Models\ProductoPromocion;
 use Validator;
-
+use App\Models\UsuarioProducto;
+use App\Models\RolUsuario;
 class MainController extends Controller
 {
     public function checkLogin(Request $request)
@@ -44,8 +47,10 @@ class MainController extends Controller
     	}
     }
 
-    public function successLogin($id){
-    	return view('successLogin');
+    public function successLogin($id_usuario){
+        $datos_usuario=Usuario::all()->where('id',$id_usuario)->first();
+        $nombre_usuario=$datos_usuario->nombre;
+    	return view('successLogin')->with('usuario',$id_usuario)->with('nombre_usuario',$nombre_usuario);
     }
 
     public function registro(Request $request){
@@ -58,7 +63,7 @@ class MainController extends Controller
             'calle' => 'required',
             'numero' => 'required',
             'telefono' => 'required',
-            //'rol' => 'required',           
+            'nombre_rol' => 'required',           
         ]);
         $falla=FALSE;
         $mensaje="";
@@ -90,7 +95,7 @@ class MainController extends Controller
             return redirect('/')->with('mensaje', $mensaje);
         }
 
-        //Lo mismo para comuna
+        //creacion y comprobacion Comuna
         app('App\Http\Controllers\ComunaController')->store($request);
         $comuna=Comuna::all()->where('comuna',$request->comuna)->first();
 
@@ -102,7 +107,18 @@ class MainController extends Controller
             $comuna_id = '0';
             $falla=TRUE;
         }
-        
+        //creacion y comprobacion Rol
+        app('App\Http\Controllers\RolController')->store($request);
+        $rol=Rol::all()->where('nombre_rol',$request->nombre_rol)->first();
+
+        if($comuna!=NULL){
+            $rol_id = $rol->id;
+        }
+        else{
+            $mensaje=$mensaje."3 ";
+            $rol_id = '0';
+            $falla=TRUE;
+        }
         
         //creacion y comprobacion Direccion
         app('App\Http\Controllers\DireccionController')->store($request,$comuna_id,$usuario_id);
@@ -112,11 +128,24 @@ class MainController extends Controller
             $direccion_id = $direccion->id;
         }
         else{
-            $mensaje=$mensaje."3 ";
+            $mensaje=$mensaje."4 ";
             $direccion_id = '0';
             $falla=TRUE;
         }
 
+        //creacion y comprobacion RolUsuario
+        app('App\Http\Controllers\RolUsuarioController')->store($request,$rol_id,$usuario_id);
+        $rolusuario=RolUsuario::all()->where('id_usuarios',$usuario_id)
+                                    ->where('id_rols',$rol_id)->first();
+
+        if($rolusuario!=NULL){
+            $rolusuario_id = $rolusuario->id;
+        }
+        else{
+            $mensaje=$mensaje."5 ";
+            $rolusuario_id = '0';
+            $falla=TRUE;
+        }
         //Determina el mensaje
         if(!$falla){
             $mensaje=$mensaje.'Se ha creado la cuenta id:'.$usuario_id;   
@@ -128,5 +157,158 @@ class MainController extends Controller
         return redirect('/')->with('mensaje', $mensaje);
     }
 
+    public function crear_producto_view($id_usuario){
+        return view('creacion')->with('usuario',$id_usuario);
+    }
+    public  function crear_producto_action(Request $request, $id_usuario){
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
+            'tipo' => 'required',
+            'cantidad' => 'required',
+            'stock' => 'required',
+            'descuento' => 'required',
+            'tiempo' => 'required',
+            'nombre_categoria' => 'required',
+            'descripcion_categoria' => 'required',
+            'nombre_subcategoria' => 'required',
+            'descripcion_subcategoria' => 'required',           
+        ]);
+        $falla=FALSE;
+        $mensaje="";
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla UnidadesMedida
+        app('App\Http\Controllers\UnidadesMedidaController')->store($request);
+        
+        //Busca el registro en UnidadesMedida recién creado
+        $medida=UnidadesMedida::all()->where('tipo',$request->tipo)
+                                    ->where('cantidad', $request->cantidad)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($medida!=NULL){
+            $medida_id = $medida->id;
+        }
+        else{
+            $mensaje=$mensaje."1 ";
+            $medida_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Categoria
+        app('App\Http\Controllers\CategoriaController')->store($request);
+        
+        //Busca el registro en Categoria recién creado
+        $categoria=Categoria::all()->where('nombre_categoria',$request->nombre_categoria)
+                                    ->where('descripcion_categoria', $request->descripcion_categoria)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($categoria!=NULL){
+            $categoria_id = $categoria->id;
+        }
+        else{
+            $mensaje=$mensaje."2 ";
+            $categoria_id = '0';
+            $falla=TRUE;
+            return  redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla subcategoria
+        app('App\Http\Controllers\SubcategoriaController')->store($request,$categoria_id);
+
+        //Busca el registro en Subcategoria recién creado
+        $subcategoria=Subcategoria::all()->where('nombre_subcategoria',$request->nombre_subcategoria)
+                                    ->where('descripcion_subcategoria', $request->descripcion_subcategoria)
+                                    ->where('id_categorias',$categoria_id)->first();
+
+        //$determina si realmente se creó y toma el id
+        if($subcategoria!=NULL){
+            $subcategoria_id = $subcategoria->id;
+        }
+        else{
+            $mensaje=$mensaje."3 ";
+            $subcategoria_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Promocion
+        app('App\Http\Controllers\PromocionController')->store($request, $id_usuario);
+
+        $promocion=Promocion::all()->where('descuento',$request->descuento)
+                                    ->where('tiempo', $request->tiempo)
+                                    ->where('id_usuarios', $id_usuario)->first();
+
+        if($promocion!=NULL){
+            $promocion_id=$promocion->id;
+        }
+        else{
+            $mensaje=$mensaje."4 ";
+            $promocion_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla Producto
+        app('App\Http\Controllers\ProductoController')->store($request,$subcategoria_id,$medida_id);
+
+        $producto=Producto::all()->where('nombre',$request->nombre)
+                                ->where('descripcion',$request->descripcion)
+                                ->where('id_subcategorias',$subcategoria_id)
+                                ->where('id_unidades_medidas',$medida_id)->first();
+
+        if($producto!=NULL){
+            $producto_id= $producto->id;
+        }
+        else{
+            $mensaje=$mensaje."5 ";
+            $producto_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+         //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla ProductoPromocion
+        app('App\Http\Controllers\ProductoPromocionController')->store($request,$producto_id,$promocion_id);
+        $productopromocion= ProductoPromocion::all()->where('id_productos',$producto_id)
+                                                    ->where('id_promocions',$promocion_id)->first();
+
+        if($productopromocion!=NULL){
+            $productopromocion_id = $productopromocion->id;
+        }
+        else{
+            $mensaje=$mensaje."6 ";
+            $productopromocion_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+
+        //----------------------------------------------------------------------------------------------
+        //Crea registro en tabla UsuarioProducto
+        app('App\Http\Controllers\UsuarioProductoController')->store($request,$id_usuario,$producto_id);
+        $usuarioproducto= UsuarioProducto::all()->where('id_producto',$producto_id)
+                                                ->where('id_usuario',$id_usuario)->first();
+        if($usuarioproducto!=NULL){
+            $usuarioproducto_id = $usuarioproducto->id;
+        }
+        else{
+            $mensaje=$mensaje."7 ";
+            $usuarioproducto_id = '0';
+            $falla=TRUE;
+            return redirect('/crear_producto')->with('mensaje', $mensaje);
+        }
+        //----------------------------------------------------------------------------------------------
+        //Determina el mensaje
+        if(!$falla){
+            $mensaje=$mensaje.'Se ha creado el producto ';   
+        }
+        else{
+            $mensaje=$mensaje.'Hubo problemas';
+        }
+        return app('App\Http\Controllers\MainController')->crear_producto_view($id_usuario);
+        
+        //return redirect('/crear_producto')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
+
+    }
 }
 

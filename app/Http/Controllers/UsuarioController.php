@@ -142,7 +142,7 @@ class UsuarioController extends Controller
         }
 
         else{
-            return response()->json($usuario);
+            return view('home',compact('usuario'));
         }
     }
 

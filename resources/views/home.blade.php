@@ -41,7 +41,7 @@
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href="index">Salir</a>
+                            <a class="nav-link" href="/">Salir</a>
                         </h2>
                     </li>
                 </ul>
@@ -55,19 +55,16 @@
             <div class="container2">            
                 <div class="row">
                 <img class="logoPerfil" src="https://www.pikpng.com/pngl/b/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" alt="Logo perfil" >
-                    <form>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" {{ $usuario ?? '' }}> 
-                        <label for="rol">Rol:</label>
-                        <input type="text" {{ $usuario ?? '' }}>
-                        <label for="rut">Rut:</label>
-                        <input type="text" {{ $usuario ?? '' }}>            
-                        <label for="email">Email:</label>
-                        <input type="text" {{ $usuario ?? '' }}>
-                        <label for="reputacion">Reputacion:</label>
-                        <input type="text" {{ $usuario ?? '' }}>
-            
-                    </form>                   
+                    <h1> Nombre:</h1> 
+                    <p> {{ $usuario->nombre}} </p>
+                    <h1> Rut:</h1>
+                    <p> {{ $usuario->rut}} </p> 
+                    <h1> Email:</h1>
+                    <p> {{ $usuario->email}} </p>
+                    <h1> Teléfono:</h1>
+                    <p> {{ $usuario->telefono}} </p>  
+                    <h1> Reputacion:</h1>
+                    <p> {{ $usuario->reputacion}} </p> 
                 </div>
             </div>
 
@@ -107,6 +104,16 @@
         margin-bottom: 2%;
         min-height: 91vh;
         background: rgba(181, 228, 140, .7);
+    }
+
+    h1{
+        margin-left: 15%;
+        font-size: 30px;
+        color: black;
+    }
+    p{
+        margin-left: 15%;
+        font-size: 25px;
     }
     
     .navbar-toggler { font-size: 40px;}
@@ -150,10 +157,5 @@
         color:rgb(0, 0, 0);
     }
 
-    input{
-        margin-left: 20%;
-        width: 60%;
-        margin-bottom: 1%;
-    }
 
 </style>

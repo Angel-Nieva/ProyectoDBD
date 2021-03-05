@@ -41,7 +41,7 @@ class MainController extends Controller
             //Se obtiene el campo id
             $usuario_id = array_column($data, 'id')[0];
 
-    		return redirect('main/successLogin/'.$usuario_id);
+    		return redirect('usuarios/'.$usuario_id);
     	}
     	else{
     		return back()->withErrors(['message' => 'Datos de ingreso inválidos']);

@@ -19,6 +19,7 @@ use App\Models\ProductoPromocion;
 use Validator;
 use App\Models\UsuarioProducto;
 use App\Models\RolUsuario;
+use DB;
 class MainController extends Controller
 {
     public function checkLogin(Request $request)
@@ -311,7 +312,12 @@ class MainController extends Controller
 
     }
     public function ver_productos_view($id_usuario){
-        return view('vista_productos')->with('usuario',$id_usuario);
+        $data = DB::table('productos')    
+                    ->join('usuario_productos', 'usuario_productos.id_producto','=','productos.id')
+                    ->where('usuario_productos.id_usuario',$id_usuario)
+                    ->select('productos.nombre','productos.descripcion')
+                    ->get();
+        return view('vista_productos', compact('data'))->with('usuario',$id_usuario);
     }
 }
 

@@ -49,6 +49,14 @@
     </nav> 
     <div class="container-fluid">
         <h1>Lista de productos</h1>
+        @forelse ($data as $data)
+        <div>
+        <h3>{{$data->nombre}}</h3>
+        <p>{{$data->descripcion}}</p> 
+         </div>
+         @empty
+         <p> No tiene productos ingresados</p>
+         @endforelse
     </div>
 </body>
 </html>

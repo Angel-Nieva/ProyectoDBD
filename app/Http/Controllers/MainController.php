@@ -48,7 +48,9 @@ class MainController extends Controller
     }
 
     public function successLogin($id_usuario){
-    	return view('successLogin')->with('usuario',$id_usuario);
+        $datos_usuario=Usuario::all()->where('id',$id_usuario)->first();
+        $nombre_usuario=$datos_usuario->nombre;
+    	return view('successLogin')->with('usuario',$id_usuario)->with('nombre_usuario',$nombre_usuario);
     }
 
     public function registro(Request $request){

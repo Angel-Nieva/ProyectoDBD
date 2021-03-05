@@ -310,5 +310,8 @@ class MainController extends Controller
         //return redirect('/crear_producto')->with('mensaje', $mensaje); //falta redirigir a successLogin/id_usuario
 
     }
+    public function ver_productos_view($id_usuario){
+        return view('vista_productos')->with('usuario',$id_usuario);
+    }
 }
 

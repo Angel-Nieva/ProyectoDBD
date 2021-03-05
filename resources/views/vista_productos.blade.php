@@ -23,7 +23,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id='ver_productos'>
                         <h2>
-                            <form action="" method='POST'>
+                            <form action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
                             <input type="submit" value="Ver productos"></form>
                         </h2>
                     </li>

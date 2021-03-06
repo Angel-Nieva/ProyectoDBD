@@ -137,7 +137,7 @@
         background-color: #B5E48C;
     }
     label{
-        margin-left: 15%;
+        margin-left: 5%;
         padding: 0;
         font-weight: bold;
         display:block;

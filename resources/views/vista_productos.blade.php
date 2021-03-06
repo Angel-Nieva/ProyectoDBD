@@ -95,8 +95,8 @@
         font-size: 20px;
     }
     select, input{
-        margin-left: 15%;
-        width: 60%;
+        margin-left: 5%;
+        width: 80%;
         margin-bottom: 1%;
     }
     .boton{

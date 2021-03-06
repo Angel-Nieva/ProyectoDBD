@@ -29,6 +29,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item letra" id='ver_productos'>
+                        <h2>
+                            <form class='boton' action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
+                            <input type="submit" value="Ver productos"></form>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id='creacion'>
+                        <h2>
+                            <form class='boton' action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
+                            <input type="submit" value="Crear Producto"></form>
+                        </h2>
+                    </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
                             <a class="nav-link" aria-current="page" href="actualizar">Cuenta</a>

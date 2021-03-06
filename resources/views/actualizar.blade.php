@@ -58,7 +58,7 @@
           <label for="password">Nueva contraseña:</label>
           <input type="text" placeholder="Escoja una nueva contraseña">
             
-          <input type="submit" value="Actualizar datos">
+          <input type="submit" class="btn btn-primary" value="Actualizar datos">
         </div>
       </div> 
     <div> 

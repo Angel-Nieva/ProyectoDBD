@@ -28,9 +28,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                       <li class="nav-item letra" id="cuenta">
-                          <h2>
-                              <a class="nav-link" aria-current="page" href="actualizar">Cuenta</a>
-                          </h2>
+
                       </li>
                       <li class="nav-item letra" id="cuenta">
                           <h2>
@@ -77,30 +75,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($producto as $prod)
+                       
                         <tr>
-                            <td>
-                                <figure class="media">
-                                    <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
-                                    <figcaption class="media-body">   
-                                    </figcaption>
-                                </figure>
-                                <h6 class="title text-truncate"> {{ $prod->nombreProducto}} </h6>
-                                  <dl class="param param-inline small">
-                                  <dd>{{ $prod->descripcion}}</dd>
-                                  </dl>
-                                        
-                            </td>
-                            <td> 
-                                <div class="price-wrap"> 
-                                    <var class="precio"> CL ${{ $prod->precio}}</var> 
-                                    <small class="text-muted"></small> 
-                                </div> 
-                            </td>
-                            <td class="center">  
-                                <a href="#" class="btn botonborrar " type=""> X </a>
-                            </td>
+                          <div class="container" style="padding-top:20px">
+                            @foreach($producto as $prod)
+                              <td>
+                                  <figure class="media">
+                                      <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
+                                      <figcaption class="media-body">   
+                                      </figcaption>
+                                  </figure>
+                            
+                                  <h6 class="title text-truncate"> {{ $prod->nombreProducto}} </h6>
+                                    
+                                    <dl class="param param-inline small">
+                              </td>
+                              <td>
+                                    <dd>{{ $prod->descripcion}}</dd>
+                                    </dl>
+                                          
+                              </td>
+                              <td> 
+                                  <div class="price-wrap"> 
+                                      <var class="precio"> CLP ${{ $prod->precio}}</var> 
+                                      <small class="text-muted"></small> 
+                                  </div> 
+                              </td>
+                              <td> 
+                                  <div class="price-wrap"> 
+                                      <var class="precio"> 1</var> 
+                                      <small class="text-muted"></small> 
+                                  </div> 
+                              </td>
+                              <td class="center">  
+                                  <a href="#" class="btn botonborrar " type=""> X </a>
+                              </td>
+                          </div>
                         </tr>
+                        @empty
+                        <p>No hay productos en su carrito aún</p>
+
                         @endforeach
                     </tbody>  
                 </table>
@@ -109,15 +123,7 @@
               </div>
             </div>
               <hr>
-              <div class="row">
-                <div class="text-center">
-                  <div class="col-xs-3">
-                    <button type="button" class="btn btn-default btn-sm btn-block">
-                      Actualizar carro
-                    </button>
-                  </div>
-                </div>
-              </div>
+
             </div>
             <div class="panel-footer">
               <div class="row text-center">
@@ -125,14 +131,8 @@
                   <h4 class="text-right">Total <strong>$37.300 CLP</strong></h4>
                 </div>
                 <div class="col-xs-6">
-                    <button type="button" class="btn btn-primary btn-sm btn-block">
-                      <span class="glyphicon glyphicon-share-alt"></span> Continuar comprando
-                    </button>
-                </div>
-                <div class="col-xs-3">
-                  <button type="button" class="btn btn-success btn-block">
-                    Ir a pago
-                  </button>
+                  <input type="submit" class="btn btn-primary" value="Continuar comprando">
+                  <input type="submit" class="btn btn-primary" value="Ir a Pago">
                 </div>
               </div>
             </div>

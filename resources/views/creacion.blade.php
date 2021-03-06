@@ -29,13 +29,13 @@
                     </li>
                     <li class="nav-item letra" id='creacion'>
                         <h2>
-                            <form class='boton'action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
+                            <form class='boton' value="Crear Producto" action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
                             <input type="submit" value="Crear Producto"></form>
                         </h2>
                     </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
-                            <a class="nav-link" aria-current="page" href="v1.html">Cuenta</a>
+                            <a class="nav-link" aria-current="page" href="/actualizar">Cuenta</a>
                         </h2>
                     </li>
                     <li class="nav-item letra salir"  id="salida">
@@ -71,6 +71,7 @@
             <select name="tipo" id="medida">
             <option value="kilo">Kilo</option>
             <option value="litro">Litro</option>
+            <option value="unidad">Unidad</option>
             </select>
 
             <label for="cantidad">Cantidad</label>
@@ -143,8 +144,8 @@
         font-size: 20px;
     }
     select, input{
-        margin-left: 15%;
-        width: 60%;
+        margin-left: 5%;
+        width: 80%;
         margin-bottom: 1%;
     }
     .boton{

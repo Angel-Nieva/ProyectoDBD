@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">        
         <div class="container">
-            <a class="navbar-brand" href="#"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
+        <a class="navbar-brand" href="{{action('UsuarioController@show', $usuario)}}"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo2"
                     alt="logo sitio"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -124,6 +124,8 @@
         min-width: 120px;
         max-width: 140px;
     }
+
+    
     a{
         color: black;
     }

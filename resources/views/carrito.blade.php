@@ -18,8 +18,8 @@
 <body>
     <nav class="navbar navbar-expand-lg">        
       <div class="container">
-              <a class="navbar-brand" href="home"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
-                      alt="logo sitio"></a>
+      <a class="navbar-brand" href="{{action('UsuarioController@show', $usuario->id)}}"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo2"
+                    alt="logo sitio"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">

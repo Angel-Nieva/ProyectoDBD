@@ -53,7 +53,7 @@ class TransaccionController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $transaccion->save();
-            return redirect ('/');
+            return redirect ('/pagoExitoso');
         // No se crea
         else{
            return response()->json([

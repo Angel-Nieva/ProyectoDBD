@@ -78,10 +78,7 @@ class MetodoDePagoController extends Controller
         // Si se crea
         if($fallido == FALSE){
             $metododepago->save();
-            return response()->json([
-                "message" => "Se ha creado el metododepago",
-                "id" => $metododepago->id
-            ]);
+            return redirect('/pago');
         }
 
         // No se crea

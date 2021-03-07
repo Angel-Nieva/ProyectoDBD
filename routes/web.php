@@ -48,6 +48,10 @@ Route::get('/successLogin', function () {
     return view('successLogin');
 });
 
+Route::get('/pagoExitoso', function () {
+    return view('pagoExitoso');
+});
+
 
 //Rutas Main
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
@@ -80,8 +84,8 @@ Route::delete('/direccions/delete/{id}','DireccionController@destroy');
 
 //rutas de 'usuario'
 Route::get('/usuarios','UsuarioController@index');
-Route::post('/usuarios/create','UsuarioController@store');
-Route::get('/usuarios/{id}','UsuarioController@show');
+Route::post('/usuarios/create','UsuarioController@store')->name('postUsuario');
+Route::get('/usuarios/{id}','UsuarioController@show')->name('getUsuario');
 Route::get('/usuarios/update/{id}','UsuarioController@update');
 Route::delete('/usuarios/delete/{id}','UsuarioController@destroy');
 Route::get('/usuarios/actualizar/{id}','UsuarioController@actualizar_view');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\RolUsuario;
+use App\Models\Rol;
 
 class UsuarioController extends Controller
 {
@@ -133,7 +135,8 @@ class UsuarioController extends Controller
         }
 
         $usuario = Usuario::find($id);
-
+        $rolusuario = RolUsuario::find($id);
+        $rol = Rol::find($rolusuario->id_rols);
         //Valida existencia de tupla
         if(($usuario == NULL) || ($usuario->delete==TRUE)){
             return response()->json([
@@ -142,7 +145,12 @@ class UsuarioController extends Controller
         }
 
         else{
-            return view('home',compact('usuario'));
+            if($rol->nombre_rol == "Feriante"){
+                return view('home',compact('usuario'));
+            }
+            else{
+                return view('successLogin',compact('usuario'));
+            }
         }
     }
 

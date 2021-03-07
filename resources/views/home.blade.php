@@ -44,11 +44,6 @@
                             <a class="nav-link" aria-current="page" href="{{action('UsuarioController@actualizar_view', $usuario->id)}}">Cuenta</a>
                         </h2>
                     </li>
-                    <li class="nav-item letra" id="cuenta">
-                        <h2>
-                            <a class="nav-link" aria-current="page" href="carrito">Carrito</a>
-                        </h2>
-                    </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
                             <a class="nav-link" href="/">Salir</a>

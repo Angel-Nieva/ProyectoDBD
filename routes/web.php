@@ -53,7 +53,7 @@ Route::get('/successLogin', function () {
 Route::post('/main/checkLogin', 'MainController@checkLogin')->name('checkLogin');
 Route::get('/main/successLogin/{id_usuario}', 'MainController@successLogin')->name('successLogin');
 Route::post('/main/registro', 'MainController@registro')->name('registro');
-Route::post('/main/crear_producto_view/{id_usuario}', 'MainController@crear_producto_view');
+Route::get('/main/crear_producto_view/{id_usuario}', 'MainController@crear_producto_view');
 Route::post('/main/crear_producto_action/{id_usuario}', 'MainController@crear_producto_action')->name('crear_producto_action');
 Route::get('/main/ver_productos_view/{id_usuario}', 'MainController@ver_productos_view');
 
@@ -82,8 +82,9 @@ Route::delete('/direccions/delete/{id}','DireccionController@destroy');
 Route::get('/usuarios','UsuarioController@index');
 Route::post('/usuarios/create','UsuarioController@store');
 Route::get('/usuarios/{id}','UsuarioController@show');
-Route::put('/usuarios/update/{id}','UsuarioController@update');
+Route::get('/usuarios/update/{id}','UsuarioController@update');
 Route::delete('/usuarios/delete/{id}','UsuarioController@destroy');
+Route::get('/usuarios/actualizar/{id}','UsuarioController@actualizar_view');
 
 //rutas de 'permiso_rols'
 Route::get('/permiso_rols','PermisoRolController@index');

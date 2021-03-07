@@ -146,6 +146,28 @@ class UsuarioController extends Controller
         }
     }
 
+    public function actualizar_view($id){
+                // Valida ID
+        if(ctype_digit($id) != TRUE){
+            return response()->json([
+                "message" => "El id es inválido"
+            ]);
+        }
+
+        $usuario = Usuario::find($id);
+
+        //Valida existencia de tupla
+        if(($usuario == NULL) || ($usuario->delete==TRUE)){
+            return response()->json([
+                "message" => "El dato no existe"
+            ]);
+        }
+
+        else{
+            return view('actualizar',compact('usuario'));
+        }
+    }
+
    
     public function update(Request $request, $id)
     {
@@ -266,11 +288,8 @@ class UsuarioController extends Controller
             ]);
         }
         else{
-            return response()->json([
-                "message" => $mensajeFallos,
-            ]); 
+            return app('App\Http\Controllers\UsuarioController')->show($id);
         }
-
 
     }
 

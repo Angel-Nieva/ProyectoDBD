@@ -23,14 +23,12 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id='ver_productos'>
                         <h2>
-                            <form class='boton' action="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>
-                            <input type="submit" value="Ver productos"></form>
+                            <a class="nav-link" href="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>Ver productos</a>                            
                         </h2>
                     </li>
                     <li class="nav-item letra" id='creacion'>
                         <h2>
-                            <form class='boton' value="Crear Producto" action="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>
-                            <input type="submit" value="Crear Producto"></form>
+                            <a class="nav-link" href="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>Crear Producto</a>
                         </h2>
                     </li>
                     <li class="nav-item letra" id="cuenta">

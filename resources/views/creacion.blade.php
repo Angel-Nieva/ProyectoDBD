@@ -33,7 +33,7 @@
                     </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
-                            <a class="nav-link" aria-current="page" href="/actualizar">Cuenta</a>
+                            <a class="nav-link" aria-current="page" href="{{action('UsuarioController@actualizar_view', $usuario)}}">Cuenta</a>
                         </h2>
                     </li>
                     <li class="nav-item letra salir"  id="salida">
@@ -125,6 +125,10 @@
         max-width: 140px;
     }
 
+    .logo2 {
+        min-width: 120px;
+        max-width: 140px;
+    }
     
     a{
         color: black;

@@ -325,6 +325,10 @@ class MainController extends Controller
         $usuario = Usuario::find($id_usuario);
         return view('vista_productos_comprador', compact('productos'))->with('usuario',$usuario);
     }
+    public function ver_carrito($id_usuario){
+        $usuario = Usuario::find($id_usuario);
+        return view('carrito')->with('usuario',$usuario);
+    }
 
 }
 

@@ -33,7 +33,7 @@
                     </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
-                            <a class="nav-link" aria-current="page" href="">Carrito</a>
+                            <a class="nav-link" aria-current="page" href="{{action('MainController@ver_carrito', $usuario->id)}}">Carrito</a>
                         </h2>
                     </li>
                     <li class="nav-item letra salir"  id="salida">

@@ -31,7 +31,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id='ver_productos'>
                         <h2>
-                            <a class="nav-link" href="" method='GET'>Ver productos</a>                            
+                            <a class="nav-link" href="{{action('MainController@ver_productos_comprador', $usuario->id)}}">Ver productos</a>                            
                         </h2>
                     </li>
                     <li class="nav-item letra" id="cuenta">

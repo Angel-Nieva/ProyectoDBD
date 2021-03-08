@@ -320,18 +320,11 @@ class MainController extends Controller
         return view('vista_productos', compact('data'))->with('usuario',$id_usuario);
     }
 
-    public function ver_productos_feriante_view($id_usuario){
-
-        $productos_feriante = array();
-
-        $data = DB::table('producto_puestos')    
-                    ->join('usuario_productos', 'usuario_productos.id_producto','=','productos.id')
-                    ->where('usuario_productos.id_usuario',$id_usuario)
-                    ->select('productos.nombre','productos.descripcion')
-                    ->get();
-        return view('vista_productos', compact('data'))->with('usuario',$id_usuario);
+    public function ver_productos_comprador($id_usuario){
+        $productos = Producto::all();
+        $usuario = Usuario::find($id_usuario);
+        return view('vista_productos_comprador', compact('productos'))->with('usuario',$usuario);
     }
-
 
 }
 

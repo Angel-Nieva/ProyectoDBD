@@ -60,6 +60,7 @@ Route::post('/main/registro', 'MainController@registro')->name('registro');
 Route::get('/main/crear_producto_view/{id_usuario}', 'MainController@crear_producto_view');
 Route::post('/main/crear_producto_action/{id_usuario}', 'MainController@crear_producto_action')->name('crear_producto_action');
 Route::get('/main/ver_productos_view/{id_usuario}', 'MainController@ver_productos_view');
+Route::get('/main/ver_productos_comprador/{id_usuario}', 'MainController@ver_productos_comprador')->name('ver_productos_comprador');
 
 //rutas de 'permisos'
 Route::get('/permisos','PermisoController@index');

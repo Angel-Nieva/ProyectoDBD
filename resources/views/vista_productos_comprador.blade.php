@@ -10,9 +10,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">        
+<nav class="navbar navbar-expand-lg">        
         <div class="container">
-        <a class="navbar-brand" href="{{action('UsuarioController@show', $usuario)}}"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo2"
+            <a class="navbar-brand" href="{{action('UsuarioController@show', $usuario->id)}}"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo"
                     alt="logo sitio"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -23,34 +23,36 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item letra" id='ver_productos'>
                         <h2>
-                            <a class="nav-link" href="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>Ver productos</a>                            
-                        </h2>
-                    </li>
-                    <li class="nav-item letra" id='creacion'>
-                        <h2>
-                            <a class="nav-link" href="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>Crear Producto</a>
+                            <a class="nav-link" href="{{action('MainController@ver_productos_comprador', $usuario->id)}}">Ver productos</a>                            
                         </h2>
                     </li>
                     <li class="nav-item letra" id="cuenta">
                         <h2>
-                            <a class="nav-link" aria-current="page" href="{{action('UsuarioController@actualizar_view', $usuario)}}">Cuenta</a>
+                            <a class="nav-link" aria-current="page" href="{{action('UsuarioController@actualizar_view', $usuario->id)}}">Cuenta</a>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id="cuenta">
+                        <h2>
+                            <a class="nav-link" aria-current="page" href="">Carrito</a>
                         </h2>
                     </li>
                     <li class="nav-item letra salir"  id="salida">
                         <h2>
-                            <a class="nav-link" href='/'>Salir</a>
+                            <a class="nav-link" href="/">Salir</a>
                         </h2>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav> 
+    </nav>
     <div class="container-fluid">
         <h1>Lista de productos</h1>
-        @forelse ($data as $data)
+        @forelse ($productos as $producto)
         <div>
-        <h3>{{$data->nombre}}</h3>
-        <p>{{$data->descripcion}}</p>
+        <h3>{{$producto->nombre}}</h3>
+        <p>{{$producto->descripcion}}</p>
+        <p>Precio: ${{$producto->precio}}</p>
+        <p>Stock: {{$producto->stock}}</p>
          </div>
          @empty
          <p> No tiene productos ingresados</p>

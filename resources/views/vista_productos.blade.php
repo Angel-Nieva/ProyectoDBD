@@ -50,7 +50,7 @@
         @forelse ($data as $data)
         <div>
         <h3>Nombre: {{$data->nombre}}</h3>
-        <p>Descrición: {{$data->descripcion}}</p>
+        <p>Descripción: {{$data->descripcion}}</p>
         <p>Precio: ${{$data->precio}}</p>
         <p>Stock: {{$data->stock}}</p>
          </div>

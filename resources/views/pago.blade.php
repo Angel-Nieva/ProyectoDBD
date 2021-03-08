@@ -74,15 +74,16 @@
                 </label>
               </div>
               </div>
+              <!--@forelse($producto as $prod)
               @foreach($metododepago as $metodo)
               {{ $metodo->nombre}}
               
               {{ $metodo->banco}}
-              
+              -->
               
               <div class="credit rounded mt-2 d-flex justify-content-between align-items-center">
                   <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="70">
-                      <div class="d-flex flex-column ml-3"> <span class="business">{{ $metodo->tipo_tarjeta}}</span> <span class="plan">{{ $metodo->cuenta}}</span> </div>
+                      <div class="d-flex flex-column ml-3"> <span class="business">Débito</span> <span class="plan">9898 47281 9283 9299</span> </div>
                   </div>
                   <div class="form-check form-check-inline center">
                     <input class="form-check-input" type="radio" value="comprador" name="rol" id="flexRadioDefault1">
@@ -91,7 +92,7 @@
                     </label>
                   </div>
               </div>
-              @endforeach
+              <!--@endforeach-->
               <h6 class="mt-4 text-primary">O agregue un metodo de pago</h6>
               <form  action="{{route('postMetodo')}}" method="POST">
                 <<div class="dropdown">

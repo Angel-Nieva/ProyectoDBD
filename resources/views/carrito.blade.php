@@ -85,7 +85,7 @@
                        
                         <tr>
                           <div class="container" style="padding-top:20px">
-                            @forelse($producto as $prod)
+                            <!--@forelse($producto as $prod)-->
                               <td>
                                   <figure class="media">
                                       <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
@@ -93,18 +93,18 @@
                                       </figcaption>
                                   </figure>
                             
-                                  <h6 class="title text-truncate"> {{ $prod->nombreProducto}} </h6>
+                                  <h6 class="title text-truncate"> Producto 1 </h6>
                                     
                                     <dl class="param param-inline small">
                               </td>
                               <td>
-                                    <dd>{{ $prod->descripcion}}</dd>
+                                    <dd>Descripcion del producto 1 </dd>
                                     </dl>
                                           
                               </td>
                               <td> 
                                   <div class="price-wrap"> 
-                                      <var class="precio"> CLP ${{ $prod->precio}}</var> 
+                                      <var class="precio"> CLP 3700 </var> 
                                       <small class="text-muted"></small> 
                                   </div> 
                               </td>
@@ -117,10 +117,51 @@
                               <td class="center">  
                                   <a href="#" class="btn botonborrar " type=""> X </a>
                               </td>
-                              @empty
+                             <!-- @empty
                               <p>No hay productos en su carrito aún</p>
-                              @endforelse
+                              @endforelse-->
                           </div>
+                          
+                        </tr>
+                        <tr>
+                          <div class="container" style="padding-top:20px">
+                            <!--@forelse($producto as $prod)-->
+                              <td>
+                                  <figure class="media">
+                                      <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
+                                      <figcaption class="media-body">   
+                                      </figcaption>
+                                  </figure>
+                            
+                                  <h6 class="title text-truncate"> Producto 2 </h6>
+                                    
+                                    <dl class="param param-inline small">
+                              </td>
+                              <td>
+                                    <dd>Descripcion del producto 2 </dd>
+                                    </dl>
+                                          
+                              </td>
+                              <td> 
+                                  <div class="price-wrap"> 
+                                      <var class="precio"> CLP 4300 </var> 
+                                      <small class="text-muted"></small> 
+                                  </div> 
+                              </td>
+                              <td> 
+                                  <div class="price-wrap"> 
+                                      <var class="precio"> 2</var> 
+                                      <small class="text-muted"></small> 
+                                  </div> 
+                              </td>
+                              <td class="center">  
+                                  <a href="#" class="btn botonborrar " type=""> X </a>
+                              </td>
+                             <!-- @empty
+                              <p>No hay productos en su carrito aún</p>
+                              @endforelse-->
+                          </div>
+                          
                         </tr>
                         
 
@@ -137,7 +178,7 @@
             <div class="panel-footer">
               <div class="row text-center">
                 <div class="col-xs-9">
-                  <h4 class="text-right">Total <strong>$37.300 CLP</strong></h4>
+                  <h4 class="text-right">Total <strong>$12300 CLP</strong></h4>
                 </div>
                 <div class="col-xs-6">
                   <input type="submit" class="btn btn-primary" value="Continuar comprando">

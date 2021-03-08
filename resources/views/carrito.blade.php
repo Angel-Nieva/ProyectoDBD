@@ -78,7 +78,7 @@
                        
                         <tr>
                           <div class="container" style="padding-top:20px">
-                            @foreach($producto as $prod)
+                            @forelse($producto as $prod)
                               <td>
                                   <figure class="media">
                                       <div class="img-wrap"><img src="{{ Storage::url($prod->product_picture) }}" class="img-thumbnail img-sm"></div>
@@ -110,12 +110,14 @@
                               <td class="center">  
                                   <a href="#" class="btn botonborrar " type=""> X </a>
                               </td>
+                              @empty
+                              <p>No hay productos en su carrito aún</p>
+                              @endforelse
                           </div>
                         </tr>
-                        @empty
-                        <p>No hay productos en su carrito aún</p>
+                        
 
-                        @endforeach
+                      
                     </tbody>  
                 </table>
                         <hr>

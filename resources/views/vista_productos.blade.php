@@ -49,8 +49,10 @@
         <h1>Lista de productos</h1>
         @forelse ($data as $data)
         <div>
-        <h3>{{$data->nombre}}</h3>
-        <p>{{$data->descripcion}}</p>
+        <h3>Nombre: {{$data->nombre}}</h3>
+        <p>Descrición: {{$data->descripcion}}</p>
+        <p>Precio: ${{$data->precio}}</p>
+        <p>Stock: {{$data->stock}}</p>
          </div>
          @empty
          <p> No tiene productos ingresados</p>

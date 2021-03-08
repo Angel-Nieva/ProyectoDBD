@@ -315,7 +315,7 @@ class MainController extends Controller
         $data = DB::table('productos')    
                     ->join('usuario_productos', 'usuario_productos.id_producto','=','productos.id')
                     ->where('usuario_productos.id_usuario',$id_usuario)
-                    ->select('productos.nombre','productos.descripcion')
+                    ->select('productos.nombre','productos.descripcion','productos.precio','productos.stock')
                     ->get();
         return view('vista_productos', compact('data'))->with('usuario',$id_usuario);
     }

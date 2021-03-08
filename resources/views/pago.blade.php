@@ -13,7 +13,41 @@
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body class="container-fluid">
-    
+<nav class="navbar navbar-expand-lg">        
+        <div class="container">
+        <a class="navbar-brand" href="{{action('UsuarioController@show', $usuario)}}"> <img src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" class="logo2"
+                    alt="logo sitio"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <ion-icon name="menu-sharp"></ion-icon>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item letra" id='ver_productos'>
+                        <h2>
+                            <a class="nav-link" href="{{action('MainController@ver_productos_view', ['id_usuario'=>$usuario])}}" method='GET'>Ver productos</a>                            
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id='creacion'>
+                        <h2>
+                            <a class="nav-link" href="{{action('MainController@crear_producto_view', ['id_usuario'=>$usuario])}}" method='POST'>Crear Producto</a>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra" id="cuenta">
+                        <h2>
+                            <a class="nav-link" aria-current="page" href="{{action('UsuarioController@actualizar_view', $usuario)}}">Cuenta</a>
+                        </h2>
+                    </li>
+                    <li class="nav-item letra salir"  id="salida">
+                        <h2>
+                            <a class="nav-link" href='/'>Salir</a>
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>   
   <div class="wrapper">
         <img class="logo" src="https://i.ibb.co/5xCxH1j/DELIFERIALOGO.png" alt="Logo DeliFeria" >
         <div class="container mt-5 mb-5 d-flex justify-content-center">
@@ -59,7 +93,7 @@
               </div>
               @endforeach
               <h6 class="mt-4 text-primary">O agregue un metodo de pago</h6>
-              <form  action="{{route('checkLogin')}}" method="POST">
+              <form  action="{{route('postMetodo')}}" method="POST">
                 <<div class="dropdown">
                   <label for="banco">Tipo de cuenta</label>
                     <select display="block" value= "" name="banco" id="banco">
@@ -109,22 +143,34 @@ body{
   overflow:auto;
   background-color: #B5E48C;
 }
-.logo{
-  width:20%;
-  height:10%;
-  margin-left:auto;
-  margin-right:auto;
-}
-.row{
-  height: 60vh;
-}
-.logo{
-  height: 8%;
-  width: 15%;
-  display: block; 
-  margin-left: auto;
-  margin-right: auto;
-}
+.logo {
+        min-width: 120px;
+        max-width: 140px;
+    }
+
+    .logo2 {
+        min-width: 120px;
+        max-width: 140px;
+    }
+  .navbar-toggler { font-size: 40px;}
+    .navbar-toggler:focus { outline:none}
+    .nav-link{
+        border: solid;
+        border-color: #52B69A;
+        border-radius: 20px;
+        background-color: #117CF6;
+        color:white;
+    }
+
+    .nav-link:hover {
+        color: #1a1a1a
+    }
+
+    .navbar {
+        background-color: #B5E48C;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+        min-height: 100px;
+    } 
 
 h1,h4{
   text-align: center;

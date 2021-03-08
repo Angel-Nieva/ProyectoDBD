@@ -113,8 +113,8 @@ Route::delete('/categorias/delete/{id}','CategoriaController@destroy');
 
 //rutas de 'productos'
 Route::get('/productos','ProductoController@index');
-Route::post('/productos/create/{id_subcategoria}/{id_unidades_medida}','ProductoController@store');
-Route::get('/productos/{id}','ProductoController@show');
+Route::post('/productos/create/{id_subcategoria}/{id_unidades_medida}','ProductoController@store')->name('postProducto');
+Route::get('/productos/{id}','ProductoController@show')->name('getProducto');
 Route::put('/productos/update/{id}','ProductoController@update');
 Route::delete('/productos/delete/{id}','ProductoController@destroy');
 
@@ -134,8 +134,8 @@ Route::delete('/unidades_medidas/delete/{id}','UnidadesMedidaController@destroy'
 
 //rutas de 'transaccions_productos'
 Route::get('/transaccions_productos','TransaccionsProductoController@index');
-Route::post('/transaccions_productos/create','TransaccionsProductoController@store');
-Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show');
+Route::post('/transaccions_productos/create','TransaccionsProductoController@store')->name('postTransaccion');
+Route::get('/transaccions_productos/{id}','TransaccionsProductoController@show')->name('getTransaccion');
 Route::put('/transaccions_productos/update/{id}','TransaccionsProductoController@update');
 Route::delete('/transaccions_productos/delete/{id}','TransaccionsProductoController@destroy');
 
@@ -191,8 +191,8 @@ Route::delete('/transaccion/delete/{id}','TransaccionController@destroy');
 
 //rutas de 'metodo_de_pago'
 Route::get('/metodo_de_pago','MetodoDePagoController@index');
-Route::post('/metodo_de_pago/create','MetodoDePagoController@store');
-Route::get('/metodo_de_pago/{id}','MetodoDePagoController@show');
+Route::post('/metodo_de_pago/create','MetodoDePagoController@store')->name('postMetodo');
+Route::get('/metodo_de_pago/{id}','MetodoDePagoController@show')->name('getMetodo');
 Route::put('/metodo_de_pago/update/{id}','MetodoDePagoController@update');
 Route::delete('/metodo_de_pago/delete/{id}','MetodoDePagoController@destroy');
 

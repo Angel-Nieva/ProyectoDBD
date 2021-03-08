@@ -17,6 +17,8 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->text('nombre');
             $table->text('descripcion');
+            $table->integer('precio');
+            $table->integer('stock');
             $table->boolean('delete');
             //foranea
             $table->unsignedBigInteger('id_subcategorias')->nullable();

@@ -47,6 +47,30 @@ class ProductoController extends Controller
        else{
             $producto->descripcion = $request->descripcion;
        }
+       //Valida atributo 'precio'
+       if(($request->precio == NULL)){
+           $fallido=TRUE;
+           $mensajeFallos=$mensajeFallos."- El campo 'precio' está vacío";
+       }
+       else if (!ctype_digit($request->precio)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'precio' debe ser un numero mayor a 0";
+       }
+       else{
+           $producto->precio=$request->precio;
+       }
+       //Valida atributo 'stock'
+       if(($request->stock == NULL)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'stock' está vacío";
+         }
+        else if (!ctype_digit($request->stock)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'stock' debe ser un numero mayor o igual a 0";
+        }
+        else{
+            $producto->stock=$request->stock;
+        }
        //valida que id_subcategorias sea no nulo
        if($id_subcategoria == NULL){
             $fallido=TRUE;
@@ -159,6 +183,30 @@ class ProductoController extends Controller
         }
         else{
              $producto->descripcion = $request->descripcion;
+        }
+        //Valida atributo 'precio'
+       if(($request->precio == NULL)){
+           $fallido=TRUE;
+           $mensajeFallos=$mensajeFallos."- El campo 'precio' está vacío";
+       }
+       else if (!ctype_digit($request->precio)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'precio' debe ser un numero mayor a 0";
+       }
+       else{
+           $producto->precio=$request->precio;
+       }
+       //Valida atributo 'stock'
+       if(($request->stock == NULL)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'stock' está vacío";
+         }
+        else if (!ctype_digit($request->stock)){
+            $fallido=TRUE;
+            $mensajeFallos=$mensajeFallos."- El campo 'stock' debe ser un numero mayor o igual a 0";
+        }
+        else{
+            $producto->stock=$request->stock;
         }
         //valida que id_subcategorias sea no nulo
         if($request->id_subcategorias == NULL){

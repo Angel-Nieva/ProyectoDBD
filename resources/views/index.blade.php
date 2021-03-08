@@ -44,7 +44,7 @@
             <label for="email">Correo electrónico:</label>
             <input type="text" value="" name="email" placeholder="Ingrese su correo electrónico">
             
-            <label for="rut">Rut:</label>
+            <label for="rut">Rut (sin puntos y con guión):</label>
             <input type="text" value="" name="rut" placeholder="Ingrese su rut">
             
             <label for="comuna">Comuna</label>

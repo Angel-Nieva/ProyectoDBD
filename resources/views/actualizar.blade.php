@@ -41,15 +41,21 @@
         <form action="{{action('UsuarioController@update', $usuario->id)}}" method='GET'>
           <h1>Actualizar sus datos: </h1>
           <label for="email">Nuevo correo electrónico:</label>
-          <input type="text" placeholder="Ingrese nuevo correo electrónico">
-          <label for="phone">Nuevo teléfono:</label>
-          <input type="text" plasceholder="123456789">
-          <label for="password">Contraseña actual:</label>
-          <input type="text" placeholder="Escriba su contraseña">
-          <label for="password">Nueva contraseña:</label>
-          <input type="text" placeholder="Escoja una nueva contraseña">
-            
+          <input type="text" name="email" placeholder="Ingrese nuevo correo electrónico">
+          <label for="telefono">Nuevo teléfono:</label>
+          <input type="text" name="telefono" plasceholder="123456789">
+          <label for="contraseña">Contraseña actual:</label>
+          <input type="password" name="contraseña" placeholder="Escriba su contraseña">
+          <label for="contraseña2">Nueva contraseña:</label>
+          <input type="password" name="contraseña2" placeholder="Escoja una nueva contraseña">
           <input type="submit" class="btn btn-primary" value="Actualizar datos">
+          @if (count($errors) > 0)
+            <div class="alert-danger">
+              <ul> 
+                <li><p>Error en el ingreso de datos</p></li>
+              </ul>
+            </div>
+          @endif 
         </form>
         </div>
       </div> 
